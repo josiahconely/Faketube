@@ -46,15 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login Page.cs">
+    <Compile Include="Classes\BusinessLogic.cs" />
+    <Compile Include="Classes\channel.cs" />
+    <Compile Include="Classes\comment.cs" />
+    <Compile Include="Classes\DataBaseAPI.cs" />
+    <Compile Include="Classes\tag.cs" />
+    <Compile Include="Classes\user.cs" />
+    <Compile Include="Classes\video.cs" />
+    <Compile Include="Views\Login Page.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login Page.Designer.cs">
+    <Compile Include="Views\Login Page.Designer.cs">
       <DependentUpon>Login Page.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Login Page.resx">
+    <EmbeddedResource Include="Views\Login Page.resx">
       <DependentUpon>Login Page.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
