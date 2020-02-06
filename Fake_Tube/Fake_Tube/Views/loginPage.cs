@@ -16,9 +16,17 @@ namespace Fake_Tube
         {
             InitializeComponent();
         }
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //edit to home page 
+            Fake_Tube.Views.videoPlayer m = new Fake_Tube.Views.videoPlayer(10);
+            m.Show();
+            this.Hide();
 
         }
 
@@ -26,5 +34,7 @@ namespace Fake_Tube
         {
 
         }
+
+        
     }
 }
