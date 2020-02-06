@@ -8,5 +8,20 @@ namespace Fake_Tube.Classes
 {
     class user
     {
+        public List<string> myChannels = new List<string>()
+        {
+            "carrot",
+            "fox",
+            "explorer"
+        };
+        public List<string> mySubs = new List<string>()
+        {
+            "face",
+            "Happy",
+            "Biker"
+        };
+
+        public user() { }
+        
     }
 }

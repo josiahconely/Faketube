@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Fake_Tube.Views;
 
 namespace Fake_Tube
 {
@@ -24,7 +25,7 @@ namespace Fake_Tube
         private void button1_Click(object sender, EventArgs e)
         {
             //edit to home page 
-            Fake_Tube.Views.videoPlayer m = new Fake_Tube.Views.videoPlayer(10);
+            videoPlayer m = new videoPlayer(10,1);
             m.Show();
             this.Hide();
 

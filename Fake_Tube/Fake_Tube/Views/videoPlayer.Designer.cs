@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(videoPlayer));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -50,16 +49,11 @@
             this.labelViews = new System.Windows.Forms.Label();
             this.labelViewsNum = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonComment = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCreator)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -74,7 +68,7 @@
             this.toolStripButtonUserImg});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(814, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(815, 39);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -141,7 +135,7 @@
             // labelVideoName
             // 
             this.labelVideoName.AutoSize = true;
-            this.labelVideoName.Location = new System.Drawing.Point(12, 58);
+            this.labelVideoName.Location = new System.Drawing.Point(12, 57);
             this.labelVideoName.Name = "labelVideoName";
             this.labelVideoName.Size = new System.Drawing.Size(111, 24);
             this.labelVideoName.TabIndex = 3;
@@ -150,7 +144,7 @@
             // labelCreatorName
             // 
             this.labelCreatorName.AutoSize = true;
-            this.labelCreatorName.Location = new System.Drawing.Point(68, 448);
+            this.labelCreatorName.Location = new System.Drawing.Point(68, 447);
             this.labelCreatorName.Name = "labelCreatorName";
             this.labelCreatorName.Size = new System.Drawing.Size(119, 24);
             this.labelCreatorName.TabIndex = 4;
@@ -159,6 +153,7 @@
             // pictureBoxCreator
             // 
             this.pictureBoxCreator.Location = new System.Drawing.Point(12, 451);
+            this.pictureBoxCreator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxCreator.Name = "pictureBoxCreator";
             this.pictureBoxCreator.Size = new System.Drawing.Size(50, 50);
             this.pictureBoxCreator.TabIndex = 5;
@@ -167,6 +162,7 @@
             // buttonLike
             // 
             this.buttonLike.Location = new System.Drawing.Point(476, 451);
+            this.buttonLike.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLike.Name = "buttonLike";
             this.buttonLike.Size = new System.Drawing.Size(85, 34);
             this.buttonLike.TabIndex = 6;
@@ -176,6 +172,7 @@
             // buttonDislike
             // 
             this.buttonDislike.Location = new System.Drawing.Point(567, 451);
+            this.buttonDislike.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDislike.Name = "buttonDislike";
             this.buttonDislike.Size = new System.Drawing.Size(85, 34);
             this.buttonDislike.TabIndex = 7;
@@ -185,7 +182,7 @@
             // labelVideoList
             // 
             this.labelVideoList.AutoSize = true;
-            this.labelVideoList.Location = new System.Drawing.Point(658, 85);
+            this.labelVideoList.Location = new System.Drawing.Point(658, 84);
             this.labelVideoList.Name = "labelVideoList";
             this.labelVideoList.Size = new System.Drawing.Size(69, 24);
             this.labelVideoList.TabIndex = 9;
@@ -193,7 +190,8 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 559);
+            this.textBox1.Location = new System.Drawing.Point(12, 537);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(549, 85);
@@ -239,52 +237,19 @@
             // 
             // listBox1
             // 
-            this.listBox1.ContextMenuStrip = this.contextMenuStrip1;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 22;
             this.listBox1.Location = new System.Drawing.Point(658, 112);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(151, 532);
+            this.listBox1.Size = new System.Drawing.Size(151, 510);
             this.listBox1.TabIndex = 16;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolStripComboBox1,
-            this.toolStripMenuItem4});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 97);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
-            this.toolStripMenuItem1.Text = "toolStripMenuItem1";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(181, 22);
-            this.toolStripMenuItem2.Text = "toolStripMenuItem2";
-            // 
-            // toolStripComboBox1
-            // 
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 23);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(181, 22);
-            this.toolStripMenuItem4.Text = " ";
-            // 
             // buttonComment
             // 
-            this.buttonComment.Location = new System.Drawing.Point(567, 605);
+            this.buttonComment.Location = new System.Drawing.Point(567, 583);
+            this.buttonComment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonComment.Name = "buttonComment";
             this.buttonComment.Size = new System.Drawing.Size(75, 39);
             this.buttonComment.TabIndex = 17;
@@ -292,12 +257,23 @@
             this.buttonComment.UseVisualStyleBackColor = true;
             this.buttonComment.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(13, 629);
+            this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(548, 186);
+            this.listView1.TabIndex = 18;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // videoPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(814, 681);
+            this.ClientSize = new System.Drawing.Size(815, 827);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.buttonComment);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.labelViewsNum);
@@ -314,7 +290,7 @@
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "videoPlayer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "videoPlayer";
@@ -323,7 +299,6 @@
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCreator)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,13 +323,9 @@
         private System.Windows.Forms.Label labelViews;
         private System.Windows.Forms.Label labelViewsNum;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.Button buttonComment;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabelUserName;
+        private System.Windows.Forms.ListView listView1;
     }
 }

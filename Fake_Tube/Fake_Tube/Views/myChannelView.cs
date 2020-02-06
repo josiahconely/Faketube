@@ -11,15 +11,11 @@ using Fake_Tube.Classes;
 
 namespace Fake_Tube.Views
 {
-    
-    public partial class videoPlayer : Form
+    public partial class myChannelView : Form
     {
-        private const int V = 1;
-        Image i;
-        public videoPlayer(int videoId, int userId)
+        public myChannelView()
         {
             InitializeComponent();
-
             user userSelf = new user();
 
 
@@ -28,7 +24,7 @@ namespace Fake_Tube.Views
             ToolStripDropDownButton toolStripDropDownButtonMyChannels = new ToolStripDropDownButton();
             toolStripDropDownButtonMyChannels.Text = "My Channels";
             //get users channel names
-        
+
 
             toolStripDropDownButtonMyChannels.DropDownItems.Clear();
             List<ToolStripMenuItem> myChannels = new List<ToolStripMenuItem>();
@@ -36,13 +32,13 @@ namespace Fake_Tube.Views
             {
                 ToolStripMenuItem n = new ToolStripMenuItem();
                 n.Text = x;
-                
+
                 if (!string.IsNullOrEmpty(x))
                 {
                     Keys k = new Keys();
                     k.Equals(1);
                     n.ShortcutKeys = k;
-                    n.Click += N_Click;
+                    n.Click += N_Click; ;
                 }
                 myChannels.Add(n);
             }
@@ -69,7 +65,7 @@ namespace Fake_Tube.Views
                     Keys k = new Keys();
                     k.Equals(1);
                     m.ShortcutKeys = k;
-                    m.Click += M_Click; ;
+                    m.Click += M_Click; 
                 }
                 subChannels.Add(m);
             }
@@ -80,7 +76,6 @@ namespace Fake_Tube.Views
         }
 
         //Tool Strip Controls //////////////////////////////////////
-
         private void M_Click(object sender, EventArgs e)
         {
             //place holder
@@ -121,57 +116,12 @@ namespace Fake_Tube.Views
         }
         //Tool Strip Controls //////////////////////////////////////
 
-
-        private void ToolStripDropDownButtonMyChannels_Click(object sender, EventArgs e)
+        private void myChannelView_Load(object sender, EventArgs e)
         {
-            
-        }
-
-        private void videoPlayer_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            //place holder
+            //MessageBox.Show(sender.ToString());
         }
 
         
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-        
-
-        private void toolStripButtonHome_Click(object sender, EventArgs e)
-        {
-
-        }
     }
-    
 }
