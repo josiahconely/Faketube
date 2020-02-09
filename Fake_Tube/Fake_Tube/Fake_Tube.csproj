@@ -53,6 +53,7 @@
     <Compile Include="Classes\playlist.cs" />
     <Compile Include="Classes\tag.cs" />
     <Compile Include="Classes\user.cs" />
+    <Compile Include="Classes\users.cs" />
     <Compile Include="Classes\video.cs" />
     <Compile Include="Views\loginPage.cs">
       <SubType>Form</SubType>
