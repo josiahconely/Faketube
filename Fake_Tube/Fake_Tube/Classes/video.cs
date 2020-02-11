@@ -8,7 +8,7 @@ namespace Fake_Tube.Classes
 {
     class video
     {
-        
+
         //atributes
         private string fileName;
         private string path;
@@ -16,6 +16,7 @@ namespace Fake_Tube.Classes
         int videoId;
         int ownerId;
         string name;
+        string creatorName;
         int views;
         int likes; 
         int dislikes;
@@ -26,8 +27,12 @@ namespace Fake_Tube.Classes
 
         //constructor
         public video() { }
+        
 
         //gets/sets
+
+        public void setFileName(string s) { fileName = s; }
+        public void setPath(string s) { path = s; }
         public int getVideoId() { return videoId; }
         public void setVideoId(int id) { videoId = id; }
         public int getOwnerId() { return ownerId; }
@@ -40,15 +45,18 @@ namespace Fake_Tube.Classes
         public void setLikes(int l) { likes = l ; }
         public int getDislikes() { return dislikes; }
         public void setDislikes(int d) { dislikes = d; }
-
+        public void setCreatorName (string s) { creatorName = s; }
+        public string getcreatorName () { return creatorName; }
 
         //public image
 
+        public string getURL() { return this.path + "/" + this.fileName; }
+
         //NOT DONE
-        public void incLikes() { }
-        public void decLikes() { }
-        public void incDislikes() { }
-        public void decDislikes() { }
+        public void incLikes() { likes += 1; }
+        public void decLikes() { likes -= 1; }
+        public void incDislikes() { dislikes += 1; }
+        public void decDislikes() { dislikes -= 1; }
         public void incViews() { }
         public void loadComments() { }
         public void addComment() { }

@@ -14,14 +14,14 @@ namespace Fake_Tube.Views
     
     public partial class videoPlayer : Form
     {
-        private const int V = 1;
-        Image i;
+        BusinessLogic bl = new BusinessLogic();
+        user userSelf = new user();
+        video thisVideo;
+
         public videoPlayer(int videoId, int userId)
         {
             InitializeComponent();
-
-            user userSelf = new user();
-
+            thisVideo = bl.getVideo(videoId);
 
             ///////////////////////////////////////////////////////////////////////////////////////
             //Adds My Channels Drop Down
@@ -79,8 +79,19 @@ namespace Fake_Tube.Views
             //////////////////////////////////////////////////////////////////////////////////////////
         }
 
-        //Tool Strip Controls //////////////////////////////////////
+        private void videoPlayer_Load(object sender, EventArgs e)
+        {
+            //Assigns info from video 
+            thisVideo.incViews();
+            axWindowsMediaPlayer1.URL = thisVideo.getURL();
+            labelVideoName.Text = thisVideo.getName();
+            labelLikesNum.Text = thisVideo.getLikes().ToString();
+            labelDislikesNum.Text = thisVideo.getDislikes().ToString();
+            labelViewsNum.Text = thisVideo.getViews().ToString();
+            labelCreatorName.Text = thisVideo.getcreatorName();
+        }
 
+        //Tool Strip Controls //////////////////////////////////////
         private void M_Click(object sender, EventArgs e)
         {
             //place holder
@@ -92,7 +103,7 @@ namespace Fake_Tube.Views
             //change to home
             myChannelView m = new myChannelView();
             m.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void toolStripLabel1_Click(object sender, EventArgs e)
@@ -100,15 +111,14 @@ namespace Fake_Tube.Views
             //change to home
             Login m = new Login();
             m.Show();
-            this.Hide();
+            this.Close();
         }
         private void toolStripLabelUserName_Click(object sender, EventArgs e)
         {
             //edit to user page
             Login m = new Login();
             m.Show();
-            this.Hide();
-
+            this.Close();
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -116,29 +126,19 @@ namespace Fake_Tube.Views
             //edit to user page
             Login m = new Login();
             m.Show();
-            this.Hide();
-
+            this.Close();
         }
-        //Tool Strip Controls //////////////////////////////////////
-
-
         private void ToolStripDropDownButtonMyChannels_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void videoPlayer_Load(object sender, EventArgs e)
-        {
 
         }
+        //Tool Strip Controls //////////////////////////////////////  
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
         
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -164,14 +164,25 @@ namespace Fake_Tube.Views
 
         }
 
-        
-
-        
-
         private void toolStripButtonHome_Click(object sender, EventArgs e)
         {
 
         }
+
+        //not done
+        private void buttonLike_Click(object sender, EventArgs e)
+        {
+            thisVideo.incLikes();
+            labelLikesNum.Text = thisVideo.getLikes().ToString();
+            labelDislikesNum.Text = thisVideo.getDislikes().ToString();
+        }
+
+        //not done
+        private void buttonDislike_Click(object sender, EventArgs e)
+        {
+            thisVideo.incDislikes();
+            labelLikesNum.Text = thisVideo.getLikes().ToString();
+            labelDislikesNum.Text = thisVideo.getDislikes().ToString();
+        }
     }
-    
 }
