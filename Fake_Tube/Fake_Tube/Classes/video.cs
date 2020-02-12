@@ -10,16 +10,19 @@ namespace Fake_Tube.Classes
     {
 
         //atributes
+
+        //video file
+        private int videoId;
+        private int ownerId;
+        private int views;
+        private int likes;
+        private int dislikes;
+        private string name;
         private string fileName;
         private string path;
-        //video file
-        int videoId;
-        int ownerId;
-        string name;
         string creatorName;
-        int views;
-        int likes; 
-        int dislikes;
+
+        
         List<comment> comments;
         //img coverImgage;
         List<tag> tags;
@@ -27,7 +30,20 @@ namespace Fake_Tube.Classes
 
         //constructor
         public video() { }
-        
+        public video(int _videoId, int _onwerId, int _views, int _likes,int _dislikes,
+            string _name, string _fileName, string _path, string _creatorName){
+
+        videoId =_videoId;
+        ownerId = _onwerId;
+        views =_views;
+        likes =_likes;
+        dislikes =_dislikes;
+        name =_name;
+        fileName =_fileName;
+        path =_path;
+        creatorName =_creatorName;
+    }
+
 
         //gets/sets
 

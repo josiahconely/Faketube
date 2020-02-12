@@ -13,11 +13,15 @@ namespace Fake_Tube.Views
 {
     public partial class myChannelView : Form
     {
+        user thisUser = new user();
+        channel thisChannel = new channel();
+        BusinessLogic bl = new BusinessLogic();
+
         public myChannelView()
         {
             InitializeComponent();
-            user userSelf = new user();
 
+            
 
             ///////////////////////////////////////////////////////////////////////////////////////
             //Adds My Channels Drop Down
@@ -28,7 +32,7 @@ namespace Fake_Tube.Views
 
             toolStripDropDownButtonMyChannels.DropDownItems.Clear();
             List<ToolStripMenuItem> myChannels = new List<ToolStripMenuItem>();
-            foreach (string x in userSelf.myChannels)
+            foreach (string x in thisUser.myChannels)
             {
                 ToolStripMenuItem n = new ToolStripMenuItem();
                 n.Text = x;
@@ -55,7 +59,7 @@ namespace Fake_Tube.Views
 
             toolStripDropDownButtonMySubscriptions.DropDownItems.Clear();
             List<ToolStripMenuItem> subChannels = new List<ToolStripMenuItem>();
-            foreach (string x in userSelf.mySubs)
+            foreach (string x in thisUser.mySubs)
             {
                 ToolStripMenuItem m = new ToolStripMenuItem();
                 m.Text = x;
@@ -81,7 +85,6 @@ namespace Fake_Tube.Views
             //place holder
             MessageBox.Show(sender.ToString());
         }
-
         private void N_Click(object sender, EventArgs e)
         {
             //change to home
@@ -89,7 +92,6 @@ namespace Fake_Tube.Views
             m.Show();
             this.Hide();
         }
-
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
             //change to home
@@ -105,7 +107,6 @@ namespace Fake_Tube.Views
             this.Hide();
 
         }
-
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             //edit to user page
@@ -120,8 +121,44 @@ namespace Fake_Tube.Views
         {
             //place holder
             //MessageBox.Show(sender.ToString());
+            thisUser = bl.getUser(1);
+            thisChannel = bl.getChannel(1);
+
+
+            listBoxVidoes.Items.Clear();
+            foreach (video vid in thisChannel.getVidoes())
+            listBoxVidoes.Items.Add(vid);
         }
 
-        
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonModify_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (bl.addVideoToChannel(textBoxName.Text, textBoxTags.Text, 
+                textBoxFileName.Text, textBoxPath.Text, textBoxDescription.Text))
+            {
+                //update this or requiry the data base to rebuild the channel
+                myChannelView_Load(sender, e);
+            }
+         
+
+        }
+
+
+
+  
     }
 }

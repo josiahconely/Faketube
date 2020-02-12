@@ -24,5 +24,39 @@ namespace Fake_Tube.Classes
             newVideo.setPath("C:/vidoes");
             return newVideo;
         }
+
+        public user getUser(int userId)
+        {
+            
+            user u = new user();
+            return u;
+        }
+
+        public channel getChannel(int channelId)
+        {
+            channel c = new channel();
+            return c;
+        }
+
+        // updates the database
+        public bool addVideoToChannel (string name, string tags,string fileName, string path, string discription )
+        {
+            return true;
+        }
+
+        public List<video> getVidoesfromVidoeIds( List<int> videoIds)
+        {
+            List<video> videos = new List<video>();
+
+            // Temp
+            video v = new video(1, 1, 1, 1, 1, "great Video", "file1.mp4", "c:/vidoes", "bobthebombdotcom");
+            video v2 = new video(1, 1, 1, 1, 1, "even Better Vid", "file2.mp4", "c:/vidoes", "bobthebombdotcom");
+
+            videos.Add(v);
+            videos.Add(v2);
+            return videos;
+        }
+
+
     }
 }

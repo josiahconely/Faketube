@@ -15,7 +15,7 @@ namespace Fake_Tube.Views
     public partial class videoPlayer : Form
     {
         BusinessLogic bl = new BusinessLogic();
-        user userSelf = new user();
+        user thisUser = new user();
         video thisVideo;
 
         public videoPlayer(int videoId, int userId)
@@ -32,7 +32,7 @@ namespace Fake_Tube.Views
 
             toolStripDropDownButtonMyChannels.DropDownItems.Clear();
             List<ToolStripMenuItem> myChannels = new List<ToolStripMenuItem>();
-            foreach (string x in userSelf.myChannels)
+            foreach (string x in thisUser.myChannels)
             {
                 ToolStripMenuItem n = new ToolStripMenuItem();
                 n.Text = x;
@@ -59,7 +59,7 @@ namespace Fake_Tube.Views
 
             toolStripDropDownButtonMySubscriptions.DropDownItems.Clear();
             List<ToolStripMenuItem> subChannels = new List<ToolStripMenuItem>();
-            foreach (string x in userSelf.mySubs)
+            foreach (string x in thisUser.mySubs)
             {
                 ToolStripMenuItem m = new ToolStripMenuItem();
                 m.Text = x;
