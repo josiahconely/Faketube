@@ -12,26 +12,30 @@ namespace Fake_Tube.Classes
         //atributes
 
         //video file
-        private int videoId;
+        // indicates a new video if value is -1
+        public int videoId = -1;
+        
         private int ownerId;
         private int views;
         private int likes;
         private int dislikes;
         private string name;
+        public string nameText { get; set; }
         private string fileName;
         private string path;
-        string creatorName;
+        private string creatorName;
+        private string description;
 
         
         List<comment> comments;
         //img coverImgage;
-        List<tag> tags;
+        List<tag> tags = new List<tag>();
 
 
         //constructor
         public video() { }
         public video(int _videoId, int _onwerId, int _views, int _likes,int _dislikes,
-            string _name, string _fileName, string _path, string _creatorName){
+            string _name, string _fileName, string _path, string _creatorName, string _description){
 
         videoId =_videoId;
         ownerId = _onwerId;
@@ -42,13 +46,19 @@ namespace Fake_Tube.Classes
         fileName =_fileName;
         path =_path;
         creatorName =_creatorName;
-    }
+        nameText = name;
+        description = _description;
+
+
+        }
 
 
         //gets/sets
 
         public void setFileName(string s) { fileName = s; }
+        public string getFileName() { return fileName; }
         public void setPath(string s) { path = s; }
+        public string getPath() { return path; }
         public int getVideoId() { return videoId; }
         public void setVideoId(int id) { videoId = id; }
         public int getOwnerId() { return ownerId; }
@@ -64,7 +74,26 @@ namespace Fake_Tube.Classes
         public void setCreatorName (string s) { creatorName = s; }
         public string getcreatorName () { return creatorName; }
 
+        public void setDescription(string d) { description = d; }
+        public string getDescription() { return description; }
+
+        public string getTagsString()
+        {
+            string s = "";
+
+            foreach (tag t in tags)
+            {
+                s += t.text;
+            }
+            return s;
+        }
+
+        
+
+
         //public image
+
+        
 
         public string getURL() { return this.path + "/" + this.fileName; }
 

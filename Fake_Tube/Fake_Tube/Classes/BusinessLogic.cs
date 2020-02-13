@@ -38,10 +38,20 @@ namespace Fake_Tube.Classes
             return c;
         }
 
-        // updates the database
-        public bool addVideoToChannel (string name, string tags,string fileName, string path, string discription )
+        // updates the database OVERLOADED IF NO ID PROVIDED CREATES NEW RECORD IN DATABASE
+        public bool updateVideoToChannel(string name, string tags,string fileName, string path, string discription )
         {
-            return true;
+       
+            if (name != "") { return true; }
+            return false;
+            //update database add vidId to channel
+            
+        }
+
+        public bool updateVideoToChannel( string name, string tags, string fileName, string path, string discription, int vidId)
+        {
+            if (name != "") { return true; }
+            return false;
         }
 
         public List<video> getVidoesfromVidoeIds( List<int> videoIds)
@@ -49,8 +59,8 @@ namespace Fake_Tube.Classes
             List<video> videos = new List<video>();
 
             // Temp
-            video v = new video(1, 1, 1, 1, 1, "great Video", "file1.mp4", "c:/vidoes", "bobthebombdotcom");
-            video v2 = new video(1, 1, 1, 1, 1, "even Better Vid", "file2.mp4", "c:/vidoes", "bobthebombdotcom");
+            video v = new video(1, 1, 1, 1, 1, "great Video", "file1.mp4", "c:/vidoes", "bobthebombdotcom", "the best discription ever");
+            video v2 = new video(1, 1, 1, 1, 1, "even Better Vid", "file2.mp4", "c:/vidoes2", "bobthebombdotcom","the worst Discription ever");
 
             videos.Add(v);
             videos.Add(v2);

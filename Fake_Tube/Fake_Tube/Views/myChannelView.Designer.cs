@@ -38,7 +38,7 @@
             this.toolStripButtonUserImg = new System.Windows.Forms.ToolStripButton();
             this.LabelChannelName = new System.Windows.Forms.Label();
             this.labelVideos = new System.Windows.Forms.Label();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonAddNew = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonModify = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -54,7 +54,7 @@
             this.labelTags = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.labelVideoId = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.groupBoxVideo.SuspendLayout();
             this.SuspendLayout();
@@ -143,15 +143,15 @@
             this.labelVideos.TabIndex = 5;
             this.labelVideos.Text = "Videos";
             // 
-            // buttonAdd
+            // buttonAddNew
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(229, 108);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(106, 35);
-            this.buttonAdd.TabIndex = 6;
-            this.buttonAdd.Text = "Add New";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonAddNew.Location = new System.Drawing.Point(229, 108);
+            this.buttonAddNew.Name = "buttonAddNew";
+            this.buttonAddNew.Size = new System.Drawing.Size(106, 35);
+            this.buttonAddNew.TabIndex = 6;
+            this.buttonAddNew.Text = "Add New";
+            this.buttonAddNew.UseVisualStyleBackColor = true;
+            this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
             // 
             // buttonDelete
             // 
@@ -191,10 +191,12 @@
             this.listBoxVidoes.Name = "listBoxVidoes";
             this.listBoxVidoes.Size = new System.Drawing.Size(205, 290);
             this.listBoxVidoes.TabIndex = 10;
+            this.listBoxVidoes.SelectedIndexChanged += new System.EventHandler(this.listBoxVidoes_SelectedIndexChanged);
             // 
             // groupBoxVideo
             // 
             this.groupBoxVideo.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBoxVideo.Controls.Add(this.labelVideoId);
             this.groupBoxVideo.Controls.Add(this.textBoxFileName);
             this.groupBoxVideo.Controls.Add(this.labelFileName);
             this.groupBoxVideo.Controls.Add(this.textBoxDescription);
@@ -216,9 +218,9 @@
             // 
             // textBoxFileName
             // 
-            this.textBoxFileName.Location = new System.Drawing.Point(103, 126);
+            this.textBoxFileName.Location = new System.Drawing.Point(114, 126);
             this.textBoxFileName.Name = "textBoxFileName";
-            this.textBoxFileName.Size = new System.Drawing.Size(276, 28);
+            this.textBoxFileName.Size = new System.Drawing.Size(265, 28);
             this.textBoxFileName.TabIndex = 9;
             // 
             // labelFileName
@@ -226,9 +228,9 @@
             this.labelFileName.AutoSize = true;
             this.labelFileName.Location = new System.Drawing.Point(11, 130);
             this.labelFileName.Name = "labelFileName";
-            this.labelFileName.Size = new System.Drawing.Size(97, 24);
+            this.labelFileName.Size = new System.Drawing.Size(104, 24);
             this.labelFileName.TabIndex = 8;
-            this.labelFileName.Text = "File Name";
+            this.labelFileName.Text = "File Name*";
             // 
             // textBoxDescription
             // 
@@ -249,9 +251,9 @@
             // 
             // textBoxPath
             // 
-            this.textBoxPath.Location = new System.Drawing.Point(103, 163);
+            this.textBoxPath.Location = new System.Drawing.Point(114, 163);
             this.textBoxPath.Name = "textBoxPath";
-            this.textBoxPath.Size = new System.Drawing.Size(276, 28);
+            this.textBoxPath.Size = new System.Drawing.Size(265, 28);
             this.textBoxPath.TabIndex = 5;
             // 
             // labelFilePath
@@ -259,15 +261,15 @@
             this.labelFilePath.AutoSize = true;
             this.labelFilePath.Location = new System.Drawing.Point(11, 167);
             this.labelFilePath.Name = "labelFilePath";
-            this.labelFilePath.Size = new System.Drawing.Size(47, 24);
+            this.labelFilePath.Size = new System.Drawing.Size(54, 24);
             this.labelFilePath.TabIndex = 4;
-            this.labelFilePath.Text = "Path";
+            this.labelFilePath.Text = "Path*";
             // 
             // textBoxTags
             // 
-            this.textBoxTags.Location = new System.Drawing.Point(103, 89);
+            this.textBoxTags.Location = new System.Drawing.Point(114, 89);
             this.textBoxTags.Name = "textBoxTags";
-            this.textBoxTags.Size = new System.Drawing.Size(276, 28);
+            this.textBoxTags.Size = new System.Drawing.Size(265, 28);
             this.textBoxTags.TabIndex = 3;
             // 
             // labelTags
@@ -284,16 +286,25 @@
             this.labelName.AutoSize = true;
             this.labelName.Location = new System.Drawing.Point(11, 56);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(61, 24);
+            this.labelName.Size = new System.Drawing.Size(68, 24);
             this.labelName.TabIndex = 1;
-            this.labelName.Text = "Name";
+            this.labelName.Text = "Name*";
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(103, 52);
+            this.textBoxName.Location = new System.Drawing.Point(114, 52);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(276, 28);
+            this.textBoxName.Size = new System.Drawing.Size(265, 28);
             this.textBoxName.TabIndex = 0;
+            // 
+            // labelVideoId
+            // 
+            this.labelVideoId.AutoSize = true;
+            this.labelVideoId.Location = new System.Drawing.Point(99, 25);
+            this.labelVideoId.Name = "labelVideoId";
+            this.labelVideoId.Size = new System.Drawing.Size(87, 24);
+            this.labelVideoId.TabIndex = 10;
+            this.labelVideoId.Text = "Video ID:";
             // 
             // myChannelView
             // 
@@ -305,7 +316,7 @@
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonModify);
             this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.buttonAddNew);
             this.Controls.Add(this.labelVideos);
             this.Controls.Add(this.LabelChannelName);
             this.Controls.Add(this.toolStrip1);
@@ -313,7 +324,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "myChannelView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "myChannelView";
+            this.Text = "FakeTube My Channel";
             this.Load += new System.EventHandler(this.myChannelView_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -335,7 +346,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonUserImg;
         private System.Windows.Forms.Label LabelChannelName;
         private System.Windows.Forms.Label labelVideos;
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonAddNew;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonModify;
         private System.Windows.Forms.Button buttonSave;
@@ -349,8 +360,8 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Label labelDescription;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.TextBox textBoxFileName;
         private System.Windows.Forms.Label labelFileName;
+        private System.Windows.Forms.Label labelVideoId;
     }
 }

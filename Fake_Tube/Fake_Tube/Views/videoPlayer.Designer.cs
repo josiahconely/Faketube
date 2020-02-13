@@ -295,7 +295,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "videoPlayer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "videoPlayer";
+            this.Text = "FakeTube Video Player";
             this.Load += new System.EventHandler(this.videoPlayer_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

@@ -16,12 +16,14 @@ namespace Fake_Tube.Views
         user thisUser = new user();
         channel thisChannel = new channel();
         BusinessLogic bl = new BusinessLogic();
-
+        video modifyVid = new video();
+        bool addNewClicked = false;
+        
         public myChannelView()
         {
             InitializeComponent();
 
-            
+            buttonSave.Enabled = false;
 
             ///////////////////////////////////////////////////////////////////////////////////////
             //Adds My Channels Drop Down
@@ -124,15 +126,21 @@ namespace Fake_Tube.Views
             thisUser = bl.getUser(1);
             thisChannel = bl.getChannel(1);
 
-
-            listBoxVidoes.Items.Clear();
-            foreach (video vid in thisChannel.getVidoes())
-            listBoxVidoes.Items.Add(vid);
+            List<video> videoData = new List<video>();
+            videoData = thisChannel.getVidoes();
+            listBoxVidoes.DisplayMember = "nameText";
+            listBoxVidoes.DataSource = videoData;
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void buttonAddNew_Click(object sender, EventArgs e)
         {
-
+            modifyVid = new video();
+            textBoxName.Text = modifyVid.getName();
+            textBoxPath.Text = modifyVid.getPath();
+            textBoxDescription.Text = modifyVid.getDescription();
+            textBoxFileName.Text = modifyVid.getFileName();
+            labelVideoId.Text = "Video ID: New Video";
+            buttonSave.Enabled = true;
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -142,23 +150,55 @@ namespace Fake_Tube.Views
 
         private void buttonModify_Click(object sender, EventArgs e)
         {
-
+            modifyVid = (listBoxVidoes.SelectedItem as video);
+            textBoxName.Text = modifyVid.getName();
+            textBoxPath.Text = modifyVid.getPath();
+            textBoxDescription.Text = modifyVid.getDescription();
+            textBoxFileName.Text = modifyVid.getFileName();
+            textBoxTags.Text = modifyVid.getTagsString();
+            labelVideoId.Text = "Video ID: " + modifyVid.getVideoId().ToString();
+            buttonSave.Enabled = true;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (bl.addVideoToChannel(textBoxName.Text, textBoxTags.Text, 
-                textBoxFileName.Text, textBoxPath.Text, textBoxDescription.Text))
+            if (modifyVid.getVideoId() == -1)
             {
-                //update this or requiry the data base to rebuild the channel
-                myChannelView_Load(sender, e);
+                
+                if (bl.updateVideoToChannel(textBoxName.Text, textBoxTags.Text,
+                textBoxFileName.Text, textBoxPath.Text, textBoxDescription.Text)) {
+                    myChannelView_Load(sender, e);
+                    MessageBox.Show("New video: " + textBoxName.Text + " added Successfuly.");
+                }
+                else
+                {
+                    MessageBox.Show("Error, Video could not save: are all required fields filled out?");
+                }      
             }
+            else
+            {
+                if (bl.updateVideoToChannel(textBoxName.Text, textBoxTags.Text,
+                textBoxFileName.Text, textBoxPath.Text, textBoxDescription.Text, modifyVid.getVideoId()))
+                {
+                    //update this or requiry the data base to rebuild the channel
+
+                    myChannelView_Load(sender, e);
+                    MessageBox.Show("Video: " + modifyVid.getVideoId().ToString() + " Updated");
+                }
+                else
+                {
+                    MessageBox.Show("Error, Video could not save: are all required fields filled out?");
+                }
+
+            }
+            
          
 
         }
 
-
-
-  
+        private void listBoxVidoes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

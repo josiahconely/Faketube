@@ -8,6 +8,6 @@ namespace Fake_Tube.Classes
 {
     class tag
     {
-        string text;
+        public string text { get; set; }
     }
 }
