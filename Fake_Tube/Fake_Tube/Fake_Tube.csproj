@@ -54,6 +54,12 @@
     <Compile Include="Classes\tag.cs" />
     <Compile Include="Classes\user.cs" />
     <Compile Include="Classes\video.cs" />
+    <Compile Include="Views\homePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\homePage.Designer.cs">
+      <DependentUpon>homePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\loginPage.cs">
       <SubType>Form</SubType>
     </Compile>
