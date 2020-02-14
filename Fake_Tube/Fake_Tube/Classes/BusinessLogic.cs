@@ -27,7 +27,7 @@ namespace Fake_Tube.Classes
 
         public user getUser(int userId)
         {
-            
+
             user u = new user();
             return u;
         }
@@ -39,34 +39,34 @@ namespace Fake_Tube.Classes
         }
 
         // updates the database OVERLOADED IF NO ID PROVIDED CREATES NEW RECORD IN DATABASE
-        public bool updateVideoToChannel(string name, string tags,string fileName, string path, string discription )
+        public bool updateVideoToChannel(string name, string tags, string fileName, string path, string discription)
         {
-       
             if (name != "") { return true; }
             return false;
             //update database add vidId to channel
-            
+
         }
 
-        public bool updateVideoToChannel( string name, string tags, string fileName, string path, string discription, int vidId)
+        public bool updateVideoToChannel(string name, string tags, string fileName, string path, string discription, int vidId)
         {
             if (name != "") { return true; }
             return false;
         }
 
-        public List<video> getVidoesfromVidoeIds( List<int> videoIds)
+        public List<video> getVidoesfromVidoeIds(List<int> videoIds)
         {
             List<video> videos = new List<video>();
 
             // Temp
             video v = new video(1, 1, 1, 1, 1, "great Video", "file1.mp4", "c:/vidoes", "bobthebombdotcom", "the best discription ever");
-            video v2 = new video(1, 1, 1, 1, 1, "even Better Vid", "file2.mp4", "c:/vidoes2", "bobthebombdotcom","the worst Discription ever");
+            video v2 = new video(1, 1, 1, 1, 1, "even Better Vid", "file2.mp4", "c:/vidoes2", "bobthebombdotcom", "the worst Discription ever");
 
             videos.Add(v);
             videos.Add(v2);
             return videos;
         }
 
-
+        public bool vaidVideoName()
+        { return true; }
     }
 }

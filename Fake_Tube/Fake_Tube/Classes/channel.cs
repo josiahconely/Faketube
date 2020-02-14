@@ -20,7 +20,7 @@ namespace Fake_Tube.Classes
         private List<int> vidoesId;
         private int ownerId;
         //private Image logo;
-        private List<tag> tags;
+        private List<string> tags;
 
 
 

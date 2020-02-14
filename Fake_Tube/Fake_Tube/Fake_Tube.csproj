@@ -51,7 +51,6 @@
     <Compile Include="Classes\comment.cs" />
     <Compile Include="Classes\DataBaseAPI.cs" />
     <Compile Include="Classes\playlist.cs" />
-    <Compile Include="Classes\tag.cs" />
     <Compile Include="Classes\user.cs" />
     <Compile Include="Classes\video.cs" />
     <Compile Include="Views\homePage.cs">
@@ -73,6 +72,12 @@
     </Compile>
     <Compile Include="Views\myChannelView.Designer.cs">
       <DependentUpon>myChannelView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\userProfilePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\userProfilePage.Designer.cs">
+      <DependentUpon>userProfilePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\videoPlayer.cs">
       <SubType>Form</SubType>

@@ -29,7 +29,7 @@ namespace Fake_Tube.Classes
         
         List<comment> comments;
         //img coverImgage;
-        List<tag> tags = new List<tag>();
+        List<string> tags = new List<string>();
 
 
         //constructor
@@ -81,9 +81,9 @@ namespace Fake_Tube.Classes
         {
             string s = "";
 
-            foreach (tag t in tags)
+            foreach (string t in tags)
             {
-                s += t.text;
+                s += t;
             }
             return s;
         }
