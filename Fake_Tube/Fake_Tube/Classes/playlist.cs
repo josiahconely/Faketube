@@ -10,7 +10,7 @@ namespace Fake_Tube.Classes
     {
         private int playlistId; // The ID of the playlist
         private List<int> videosId; // List of ID numbers for videos in the playlist
-        private List<int> tagsId; // List of ID numbers for tags on the playlist
+        private List<string> tags; // List of ID numbers for tags on the playlist
         private string playlistName; // Name of the playlist
         private string description; // Breif desctiption of the playlist
         private int userId; // ID of the owner of the playlist
@@ -37,20 +37,24 @@ namespace Fake_Tube.Classes
             if(!videosId.Contains(Xid))
                 videosId.Add(Xid);
         }
-        void addTag(int Xtag)
+        bool addTag(string Xtag)
         {
-            if(!tagsId.Contains(Xtag))
-                tagsId.Add(Xtag);
+            if (!tags.Contains(Xtag) && tags.Count() < 20)
+            {
+                tags.Add(Xtag);
+                return true;
+            }
+            return false;
         }
         void deleteVideo(int Xid)
         {
             if(!videosId.Contains(Xid))
                 videosId.Remove(Xid);
         }
-        void deleteTag(int Xtag)
+        void deleteTag(string Xtag)
         {
-            if (!tagsId.Contains(Xtag))
-                tagsId.Remove(Xtag);
+            if (!tags.Contains(Xtag))
+                tags.Remove(Xtag);
         }
 
         // Destructor
