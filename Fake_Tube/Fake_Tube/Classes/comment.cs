@@ -45,6 +45,15 @@ namespace Fake_Tube.Classes
         string getText() { return text; }
         void setText(string Xtext) { text = Xtext; }
 
+        // Other getters
+        int getCommentId() { return commentId; }
+        int getVideoId() { return videoId; }
+        int getParentId() { return parentId; }
+        int getUserId() { return userId; }
+        string getTime() { return time; }
+        string getDate() { return date; }
+
+        // Destructor
         ~comment() { }
     }
 }
