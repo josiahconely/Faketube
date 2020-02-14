@@ -116,8 +116,8 @@ namespace Fake_Tube.Views
         private void toolStripLabelUserName_Click(object sender, EventArgs e)
         {
             //edit to user page
-            Login m = new Login();
-            m.Show();
+            userProfilePage u = new userProfilePage(1);
+            u.Show();
             this.Close();
         }
 
