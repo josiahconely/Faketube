@@ -54,6 +54,12 @@
     <Compile Include="Classes\user.cs" />
     <Compile Include="Classes\users.cs" />
     <Compile Include="Classes\video.cs" />
+    <Compile Include="Views\homePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\homePage.Designer.cs">
+      <DependentUpon>homePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\loginPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,12 @@
     </Compile>
     <Compile Include="Views\myChannelView.Designer.cs">
       <DependentUpon>myChannelView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\userProfilePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\userProfilePage.Designer.cs">
+      <DependentUpon>userProfilePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\videoPlayer.cs">
       <SubType>Form</SubType>

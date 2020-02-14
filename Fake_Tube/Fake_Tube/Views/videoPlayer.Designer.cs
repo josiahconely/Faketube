@@ -168,6 +168,7 @@
             this.buttonLike.TabIndex = 6;
             this.buttonLike.Text = "Like";
             this.buttonLike.UseVisualStyleBackColor = true;
+            this.buttonLike.Click += new System.EventHandler(this.buttonLike_Click);
             // 
             // buttonDislike
             // 
@@ -178,6 +179,7 @@
             this.buttonDislike.TabIndex = 7;
             this.buttonDislike.Text = "Dislike";
             this.buttonDislike.UseVisualStyleBackColor = true;
+            this.buttonDislike.Click += new System.EventHandler(this.buttonDislike_Click);
             // 
             // labelVideoList
             // 
@@ -290,10 +292,10 @@
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "videoPlayer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "videoPlayer";
+            this.Text = "FakeTube Video Player";
             this.Load += new System.EventHandler(this.videoPlayer_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

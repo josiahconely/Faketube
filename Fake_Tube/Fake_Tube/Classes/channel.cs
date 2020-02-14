@@ -10,15 +10,17 @@ using System.Drawing;
 
 namespace Fake_Tube.Classes
 {
+    
     class channel
     {
+        BusinessLogic bl = new BusinessLogic();
         private string name;
         private int channelId;
         private List<int> subscribersId;
         private List<int> vidoesId;
         private int ownerId;
         //private Image logo;
-        private List<tag> tags;
+        private List<string> tags;
 
 
 
@@ -33,7 +35,14 @@ namespace Fake_Tube.Classes
         public void setChannelId(int id) { channelId = id; }
         //public void getSubscribers() { }
         //public void setSubscribers() { }
-        //public void getVidoes() { }
+        public List<video> getVidoes() 
+        {
+            List<video> videos = new List<video>();
+            videos = bl.getVidoesfromVidoeIds(vidoesId);
+            return videos;
+        }
+        public void addVideo() { }
+
         //public void setVideos() { }
         public int getOwnerId(){ return ownerId; }
         public void setOwnerId(int id) { ownerId = id; }

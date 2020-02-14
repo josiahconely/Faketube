@@ -38,23 +38,40 @@
             this.toolStripButtonUserImg = new System.Windows.Forms.ToolStripButton();
             this.LabelChannelName = new System.Windows.Forms.Label();
             this.labelVideos = new System.Windows.Forms.Label();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonAddNew = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonModify = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxVidoes = new System.Windows.Forms.ListBox();
             this.groupBoxVideo = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.labelDiscription = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.labelVideoId = new System.Windows.Forms.Label();
+            this.textBoxFileName = new System.Windows.Forms.TextBox();
+            this.labelFileName = new System.Windows.Forms.Label();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.labelDescription = new System.Windows.Forms.Label();
+            this.textBoxPath = new System.Windows.Forms.TextBox();
             this.labelFilePath = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxTags = new System.Windows.Forms.TextBox();
             this.labelTags = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.listBoxPlayLists = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBoxPlaylist = new System.Windows.Forms.GroupBox();
+            this.labelPlaylistId = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.buttonSavePlaylist = new System.Windows.Forms.Button();
+            this.buttonModifyPlaylist = new System.Windows.Forms.Button();
+            this.buttonDeletePlaylist = new System.Windows.Forms.Button();
+            this.buttonAddNewPlaylist = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.groupBoxVideo.SuspendLayout();
+            this.groupBoxPlaylist.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -103,7 +120,6 @@
             this.toolStripButtonHome.Name = "toolStripButtonHome";
             this.toolStripButtonHome.Size = new System.Drawing.Size(44, 36);
             this.toolStripButtonHome.Text = "Home";
-            
             // 
             // toolStripLabelUserName
             // 
@@ -136,121 +152,154 @@
             // labelVideos
             // 
             this.labelVideos.AutoSize = true;
-            this.labelVideos.Location = new System.Drawing.Point(14, 81);
+            this.labelVideos.Location = new System.Drawing.Point(14, 66);
             this.labelVideos.Name = "labelVideos";
             this.labelVideos.Size = new System.Drawing.Size(69, 24);
             this.labelVideos.TabIndex = 5;
             this.labelVideos.Text = "Videos";
             // 
-            // buttonAdd
+            // buttonAddNew
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(229, 108);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(106, 35);
-            this.buttonAdd.TabIndex = 6;
-            this.buttonAdd.Text = "Add New";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAddNew.Location = new System.Drawing.Point(229, 93);
+            this.buttonAddNew.Name = "buttonAddNew";
+            this.buttonAddNew.Size = new System.Drawing.Size(106, 35);
+            this.buttonAddNew.TabIndex = 6;
+            this.buttonAddNew.Text = "Add New";
+            this.buttonAddNew.UseVisualStyleBackColor = true;
+            this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(229, 158);
+            this.buttonDelete.Location = new System.Drawing.Point(229, 143);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(106, 35);
             this.buttonDelete.TabIndex = 7;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonModify
             // 
-            this.buttonModify.Location = new System.Drawing.Point(229, 208);
+            this.buttonModify.Location = new System.Drawing.Point(229, 193);
             this.buttonModify.Name = "buttonModify";
             this.buttonModify.Size = new System.Drawing.Size(106, 35);
             this.buttonModify.TabIndex = 8;
             this.buttonModify.Text = "Modify >>";
             this.buttonModify.UseVisualStyleBackColor = true;
+            this.buttonModify.Click += new System.EventHandler(this.buttonModify_Click);
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(229, 258);
+            this.buttonSave.Location = new System.Drawing.Point(229, 243);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(106, 35);
             this.buttonSave.TabIndex = 9;
             this.buttonSave.Text = "<< Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // listBox1
+            // listBoxVidoes
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 22;
-            this.listBox1.Location = new System.Drawing.Point(18, 109);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(205, 290);
-            this.listBox1.TabIndex = 10;
+            this.listBoxVidoes.FormattingEnabled = true;
+            this.listBoxVidoes.ItemHeight = 22;
+            this.listBoxVidoes.Location = new System.Drawing.Point(18, 94);
+            this.listBoxVidoes.Name = "listBoxVidoes";
+            this.listBoxVidoes.Size = new System.Drawing.Size(205, 312);
+            this.listBoxVidoes.TabIndex = 10;
+            this.listBoxVidoes.SelectedIndexChanged += new System.EventHandler(this.listBoxVidoes_SelectedIndexChanged);
             // 
             // groupBoxVideo
             // 
             this.groupBoxVideo.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.groupBoxVideo.Controls.Add(this.textBox4);
-            this.groupBoxVideo.Controls.Add(this.labelDiscription);
-            this.groupBoxVideo.Controls.Add(this.textBox3);
+            this.groupBoxVideo.Controls.Add(this.labelVideoId);
+            this.groupBoxVideo.Controls.Add(this.textBoxFileName);
+            this.groupBoxVideo.Controls.Add(this.labelFileName);
+            this.groupBoxVideo.Controls.Add(this.textBoxDescription);
+            this.groupBoxVideo.Controls.Add(this.labelDescription);
+            this.groupBoxVideo.Controls.Add(this.textBoxPath);
             this.groupBoxVideo.Controls.Add(this.labelFilePath);
-            this.groupBoxVideo.Controls.Add(this.textBox2);
+            this.groupBoxVideo.Controls.Add(this.textBoxTags);
             this.groupBoxVideo.Controls.Add(this.labelTags);
             this.groupBoxVideo.Controls.Add(this.labelName);
-            this.groupBoxVideo.Controls.Add(this.textBox1);
+            this.groupBoxVideo.Controls.Add(this.textBoxName);
             this.groupBoxVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBoxVideo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBoxVideo.Location = new System.Drawing.Point(341, 109);
+            this.groupBoxVideo.Location = new System.Drawing.Point(341, 94);
             this.groupBoxVideo.Name = "groupBoxVideo";
-            this.groupBoxVideo.Size = new System.Drawing.Size(385, 290);
+            this.groupBoxVideo.Size = new System.Drawing.Size(385, 326);
             this.groupBoxVideo.TabIndex = 12;
             this.groupBoxVideo.TabStop = false;
             this.groupBoxVideo.Text = "Video Data";
             // 
-            // textBox4
+            // labelVideoId
             // 
-            this.textBox4.Location = new System.Drawing.Point(33, 187);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(346, 97);
-            this.textBox4.TabIndex = 7;
+            this.labelVideoId.AutoSize = true;
+            this.labelVideoId.Location = new System.Drawing.Point(99, 25);
+            this.labelVideoId.Name = "labelVideoId";
+            this.labelVideoId.Size = new System.Drawing.Size(87, 24);
+            this.labelVideoId.TabIndex = 10;
+            this.labelVideoId.Text = "Video ID:";
             // 
-            // labelDiscription
+            // textBoxFileName
             // 
-            this.labelDiscription.AutoSize = true;
-            this.labelDiscription.Location = new System.Drawing.Point(29, 160);
-            this.labelDiscription.Name = "labelDiscription";
-            this.labelDiscription.Size = new System.Drawing.Size(97, 24);
-            this.labelDiscription.TabIndex = 6;
-            this.labelDiscription.Text = "Discription";
+            this.textBoxFileName.Location = new System.Drawing.Point(114, 126);
+            this.textBoxFileName.Name = "textBoxFileName";
+            this.textBoxFileName.Size = new System.Drawing.Size(265, 28);
+            this.textBoxFileName.TabIndex = 9;
             // 
-            // textBox3
+            // labelFileName
             // 
-            this.textBox3.Location = new System.Drawing.Point(96, 128);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(283, 28);
-            this.textBox3.TabIndex = 5;
+            this.labelFileName.AutoSize = true;
+            this.labelFileName.Location = new System.Drawing.Point(11, 130);
+            this.labelFileName.Name = "labelFileName";
+            this.labelFileName.Size = new System.Drawing.Size(104, 24);
+            this.labelFileName.TabIndex = 8;
+            this.labelFileName.Text = "File Name*";
+            // 
+            // textBoxDescription
+            // 
+            this.textBoxDescription.Location = new System.Drawing.Point(15, 222);
+            this.textBoxDescription.Multiline = true;
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(364, 97);
+            this.textBoxDescription.TabIndex = 7;
+            // 
+            // labelDescription
+            // 
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Location = new System.Drawing.Point(11, 195);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(104, 24);
+            this.labelDescription.TabIndex = 6;
+            this.labelDescription.Text = "Description";
+            // 
+            // textBoxPath
+            // 
+            this.textBoxPath.Location = new System.Drawing.Point(114, 163);
+            this.textBoxPath.Name = "textBoxPath";
+            this.textBoxPath.Size = new System.Drawing.Size(265, 28);
+            this.textBoxPath.TabIndex = 5;
             // 
             // labelFilePath
             // 
             this.labelFilePath.AutoSize = true;
-            this.labelFilePath.Location = new System.Drawing.Point(29, 131);
+            this.labelFilePath.Location = new System.Drawing.Point(11, 167);
             this.labelFilePath.Name = "labelFilePath";
-            this.labelFilePath.Size = new System.Drawing.Size(47, 24);
+            this.labelFilePath.Size = new System.Drawing.Size(54, 24);
             this.labelFilePath.TabIndex = 4;
-            this.labelFilePath.Text = "Path";
+            this.labelFilePath.Text = "Path*";
             // 
-            // textBox2
+            // textBoxTags
             // 
-            this.textBox2.Location = new System.Drawing.Point(96, 90);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(283, 28);
-            this.textBox2.TabIndex = 3;
+            this.textBoxTags.Location = new System.Drawing.Point(114, 89);
+            this.textBoxTags.Name = "textBoxTags";
+            this.textBoxTags.Size = new System.Drawing.Size(265, 28);
+            this.textBoxTags.TabIndex = 3;
             // 
             // labelTags
             // 
             this.labelTags.AutoSize = true;
-            this.labelTags.Location = new System.Drawing.Point(29, 93);
+            this.labelTags.Location = new System.Drawing.Point(11, 93);
             this.labelTags.Name = "labelTags";
             this.labelTags.Size = new System.Drawing.Size(52, 24);
             this.labelTags.TabIndex = 2;
@@ -259,30 +308,169 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(29, 55);
+            this.labelName.Location = new System.Drawing.Point(11, 56);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(61, 24);
+            this.labelName.Size = new System.Drawing.Size(68, 24);
             this.labelName.TabIndex = 1;
-            this.labelName.Text = "Name";
+            this.labelName.Text = "Name*";
             // 
-            // textBox1
+            // textBoxName
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(283, 28);
-            this.textBox1.TabIndex = 0;
+            this.textBoxName.Location = new System.Drawing.Point(114, 52);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(265, 28);
+            this.textBoxName.TabIndex = 0;
+            // 
+            // listBoxPlayLists
+            // 
+            this.listBoxPlayLists.FormattingEnabled = true;
+            this.listBoxPlayLists.ItemHeight = 22;
+            this.listBoxPlayLists.Location = new System.Drawing.Point(18, 460);
+            this.listBoxPlayLists.Name = "listBoxPlayLists";
+            this.listBoxPlayLists.Size = new System.Drawing.Size(205, 356);
+            this.listBoxPlayLists.TabIndex = 13;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Location = new System.Drawing.Point(14, 433);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 24);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Playlists";
+            // 
+            // groupBoxPlaylist
+            // 
+            this.groupBoxPlaylist.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBoxPlaylist.Controls.Add(this.labelPlaylistId);
+            this.groupBoxPlaylist.Controls.Add(this.textBox2);
+            this.groupBoxPlaylist.Controls.Add(this.label4);
+            this.groupBoxPlaylist.Controls.Add(this.textBox4);
+            this.groupBoxPlaylist.Controls.Add(this.label6);
+            this.groupBoxPlaylist.Controls.Add(this.label7);
+            this.groupBoxPlaylist.Controls.Add(this.textBox5);
+            this.groupBoxPlaylist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBoxPlaylist.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBoxPlaylist.Location = new System.Drawing.Point(341, 460);
+            this.groupBoxPlaylist.Name = "groupBoxPlaylist";
+            this.groupBoxPlaylist.Size = new System.Drawing.Size(385, 364);
+            this.groupBoxPlaylist.TabIndex = 19;
+            this.groupBoxPlaylist.TabStop = false;
+            this.groupBoxPlaylist.Text = "Playlist Data";
+            // 
+            // labelPlaylistId
+            // 
+            this.labelPlaylistId.AutoSize = true;
+            this.labelPlaylistId.Location = new System.Drawing.Point(99, 25);
+            this.labelPlaylistId.Name = "labelPlaylistId";
+            this.labelPlaylistId.Size = new System.Drawing.Size(93, 24);
+            this.labelPlaylistId.TabIndex = 10;
+            this.labelPlaylistId.Text = "Playlist ID:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(15, 157);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(364, 97);
+            this.textBox2.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(104, 24);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Description";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(114, 89);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(265, 28);
+            this.textBox4.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 93);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 24);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Tags";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(11, 56);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 24);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Name*";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(114, 52);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(265, 28);
+            this.textBox5.TabIndex = 0;
+            // 
+            // buttonSavePlaylist
+            // 
+            this.buttonSavePlaylist.Location = new System.Drawing.Point(229, 609);
+            this.buttonSavePlaylist.Name = "buttonSavePlaylist";
+            this.buttonSavePlaylist.Size = new System.Drawing.Size(106, 35);
+            this.buttonSavePlaylist.TabIndex = 18;
+            this.buttonSavePlaylist.Text = "<< Save";
+            this.buttonSavePlaylist.UseVisualStyleBackColor = true;
+            // 
+            // buttonModifyPlaylist
+            // 
+            this.buttonModifyPlaylist.Location = new System.Drawing.Point(229, 559);
+            this.buttonModifyPlaylist.Name = "buttonModifyPlaylist";
+            this.buttonModifyPlaylist.Size = new System.Drawing.Size(106, 35);
+            this.buttonModifyPlaylist.TabIndex = 17;
+            this.buttonModifyPlaylist.Text = "Modify >>";
+            this.buttonModifyPlaylist.UseVisualStyleBackColor = true;
+            // 
+            // buttonDeletePlaylist
+            // 
+            this.buttonDeletePlaylist.Location = new System.Drawing.Point(229, 509);
+            this.buttonDeletePlaylist.Name = "buttonDeletePlaylist";
+            this.buttonDeletePlaylist.Size = new System.Drawing.Size(106, 35);
+            this.buttonDeletePlaylist.TabIndex = 16;
+            this.buttonDeletePlaylist.Text = "Delete";
+            this.buttonDeletePlaylist.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddNewPlaylist
+            // 
+            this.buttonAddNewPlaylist.Location = new System.Drawing.Point(229, 459);
+            this.buttonAddNewPlaylist.Name = "buttonAddNewPlaylist";
+            this.buttonAddNewPlaylist.Size = new System.Drawing.Size(106, 35);
+            this.buttonAddNewPlaylist.TabIndex = 15;
+            this.buttonAddNewPlaylist.Text = "Add New";
+            this.buttonAddNewPlaylist.UseVisualStyleBackColor = true;
             // 
             // myChannelView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 827);
+            this.Controls.Add(this.groupBoxPlaylist);
+            this.Controls.Add(this.buttonSavePlaylist);
+            this.Controls.Add(this.buttonModifyPlaylist);
+            this.Controls.Add(this.buttonDeletePlaylist);
+            this.Controls.Add(this.buttonAddNewPlaylist);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.listBoxPlayLists);
             this.Controls.Add(this.groupBoxVideo);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxVidoes);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonModify);
             this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.buttonAddNew);
             this.Controls.Add(this.labelVideos);
             this.Controls.Add(this.LabelChannelName);
             this.Controls.Add(this.toolStrip1);
@@ -290,12 +478,14 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "myChannelView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "myChannelView";
+            this.Text = "FakeTube My Channel";
             this.Load += new System.EventHandler(this.myChannelView_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.groupBoxVideo.ResumeLayout(false);
             this.groupBoxVideo.PerformLayout();
+            this.groupBoxPlaylist.ResumeLayout(false);
+            this.groupBoxPlaylist.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,20 +502,36 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonUserImg;
         private System.Windows.Forms.Label LabelChannelName;
         private System.Windows.Forms.Label labelVideos;
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonAddNew;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonModify;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxVidoes;
         private System.Windows.Forms.GroupBox groupBoxVideo;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxPath;
         private System.Windows.Forms.Label labelFilePath;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxTags;
         private System.Windows.Forms.Label labelTags;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.Label labelDescription;
+        private System.Windows.Forms.TextBox textBoxFileName;
+        private System.Windows.Forms.Label labelFileName;
+        private System.Windows.Forms.Label labelVideoId;
+        private System.Windows.Forms.ListBox listBoxPlayLists;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBoxPlaylist;
+        private System.Windows.Forms.Label labelPlaylistId;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label labelDiscription;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button buttonSavePlaylist;
+        private System.Windows.Forms.Button buttonModifyPlaylist;
+        private System.Windows.Forms.Button buttonDeletePlaylist;
+        private System.Windows.Forms.Button buttonAddNewPlaylist;
     }
 }
