@@ -101,6 +101,9 @@
     <EmbeddedResource Include="Views\myChannelView.resx">
       <DependentUpon>myChannelView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\userProfilePage.resx">
+      <DependentUpon>userProfilePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\videoPlayer.resx">
       <DependentUpon>videoPlayer.cs</DependentUpon>
     </EmbeddedResource>
