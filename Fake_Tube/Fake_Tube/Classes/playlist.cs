@@ -32,10 +32,14 @@ namespace Fake_Tube.Classes
         void setDesctiption(string Xdescription) { description = Xdescription; }
 
         // List add/delete functions
-        void addVideo(int Xid)
+        bool addVideo(int Xid)
         {
-            if(!videosId.Contains(Xid))
+            if (!videosId.Contains(Xid))
+            {
                 videosId.Add(Xid);
+                return true;
+            }
+            return false;
         }
         bool addTag(string Xtag)
         {
@@ -46,15 +50,23 @@ namespace Fake_Tube.Classes
             }
             return false;
         }
-        void deleteVideo(int Xid)
+        bool deleteVideo(int Xid)
         {
-            if(!videosId.Contains(Xid))
+            if (!videosId.Contains(Xid))
+            {
                 videosId.Remove(Xid);
+                return true;
+            }
+            return false;
         }
-        void deleteTag(string Xtag)
+        bool deleteTag(string Xtag)
         {
             if (!tags.Contains(Xtag))
+            {
                 tags.Remove(Xtag);
+                return true;
+            }
+            return false;
         }
 
         // Destructor
