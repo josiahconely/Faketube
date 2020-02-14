@@ -51,7 +51,6 @@
     <Compile Include="Classes\comment.cs" />
     <Compile Include="Classes\DataBaseAPI.cs" />
     <Compile Include="Classes\playlist.cs" />
-    <Compile Include="Classes\tag.cs" />
     <Compile Include="Classes\user.cs" />
     <Compile Include="Classes\users.cs" />
     <Compile Include="Classes\video.cs" />
