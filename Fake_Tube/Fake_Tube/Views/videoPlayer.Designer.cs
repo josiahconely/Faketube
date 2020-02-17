@@ -36,24 +36,23 @@
             this.toolStripButtonHome = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabelUserName = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonUserImg = new System.Windows.Forms.ToolStripButton();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.labelVideoName = new System.Windows.Forms.Label();
             this.labelCreatorName = new System.Windows.Forms.Label();
             this.pictureBoxCreator = new System.Windows.Forms.PictureBox();
             this.buttonLike = new System.Windows.Forms.Button();
             this.buttonDislike = new System.Windows.Forms.Button();
-            this.labelVideoList = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelLikesNum = new System.Windows.Forms.Label();
             this.labelDislikesNum = new System.Windows.Forms.Label();
             this.labelViews = new System.Windows.Forms.Label();
             this.labelViewsNum = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonComment = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCreator)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -68,7 +67,7 @@
             this.toolStripButtonUserImg});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(815, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(1004, 39);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -84,7 +83,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(58, 36);
+            this.toolStripLabel1.Size = new System.Drawing.Size(57, 36);
             this.toolStripLabel1.Text = "FakeTube";
             this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
             // 
@@ -121,16 +120,6 @@
             this.toolStripButtonUserImg.Size = new System.Drawing.Size(36, 36);
             this.toolStripButtonUserImg.Text = "toolStripButton4";
             this.toolStripButtonUserImg.Click += new System.EventHandler(this.toolStripButton4_Click);
-            // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(12, 85);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(640, 360);
-            this.axWindowsMediaPlayer1.TabIndex = 2;
-            this.axWindowsMediaPlayer1.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
             // 
             // labelVideoName
             // 
@@ -181,15 +170,6 @@
             this.buttonDislike.UseVisualStyleBackColor = true;
             this.buttonDislike.Click += new System.EventHandler(this.buttonDislike_Click);
             // 
-            // labelVideoList
-            // 
-            this.labelVideoList.AutoSize = true;
-            this.labelVideoList.Location = new System.Drawing.Point(658, 84);
-            this.labelVideoList.Name = "labelVideoList";
-            this.labelVideoList.Size = new System.Drawing.Size(69, 24);
-            this.labelVideoList.TabIndex = 9;
-            this.labelVideoList.Text = "Videos";
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 537);
@@ -237,17 +217,6 @@
             this.labelViewsNum.Text = "ViewsNum";
             this.labelViewsNum.Click += new System.EventHandler(this.label1_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 22;
-            this.listBox1.Location = new System.Drawing.Point(658, 112);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(151, 510);
-            this.listBox1.TabIndex = 16;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
             // buttonComment
             // 
             this.buttonComment.Location = new System.Drawing.Point(567, 583);
@@ -269,21 +238,40 @@
             this.listView1.TabIndex = 18;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(657, 39);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(347, 788);
+            this.flowLayoutPanel1.TabIndex = 19;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(12, 85);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(640, 360);
+            this.axWindowsMediaPlayer1.TabIndex = 2;
+            this.axWindowsMediaPlayer1.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
+            // 
             // videoPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(815, 827);
+            this.ClientSize = new System.Drawing.Size(1004, 827);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.buttonComment);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.labelViewsNum);
             this.Controls.Add(this.labelViews);
             this.Controls.Add(this.labelDislikesNum);
             this.Controls.Add(this.labelLikesNum);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.labelVideoList);
             this.Controls.Add(this.buttonDislike);
             this.Controls.Add(this.buttonLike);
             this.Controls.Add(this.pictureBoxCreator);
@@ -299,8 +287,8 @@
             this.Load += new System.EventHandler(this.videoPlayer_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCreator)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,16 +306,15 @@
         private System.Windows.Forms.PictureBox pictureBoxCreator;
         private System.Windows.Forms.Button buttonLike;
         private System.Windows.Forms.Button buttonDislike;
-        private System.Windows.Forms.Label labelVideoList;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label labelLikesNum;
         private System.Windows.Forms.Label labelDislikesNum;
         private System.Windows.Forms.Label labelViews;
         private System.Windows.Forms.Label labelViewsNum;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button buttonComment;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabelUserName;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

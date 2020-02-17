@@ -79,6 +79,25 @@ namespace Fake_Tube.Views
             //////////////////////////////////////////////////////////////////////////////////////////
         }
 
+
+        private void populateVideoItems()
+        {
+            ListItemVideo[] listVideos = new ListItemVideo[20];
+            //loop through each item
+            flowLayoutPanel1.Controls.Clear();
+            for (int i = 0; i <listVideos.Length; i++)
+            {
+                listVideos[i] = new ListItemVideo();
+                listVideos[i].videoName = "Super great Video";
+                listVideos[i].creatorName = "super great Creator";
+                listVideos[i].description = "This is describing such a great video";
+                
+                flowLayoutPanel1.Controls.Add(listVideos[i]);
+            }
+
+        }
+
+
         private void videoPlayer_Load(object sender, EventArgs e)
         {
             //Assigns info from video 
@@ -89,6 +108,7 @@ namespace Fake_Tube.Views
             labelDislikesNum.Text = thisVideo.getDislikes().ToString();
             labelViewsNum.Text = thisVideo.getViews().ToString();
             labelCreatorName.Text = thisVideo.getcreatorName();
+            populateVideoItems();
         }
 
         //Tool Strip Controls //////////////////////////////////////
