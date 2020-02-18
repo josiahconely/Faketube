@@ -80,23 +80,7 @@ namespace Fake_Tube.Views
         }
 
 
-        private void populateVideoItems()
-        {
-            ListItemVideo[] listVideos = new ListItemVideo[20];
-            //loop through each item
-            flowLayoutPanel1.Controls.Clear();
-            for (int i = 0; i <listVideos.Length; i++)
-            {
-                listVideos[i] = new ListItemVideo();
-                listVideos[i].videoName = "Super great Video";
-                listVideos[i].creatorName = "super great Creator";
-                listVideos[i].description = "This is describing such a great video";
-                
-                flowLayoutPanel1.Controls.Add(listVideos[i]);
-            }
-
-        }
-
+       
 
         private void videoPlayer_Load(object sender, EventArgs e)
         {
@@ -154,6 +138,24 @@ namespace Fake_Tube.Views
         }
         //Tool Strip Controls //////////////////////////////////////  
 
+        private void populateVideoItems()
+        {
+            ListItemVideo[] listVideos = new ListItemVideo[20];
+            //loop through each item
+            flowLayoutPanel1.Controls.Clear();
+            for (int i = 0; i < listVideos.Length; i++)
+            {
+                listVideos[i] = new ListItemVideo();
+                listVideos[i].videoName = "Super great Video";
+                listVideos[i].creatorName = "super great Creator";
+                listVideos[i].description = "This is describing such a great video";
+
+
+                flowLayoutPanel1.Controls.Add(listVideos[i]);
+            }
+
+        }
+
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -204,5 +206,7 @@ namespace Fake_Tube.Views
             labelLikesNum.Text = thisVideo.getLikes().ToString();
             labelDislikesNum.Text = thisVideo.getDislikes().ToString();
         }
+
+        
     }
 }

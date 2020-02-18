@@ -83,7 +83,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(57, 36);
+            this.toolStripLabel1.Size = new System.Drawing.Size(58, 36);
             this.toolStripLabel1.Text = "FakeTube";
             this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
             // 

@@ -51,35 +51,35 @@
             // 
             // labelVideoName
             // 
-            this.labelVideoName.AutoSize = true;
             this.labelVideoName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelVideoName.Location = new System.Drawing.Point(88, 9);
             this.labelVideoName.Name = "labelVideoName";
-            this.labelVideoName.Size = new System.Drawing.Size(96, 20);
+            this.labelVideoName.Size = new System.Drawing.Size(48, 10);
             this.labelVideoName.TabIndex = 1;
             this.labelVideoName.Text = "Video Name";
+            this.labelVideoName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListItemVideo_MouseClick);
             this.labelVideoName.MouseEnter += new System.EventHandler(this.ListItemVideo_MouseEnter);
             this.labelVideoName.MouseLeave += new System.EventHandler(this.ListItemVideo_MouseLeave);
             // 
             // labelCreatorName
             // 
-            this.labelCreatorName.AutoSize = true;
             this.labelCreatorName.Location = new System.Drawing.Point(94, 29);
             this.labelCreatorName.Name = "labelCreatorName";
-            this.labelCreatorName.Size = new System.Drawing.Size(72, 13);
+            this.labelCreatorName.Size = new System.Drawing.Size(36, 7);
             this.labelCreatorName.TabIndex = 2;
             this.labelCreatorName.Text = "Creator Name";
+            this.labelCreatorName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListItemVideo_MouseClick);
             this.labelCreatorName.MouseEnter += new System.EventHandler(this.ListItemVideo_MouseEnter);
             this.labelCreatorName.MouseLeave += new System.EventHandler(this.ListItemVideo_MouseLeave);
             // 
             // labelDescription
             // 
-            this.labelDescription.AutoSize = true;
             this.labelDescription.Location = new System.Drawing.Point(94, 42);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(60, 13);
+            this.labelDescription.Size = new System.Drawing.Size(30, 7);
             this.labelDescription.TabIndex = 3;
             this.labelDescription.Text = "Description";
+            this.labelDescription.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListItemVideo_MouseClick);
             this.labelDescription.MouseEnter += new System.EventHandler(this.ListItemVideo_MouseEnter);
             this.labelDescription.MouseLeave += new System.EventHandler(this.ListItemVideo_MouseLeave);
             // 
@@ -91,17 +91,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(88, 100);
             this.panel1.TabIndex = 4;
+            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListItemVideo_MouseClick);
             this.panel1.MouseEnter += new System.EventHandler(this.ListItemVideo_MouseEnter);
             this.panel1.MouseLeave += new System.EventHandler(this.ListItemVideo_MouseLeave);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(97, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(18, 7);
             this.label1.TabIndex = 5;
             this.label1.Text = "label1";
+            this.label1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListItemVideo_MouseClick);
             this.label1.MouseEnter += new System.EventHandler(this.ListItemVideo_MouseEnter);
             this.label1.MouseLeave += new System.EventHandler(this.ListItemVideo_MouseLeave);
             // 
@@ -115,8 +116,7 @@
             // 
             // ListItemVideo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -125,12 +125,13 @@
             this.Controls.Add(this.labelVideoName);
             this.Name = "ListItemVideo";
             this.Size = new System.Drawing.Size(278, 100);
+            this.Load += new System.EventHandler(this.ListItemVideo_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListItemVideo_MouseClick);
             this.MouseEnter += new System.EventHandler(this.ListItemVideo_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.ListItemVideo_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVideoPic)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
