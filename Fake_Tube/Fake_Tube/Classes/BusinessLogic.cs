@@ -53,13 +53,13 @@ namespace Fake_Tube.Classes
             return false;
         }
 
-        public List<video> getVidoesfromVidoeIds(List<int> videoIds)
+        public List<video> getVidoesfromVidoeIds()//List<int> videoIds)
         {
             List<video> videos = new List<video>();
 
             // Temp
-            video v = new video(1, 1, 1, 1, 1, "great Video", "file1.mp4", "c:/vidoes", "bobthebombdotcom", "the best discription ever");
-            video v2 = new video(1, 1, 1, 1, 1, "even Better Vid", "file2.mp4", "c:/vidoes2", "bobthebombdotcom", "the worst Discription ever");
+            video v = new video(1, 1, 1, 1, 1, "great Video", "are_our_children_learning_enough_about_whales_POi4rvN_Yts_360p.mp4", "c:/vidoes", "bobthebombdotcom", "the best discription ever");
+            video v2 = new video(2, 1, 1, 1, 1, "even Better Vid", "12_smartphone_gadgets_you_might_not_believe_existed_IR6V_6xqWDU_360p.mp4", "c:/vidoes", "bobthebombdotcom", "the worst Discription ever");
 
             videos.Add(v);
             videos.Add(v2);

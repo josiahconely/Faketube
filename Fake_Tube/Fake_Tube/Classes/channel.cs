@@ -38,7 +38,7 @@ namespace Fake_Tube.Classes
         public List<video> getVidoes() 
         {
             List<video> videos = new List<video>();
-            videos = bl.getVidoesfromVidoeIds(vidoesId);
+            videos = bl.getVidoesfromVidoeIds();//vidoesId);
             return videos;
         }
         public void addVideo() { }

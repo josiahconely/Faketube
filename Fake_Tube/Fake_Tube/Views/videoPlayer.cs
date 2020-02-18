@@ -17,7 +17,7 @@ namespace Fake_Tube.Views
         BusinessLogic bl = new BusinessLogic();
         user thisUser = new user();
         video thisVideo;
-
+        //List<ListItemVideo> listVideos = new List<ListItemVideo>();
         public videoPlayer(int videoId, int userId)
         {
             InitializeComponent();
@@ -69,7 +69,7 @@ namespace Fake_Tube.Views
                     Keys k = new Keys();
                     k.Equals(1);
                     m.ShortcutKeys = k;
-                    m.Click += M_Click; ;
+                    m.Click += M_Click; 
                 }
                 subChannels.Add(m);
             }
@@ -140,21 +140,34 @@ namespace Fake_Tube.Views
 
         private void populateVideoItems()
         {
-            ListItemVideo[] listVideos = new ListItemVideo[20];
+            List<video> videos = new List<video>();
+            videos = bl.getVidoesfromVidoeIds();
+            
             //loop through each item
             flowLayoutPanel1.Controls.Clear();
-            for (int i = 0; i < listVideos.Length; i++)
+            foreach (video v in videos)
             {
-                listVideos[i] = new ListItemVideo();
-                listVideos[i].videoName = "Super great Video";
-                listVideos[i].creatorName = "super great Creator";
-                listVideos[i].description = "This is describing such a great video";
+                ListItemVideo listVideo = new ListItemVideo();
+                listVideo.ThisVideo = v;
+                listVideo.videoName = v.getName();
+                listVideo.creatorName = v.getcreatorName();
+                listVideo.description = v.getDescription();
+                
+                listVideo.Click += videoClick;
+                flowLayoutPanel1.Controls.Add(listVideo);
 
-
-                flowLayoutPanel1.Controls.Add(listVideos[i]);
             }
+            
 
         }
+        
+        private void videoClick(object sender, EventArgs e) 
+        {
+            ListItemVideo v = sender as ListItemVideo;
+            thisVideo = v.ThisVideo;
+            videoPlayer_Load(sender, e);
+        }
+        
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {

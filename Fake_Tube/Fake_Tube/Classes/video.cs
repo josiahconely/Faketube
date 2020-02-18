@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fake_Tube.Classes
 {
-    class video
+    public class video
     {
 
         //atributes

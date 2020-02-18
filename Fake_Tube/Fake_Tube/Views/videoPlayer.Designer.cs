@@ -67,7 +67,7 @@
             this.toolStripButtonUserImg});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1004, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(970, 39);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -83,7 +83,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(58, 36);
+            this.toolStripLabel1.Size = new System.Drawing.Size(57, 36);
             this.toolStripLabel1.Text = "FakeTube";
             this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
             // 
@@ -243,9 +243,9 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(657, 39);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(690, 39);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(347, 788);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(280, 788);
             this.flowLayoutPanel1.TabIndex = 19;
             // 
             // axWindowsMediaPlayer1
@@ -263,7 +263,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1004, 827);
+            this.ClientSize = new System.Drawing.Size(970, 827);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.buttonComment);

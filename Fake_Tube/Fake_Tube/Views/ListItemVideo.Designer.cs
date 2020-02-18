@@ -33,7 +33,6 @@
             this.labelCreatorName = new System.Windows.Forms.Label();
             this.labelDescription = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVideoPic)).BeginInit();
             this.panel1.SuspendLayout();
@@ -54,9 +53,10 @@
             this.labelVideoName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelVideoName.Location = new System.Drawing.Point(88, 9);
             this.labelVideoName.Name = "labelVideoName";
-            this.labelVideoName.Size = new System.Drawing.Size(48, 10);
+            this.labelVideoName.Size = new System.Drawing.Size(174, 20);
             this.labelVideoName.TabIndex = 1;
             this.labelVideoName.Text = "Video Name";
+            this.labelVideoName.Click += new System.EventHandler(this.labelVideoName_Click);
             this.labelVideoName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListItemVideo_MouseClick);
             this.labelVideoName.MouseEnter += new System.EventHandler(this.ListItemVideo_MouseEnter);
             this.labelVideoName.MouseLeave += new System.EventHandler(this.ListItemVideo_MouseLeave);
@@ -65,7 +65,7 @@
             // 
             this.labelCreatorName.Location = new System.Drawing.Point(94, 29);
             this.labelCreatorName.Name = "labelCreatorName";
-            this.labelCreatorName.Size = new System.Drawing.Size(36, 7);
+            this.labelCreatorName.Size = new System.Drawing.Size(168, 13);
             this.labelCreatorName.TabIndex = 2;
             this.labelCreatorName.Text = "Creator Name";
             this.labelCreatorName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListItemVideo_MouseClick);
@@ -76,9 +76,10 @@
             // 
             this.labelDescription.Location = new System.Drawing.Point(94, 42);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(30, 7);
+            this.labelDescription.Size = new System.Drawing.Size(168, 17);
             this.labelDescription.TabIndex = 3;
             this.labelDescription.Text = "Description";
+            this.labelDescription.Click += new System.EventHandler(this.labelDescription_Click);
             this.labelDescription.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListItemVideo_MouseClick);
             this.labelDescription.MouseEnter += new System.EventHandler(this.ListItemVideo_MouseEnter);
             this.labelDescription.MouseLeave += new System.EventHandler(this.ListItemVideo_MouseLeave);
@@ -95,17 +96,6 @@
             this.panel1.MouseEnter += new System.EventHandler(this.ListItemVideo_MouseEnter);
             this.panel1.MouseLeave += new System.EventHandler(this.ListItemVideo_MouseLeave);
             // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(97, 59);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 7);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "label1";
-            this.label1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListItemVideo_MouseClick);
-            this.label1.MouseEnter += new System.EventHandler(this.ListItemVideo_MouseEnter);
-            this.label1.MouseLeave += new System.EventHandler(this.ListItemVideo_MouseLeave);
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -118,7 +108,6 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.labelCreatorName);
@@ -142,7 +131,6 @@
         private System.Windows.Forms.Label labelCreatorName;
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
     }
 }

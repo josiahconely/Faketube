@@ -13,7 +13,8 @@ namespace Fake_Tube.Views
 {
     public partial class ListItemVideo : UserControl
     {
-        video thisVideo = new video();
+        public video ThisVideo { get; set; }
+
         
         public ListItemVideo()
         {
@@ -81,11 +82,17 @@ namespace Fake_Tube.Views
 
         private void ListItemVideo_MouseClick(object sender, MouseEventArgs e)
         {
-            if (this.Parent == null || this.Parent.GetType() != typeof(videoPlayer))
-                return;
-            AxWMPLib.AxWindowsMediaPlayer player = (this.Parent as videoPlayer).Controls["axWindowsMediaPlayer1"] as AxWMPLib.AxWindowsMediaPlayer;
-            player.URL = "C:/vidoes/12_smartphone_gadgets_you_might_not_believe_existed_IR6V_6xqWDU_360p.mp4"; 
-            player.Refresh();
+            
+
+        }
+
+        private void labelDescription_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelVideoName_Click(object sender, EventArgs e)
+        {
             
         }
     }
