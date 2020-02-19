@@ -43,7 +43,10 @@ namespace Fake_Tube.Classes
         }
         public void addVideo() { }
 
-        //public void setVideos() { }
+        //change
+        public void setVideos(List<int> v) {
+            vidoesId = v;
+        }
         public int getOwnerId(){ return ownerId; }
         public void setOwnerId(int id) { ownerId = id; }
         public int getSubsNumber() { return subscribersId.Count; }

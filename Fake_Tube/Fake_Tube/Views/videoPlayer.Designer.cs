@@ -41,15 +41,18 @@
             this.pictureBoxCreator = new System.Windows.Forms.PictureBox();
             this.buttonLike = new System.Windows.Forms.Button();
             this.buttonDislike = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxNewComment = new System.Windows.Forms.TextBox();
             this.labelLikesNum = new System.Windows.Forms.Label();
             this.labelDislikesNum = new System.Windows.Forms.Label();
             this.labelViews = new System.Windows.Forms.Label();
             this.labelViewsNum = new System.Windows.Forms.Label();
-            this.buttonComment = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.buttonPostComment = new System.Windows.Forms.Button();
+            this.listViewComments = new System.Windows.Forms.ListView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.likes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Dislikes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCreator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -83,7 +86,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(57, 36);
+            this.toolStripLabel1.Size = new System.Drawing.Size(58, 36);
             this.toolStripLabel1.Text = "FakeTube";
             this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
             // 
@@ -170,14 +173,14 @@
             this.buttonDislike.UseVisualStyleBackColor = true;
             this.buttonDislike.Click += new System.EventHandler(this.buttonDislike_Click);
             // 
-            // textBox1
+            // textBoxNewComment
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 537);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(549, 85);
-            this.textBox1.TabIndex = 10;
+            this.textBoxNewComment.Location = new System.Drawing.Point(12, 537);
+            this.textBoxNewComment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxNewComment.Multiline = true;
+            this.textBoxNewComment.Name = "textBoxNewComment";
+            this.textBoxNewComment.Size = new System.Drawing.Size(549, 85);
+            this.textBoxNewComment.TabIndex = 10;
             // 
             // labelLikesNum
             // 
@@ -217,26 +220,31 @@
             this.labelViewsNum.Text = "ViewsNum";
             this.labelViewsNum.Click += new System.EventHandler(this.label1_Click);
             // 
-            // buttonComment
+            // buttonPostComment
             // 
-            this.buttonComment.Location = new System.Drawing.Point(567, 583);
-            this.buttonComment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonComment.Name = "buttonComment";
-            this.buttonComment.Size = new System.Drawing.Size(75, 39);
-            this.buttonComment.TabIndex = 17;
-            this.buttonComment.Text = "Post";
-            this.buttonComment.UseVisualStyleBackColor = true;
-            this.buttonComment.Click += new System.EventHandler(this.button1_Click_1);
+            this.buttonPostComment.Location = new System.Drawing.Point(567, 583);
+            this.buttonPostComment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonPostComment.Name = "buttonPostComment";
+            this.buttonPostComment.Size = new System.Drawing.Size(75, 39);
+            this.buttonPostComment.TabIndex = 17;
+            this.buttonPostComment.Text = "Post";
+            this.buttonPostComment.UseVisualStyleBackColor = true;
+            this.buttonPostComment.Click += new System.EventHandler(this.buttonPostComment_Click);
             // 
-            // listView1
+            // listViewComments
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(13, 629);
-            this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(548, 186);
-            this.listView1.TabIndex = 18;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewComments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Comment,
+            this.likes,
+            this.Dislikes});
+            this.listViewComments.GridLines = true;
+            this.listViewComments.HideSelection = false;
+            this.listViewComments.Location = new System.Drawing.Point(13, 629);
+            this.listViewComments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewComments.Name = "listViewComments";
+            this.listViewComments.Size = new System.Drawing.Size(548, 186);
+            this.listViewComments.TabIndex = 18;
+            this.listViewComments.UseCompatibleStateImageBehavior = false;
             // 
             // flowLayoutPanel1
             // 
@@ -265,13 +273,13 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(970, 827);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.buttonComment);
+            this.Controls.Add(this.listViewComments);
+            this.Controls.Add(this.buttonPostComment);
             this.Controls.Add(this.labelViewsNum);
             this.Controls.Add(this.labelViews);
             this.Controls.Add(this.labelDislikesNum);
             this.Controls.Add(this.labelLikesNum);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxNewComment);
             this.Controls.Add(this.buttonDislike);
             this.Controls.Add(this.buttonLike);
             this.Controls.Add(this.pictureBoxCreator);
@@ -306,15 +314,18 @@
         private System.Windows.Forms.PictureBox pictureBoxCreator;
         private System.Windows.Forms.Button buttonLike;
         private System.Windows.Forms.Button buttonDislike;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxNewComment;
         private System.Windows.Forms.Label labelLikesNum;
         private System.Windows.Forms.Label labelDislikesNum;
         private System.Windows.Forms.Label labelViews;
         private System.Windows.Forms.Label labelViewsNum;
-        private System.Windows.Forms.Button buttonComment;
+        private System.Windows.Forms.Button buttonPostComment;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabelUserName;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewComments;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.ColumnHeader Comment;
+        private System.Windows.Forms.ColumnHeader likes;
+        private System.Windows.Forms.ColumnHeader Dislikes;
     }
 }

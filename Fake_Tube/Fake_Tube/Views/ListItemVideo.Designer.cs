@@ -50,10 +50,11 @@
             // 
             // labelVideoName
             // 
+            this.labelVideoName.AutoSize = true;
             this.labelVideoName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVideoName.Location = new System.Drawing.Point(88, 9);
+            this.labelVideoName.Location = new System.Drawing.Point(94, 9);
             this.labelVideoName.Name = "labelVideoName";
-            this.labelVideoName.Size = new System.Drawing.Size(174, 20);
+            this.labelVideoName.Size = new System.Drawing.Size(96, 20);
             this.labelVideoName.TabIndex = 1;
             this.labelVideoName.Text = "Video Name";
             this.labelVideoName.Click += new System.EventHandler(this.labelVideoName_Click);
@@ -63,9 +64,10 @@
             // 
             // labelCreatorName
             // 
-            this.labelCreatorName.Location = new System.Drawing.Point(94, 29);
+            this.labelCreatorName.AutoSize = true;
+            this.labelCreatorName.Location = new System.Drawing.Point(95, 29);
             this.labelCreatorName.Name = "labelCreatorName";
-            this.labelCreatorName.Size = new System.Drawing.Size(168, 13);
+            this.labelCreatorName.Size = new System.Drawing.Size(72, 13);
             this.labelCreatorName.TabIndex = 2;
             this.labelCreatorName.Text = "Creator Name";
             this.labelCreatorName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListItemVideo_MouseClick);
@@ -74,9 +76,10 @@
             // 
             // labelDescription
             // 
-            this.labelDescription.Location = new System.Drawing.Point(94, 42);
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Location = new System.Drawing.Point(95, 42);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(168, 17);
+            this.labelDescription.Size = new System.Drawing.Size(60, 13);
             this.labelDescription.TabIndex = 3;
             this.labelDescription.Text = "Description";
             this.labelDescription.Click += new System.EventHandler(this.labelDescription_Click);
@@ -107,11 +110,11 @@
             // ListItemVideo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.Controls.Add(this.labelVideoName);
+            this.Controls.Add(this.labelCreatorName);
+            this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.labelDescription);
-            this.Controls.Add(this.labelCreatorName);
-            this.Controls.Add(this.labelVideoName);
             this.Name = "ListItemVideo";
             this.Size = new System.Drawing.Size(278, 100);
             this.Load += new System.EventHandler(this.ListItemVideo_Load);
@@ -121,6 +124,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVideoPic)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

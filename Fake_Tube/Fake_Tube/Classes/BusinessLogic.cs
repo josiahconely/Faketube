@@ -35,6 +35,9 @@ namespace Fake_Tube.Classes
         public channel getChannel(int channelId)
         {
             channel c = new channel();
+            //TEMP
+            List<int> vidIds = new List<int>(new int[] { 1, 2, 3 });
+            c.setVideos(vidIds);
             return c;
         }
 
@@ -68,5 +71,11 @@ namespace Fake_Tube.Classes
 
         public bool vaidVideoName()
         { return true; }
+
+        //not done
+        public bool addCommentToVideo(comment c, int vidId)
+        {
+            return true;
+        }
     }
 }

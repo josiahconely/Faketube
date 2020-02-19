@@ -18,7 +18,7 @@ namespace Fake_Tube.Classes
         private string time; // The time of the comment posted
         private string date; // The date the comment was posted
 
-        comment(int XvideoId, int XparentId, int XcommentId, int XuserId, string Xtext)
+        public comment(int XvideoId, int XparentId, int XcommentId, int XuserId, string Xtext)
         {
             videoId = XvideoId;
             parentId = XparentId;
@@ -32,18 +32,18 @@ namespace Fake_Tube.Classes
         }
         
         // Functions on likes
-        int getLikes() { return likes; }
-        void setLikes(int Xlikes) { likes = Xlikes; }
-        void incrementLikes() { likes++; }
+        public int getLikes() { return likes; }
+        public void setLikes(int Xlikes) { likes = Xlikes; }
+        public void incrementLikes() { likes++; }
 
         // Functions on dislikes
-        int getDislikes() { return dislikes; }
-        void setDislikes(int Xdislikes) { dislikes = Xdislikes; }
-        void incrementDislikes() { dislikes++; }
+        public int getDislikes() { return dislikes; }
+        public void setDislikes(int Xdislikes) { dislikes = Xdislikes; }
+        public void incrementDislikes() { dislikes++; }
 
         // Functions on text
-        string getText() { return text; }
-        void setText(string Xtext) { text = Xtext; }
+        public string getText() { return text; }
+        public void setText(string Xtext) { text = Xtext; }
 
         // Other getters
         int getCommentId() { return commentId; }

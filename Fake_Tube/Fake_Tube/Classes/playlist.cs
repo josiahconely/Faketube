@@ -15,6 +15,7 @@ namespace Fake_Tube.Classes
         private string description; // Breif desctiption of the playlist
         private int userId; // ID of the owner of the playlist
 
+        public playlist() { }
         playlist(int XuserId, int XplaylistId, string XplaylistName, string Xdescription)
         {
             userId = XuserId;

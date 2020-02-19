@@ -25,7 +25,7 @@ namespace Fake_Tube
         private void button1_Click(object sender, EventArgs e)
         {
             //edit to home page 
-            videoPlayer m = new videoPlayer(10,1);
+            videoPlayer m = new videoPlayer(10,1,1);
             m.Show();
             this.Hide();
 

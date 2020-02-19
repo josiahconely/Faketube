@@ -24,7 +24,13 @@ namespace Fake_Tube.Views
             InitializeComponent();
 
             buttonSave.Enabled = false;
+            buildToolBar();
 
+
+        }
+
+        public void buildToolBar()
+        {
             ///////////////////////////////////////////////////////////////////////////////////////
             //Adds My Channels Drop Down
             ToolStripDropDownButton toolStripDropDownButtonMyChannels = new ToolStripDropDownButton();
@@ -44,7 +50,7 @@ namespace Fake_Tube.Views
                     Keys k = new Keys();
                     k.Equals(1);
                     n.ShortcutKeys = k;
-                    n.Click += N_Click; ;
+                    n.Click += N_Click;
                 }
                 myChannels.Add(n);
             }
@@ -61,18 +67,17 @@ namespace Fake_Tube.Views
 
             toolStripDropDownButtonMySubscriptions.DropDownItems.Clear();
             List<ToolStripMenuItem> subChannels = new List<ToolStripMenuItem>();
-            foreach (string x in thisUser.mySubs)
+            foreach (int x in thisUser.mySubs)
             {
                 ToolStripMenuItem m = new ToolStripMenuItem();
-                m.Text = x;
+                m.Text = x.ToString();
 
-                if (!string.IsNullOrEmpty(x))
-                {
-                    Keys k = new Keys();
-                    k.Equals(1);
-                    m.ShortcutKeys = k;
-                    m.Click += M_Click; 
-                }
+
+                Keys k = new Keys();
+                k.Equals(1);
+                m.ShortcutKeys = k;
+                m.Click += M_Click;
+
                 subChannels.Add(m);
             }
             toolStripDropDownButtonMySubscriptions.DropDownItems.AddRange(subChannels.ToArray());
