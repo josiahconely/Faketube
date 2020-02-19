@@ -39,8 +39,6 @@
             this.labelVideoName = new System.Windows.Forms.Label();
             this.labelCreatorName = new System.Windows.Forms.Label();
             this.pictureBoxCreator = new System.Windows.Forms.PictureBox();
-            this.buttonLike = new System.Windows.Forms.Button();
-            this.buttonDislike = new System.Windows.Forms.Button();
             this.textBoxNewComment = new System.Windows.Forms.TextBox();
             this.labelLikesNum = new System.Windows.Forms.Label();
             this.labelDislikesNum = new System.Windows.Forms.Label();
@@ -50,9 +48,8 @@
             this.listViewComments = new System.Windows.Forms.ListView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.likes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Dislikes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.checkBoxLike = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCreator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -60,6 +57,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
@@ -151,28 +149,6 @@
             this.pictureBoxCreator.TabIndex = 5;
             this.pictureBoxCreator.TabStop = false;
             // 
-            // buttonLike
-            // 
-            this.buttonLike.Location = new System.Drawing.Point(476, 451);
-            this.buttonLike.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonLike.Name = "buttonLike";
-            this.buttonLike.Size = new System.Drawing.Size(85, 34);
-            this.buttonLike.TabIndex = 6;
-            this.buttonLike.Text = "Like";
-            this.buttonLike.UseVisualStyleBackColor = true;
-            this.buttonLike.Click += new System.EventHandler(this.buttonLike_Click);
-            // 
-            // buttonDislike
-            // 
-            this.buttonDislike.Location = new System.Drawing.Point(567, 451);
-            this.buttonDislike.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonDislike.Name = "buttonDislike";
-            this.buttonDislike.Size = new System.Drawing.Size(85, 34);
-            this.buttonDislike.TabIndex = 7;
-            this.buttonDislike.Text = "Dislike";
-            this.buttonDislike.UseVisualStyleBackColor = true;
-            this.buttonDislike.Click += new System.EventHandler(this.buttonDislike_Click);
-            // 
             // textBoxNewComment
             // 
             this.textBoxNewComment.Location = new System.Drawing.Point(12, 537);
@@ -181,6 +157,7 @@
             this.textBoxNewComment.Name = "textBoxNewComment";
             this.textBoxNewComment.Size = new System.Drawing.Size(549, 85);
             this.textBoxNewComment.TabIndex = 10;
+            this.textBoxNewComment.TextChanged += new System.EventHandler(this.textBoxNewComment_TextChanged);
             // 
             // labelLikesNum
             // 
@@ -218,10 +195,10 @@
             this.labelViewsNum.Size = new System.Drawing.Size(102, 24);
             this.labelViewsNum.TabIndex = 14;
             this.labelViewsNum.Text = "ViewsNum";
-            this.labelViewsNum.Click += new System.EventHandler(this.label1_Click);
             // 
             // buttonPostComment
             // 
+            this.buttonPostComment.Enabled = false;
             this.buttonPostComment.Location = new System.Drawing.Point(567, 583);
             this.buttonPostComment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonPostComment.Name = "buttonPostComment";
@@ -233,10 +210,6 @@
             // 
             // listViewComments
             // 
-            this.listViewComments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Comment,
-            this.likes,
-            this.Dislikes});
             this.listViewComments.GridLines = true;
             this.listViewComments.HideSelection = false;
             this.listViewComments.Location = new System.Drawing.Point(13, 629);
@@ -245,11 +218,12 @@
             this.listViewComments.Size = new System.Drawing.Size(548, 186);
             this.listViewComments.TabIndex = 18;
             this.listViewComments.UseCompatibleStateImageBehavior = false;
+            this.listViewComments.View = System.Windows.Forms.View.Tile;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(690, 39);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -264,14 +238,39 @@
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(640, 360);
             this.axWindowsMediaPlayer1.TabIndex = 2;
-            this.axWindowsMediaPlayer1.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
+            // 
+            // checkBoxLike
+            // 
+            this.checkBoxLike.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxLike.Location = new System.Drawing.Point(476, 451);
+            this.checkBoxLike.Name = "checkBoxLike";
+            this.checkBoxLike.Size = new System.Drawing.Size(74, 34);
+            this.checkBoxLike.TabIndex = 20;
+            this.checkBoxLike.Text = "Like";
+            this.checkBoxLike.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxLike.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(567, 451);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(74, 34);
+            this.checkBox1.TabIndex = 21;
+            this.checkBox1.Text = "Dislike";
+            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // videoPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(970, 827);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkBoxLike);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.listViewComments);
             this.Controls.Add(this.buttonPostComment);
@@ -280,8 +279,6 @@
             this.Controls.Add(this.labelDislikesNum);
             this.Controls.Add(this.labelLikesNum);
             this.Controls.Add(this.textBoxNewComment);
-            this.Controls.Add(this.buttonDislike);
-            this.Controls.Add(this.buttonLike);
             this.Controls.Add(this.pictureBoxCreator);
             this.Controls.Add(this.labelCreatorName);
             this.Controls.Add(this.labelVideoName);
@@ -312,8 +309,6 @@
         private System.Windows.Forms.Label labelVideoName;
         private System.Windows.Forms.Label labelCreatorName;
         private System.Windows.Forms.PictureBox pictureBoxCreator;
-        private System.Windows.Forms.Button buttonLike;
-        private System.Windows.Forms.Button buttonDislike;
         private System.Windows.Forms.TextBox textBoxNewComment;
         private System.Windows.Forms.Label labelLikesNum;
         private System.Windows.Forms.Label labelDislikesNum;
@@ -324,8 +319,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabelUserName;
         private System.Windows.Forms.ListView listViewComments;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.ColumnHeader Comment;
-        private System.Windows.Forms.ColumnHeader likes;
-        private System.Windows.Forms.ColumnHeader Dislikes;
+        private System.Windows.Forms.CheckBox checkBoxLike;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

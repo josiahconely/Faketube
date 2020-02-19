@@ -77,5 +77,11 @@ namespace Fake_Tube.Classes
         {
             return true;
         }
+
+        public bool likeVideo(int videoId, int userId)
+        {
+            return true;
+            //set logic for switching 
+        }
     }
 }

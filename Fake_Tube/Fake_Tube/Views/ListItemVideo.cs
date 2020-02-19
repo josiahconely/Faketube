@@ -67,12 +67,12 @@ namespace Fake_Tube.Views
 
         private void ListItemVideo_MouseEnter(object sender, EventArgs e)
         {
-            this.BackColor = Color.Silver;
+            this.BackColor = Color.LightGray;
         }
 
         private void ListItemVideo_MouseLeave(object sender, EventArgs e)
         {
-            this.BackColor = Color.White;
+            this.BackColor = Color.Silver;
         }
 
         private void ListItemVideo_Load(object sender, EventArgs e)

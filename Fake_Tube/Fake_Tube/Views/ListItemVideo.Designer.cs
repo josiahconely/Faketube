@@ -101,7 +101,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel2.Location = new System.Drawing.Point(-2, 97);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(284, 10);
@@ -110,6 +110,7 @@
             // ListItemVideo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.BackColor = System.Drawing.Color.Silver;
             this.Controls.Add(this.labelVideoName);
             this.Controls.Add(this.labelCreatorName);
             this.Controls.Add(this.labelDescription);

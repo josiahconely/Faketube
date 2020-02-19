@@ -14,16 +14,13 @@ namespace Fake_Tube.Views
     
     public partial class videoPlayer : Form
     {
+        //Attributes////////////////////////////////////////////////
         BusinessLogic bl = new BusinessLogic();
         user thisUser = new user();
         video thisVideo;
         channel thisChannel = new channel();
         playlist thisPlaylist = new playlist();
-
-        //List<ListItemVideo> listVideos = new List<ListItemVideo>();
-        
-
-
+        //Main form controls/////////////////////////////////////////
         public videoPlayer(int videoId, int userId, int channelId)
         {
             InitializeComponent();
@@ -45,7 +42,45 @@ namespace Fake_Tube.Views
             buildComments();
             populateVideoItems();
         }
-
+        //Video Selector Controls////////////////////////////////////
+        private void populateVideoItems()
+        {
+            List<video> videos = new List<video>();
+            videos = thisChannel.getVidoes();
+            
+            //loop through each item
+            flowLayoutPanel1.Controls.Clear();
+            foreach (video v in videos)
+            {
+                ListItemVideo listVideo = new ListItemVideo();
+                listVideo.ThisVideo = v;
+                listVideo.videoName = v.getName();
+                listVideo.creatorName = v.getcreatorName();
+                listVideo.description = v.getDescription();
+                listVideo.Click += videoClick;
+                flowLayoutPanel1.Controls.Add(listVideo);
+            }
+        }
+        private void videoClick(object sender, EventArgs e) 
+        {
+            ListItemVideo v = sender as ListItemVideo;
+            thisVideo = v.ThisVideo;
+            videoPlayer_Load(sender, e);
+        }
+        //Likes Dislikes Buttons/////////////////////////////////////
+        private void buttonLike_Click(object sender, EventArgs e)
+        {
+            thisVideo.incLikes(thisUser.userId);
+            labelLikesNum.Text = thisVideo.getLikes().ToString();
+            labelDislikesNum.Text = thisVideo.getDislikes().ToString();
+        }
+        private void buttonDislike_Click(object sender, EventArgs e)
+        {
+            thisVideo.incDislikes();
+            labelLikesNum.Text = thisVideo.getLikes().ToString();
+            labelDislikesNum.Text = thisVideo.getDislikes().ToString();
+        }
+        //Comments Controls/////////////////////////////////////////
         public void buildComments()
         {
             foreach (comment c in thisVideo.getComments())
@@ -56,7 +91,27 @@ namespace Fake_Tube.Views
                 listViewComments.Items.Add(listViewItem);
             }
         }
-
+        private void buttonPostComment_Click(object sender, EventArgs e)
+        {
+            if (textBoxNewComment.Text != "")
+            {
+                thisVideo.addComment(this.textBoxNewComment.Text, thisUser.userId);
+                textBoxNewComment.Text = "";
+                buildComments();
+            }
+        }
+        private void textBoxNewComment_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxNewComment.Text == "")
+            {
+                buttonPostComment.Enabled = false;
+            }
+            else
+            {
+                buttonPostComment.Enabled = true;
+            }
+        }
+        //Tool Strip Controls //////////////////////////////////////
         public void buildToolBar()
         {
             ///////////////////////////////////////////////////////////////////////////////////////
@@ -110,11 +165,8 @@ namespace Fake_Tube.Views
             toolStrip1.Items.Insert(5, toolStripDropDownButtonMySubscriptions);
             //////////////////////////////////////////////////////////////////////////////////////////
         }
-
-        //Tool Strip Controls //////////////////////////////////////
         private void M_Click(object sender, EventArgs e)
         {
-            
             ToolStripItem tsi = sender as ToolStripItem;
             //not safe
             try
@@ -130,7 +182,6 @@ namespace Fake_Tube.Views
                 MessageBox.Show("Channel failed to load... :(");
             }
         }
-
         private void N_Click(object sender, EventArgs e)
         {
             //change to home
@@ -138,7 +189,6 @@ namespace Fake_Tube.Views
             m.Show();
             this.Close();
         }
-
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
             //change to home
@@ -153,7 +203,6 @@ namespace Fake_Tube.Views
             m.Show();
             this.Close();
         }
-
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             //edit to user page
@@ -165,87 +214,9 @@ namespace Fake_Tube.Views
         {
 
         }
-        //Tool Strip Controls //////////////////////////////////////  
-
-        private void populateVideoItems()
-        {
-            List<video> videos = new List<video>();
-            videos = thisChannel.getVidoes();
-            
-            //loop through each item
-            flowLayoutPanel1.Controls.Clear();
-            foreach (video v in videos)
-            {
-                ListItemVideo listVideo = new ListItemVideo();
-                listVideo.ThisVideo = v;
-                listVideo.videoName = v.getName();
-                listVideo.creatorName = v.getcreatorName();
-                listVideo.description = v.getDescription();
-                listVideo.Click += videoClick;
-                flowLayoutPanel1.Controls.Add(listVideo);
-            }
-        }
-        
-        private void videoClick(object sender, EventArgs e) 
-        {
-            ListItemVideo v = sender as ListItemVideo;
-            thisVideo = v.ThisVideo;
-            videoPlayer_Load(sender, e);
-        }
-        
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
         private void toolStripButtonHome_Click(object sender, EventArgs e)
         {
 
-        }
-
-        //not done
-        private void buttonLike_Click(object sender, EventArgs e)
-        {
-            thisVideo.incLikes();
-            labelLikesNum.Text = thisVideo.getLikes().ToString();
-            labelDislikesNum.Text = thisVideo.getDislikes().ToString();
-        }
-
-        //not done
-        private void buttonDislike_Click(object sender, EventArgs e)
-        {
-            thisVideo.incDislikes();
-            labelLikesNum.Text = thisVideo.getLikes().ToString();
-            labelDislikesNum.Text = thisVideo.getDislikes().ToString();
-        }
-
-        private void buttonPostComment_Click(object sender, EventArgs e)
-        {
-            thisVideo.addComment(this.textBoxNewComment.Text, thisUser.userId);
-            buildComments();
         }
     }
 }

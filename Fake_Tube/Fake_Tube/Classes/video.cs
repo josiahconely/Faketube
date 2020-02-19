@@ -103,7 +103,10 @@ namespace Fake_Tube.Classes
         public string getURL() { return this.path + "/" + this.fileName; }
 
         //NOT DONE
-        public void incLikes() { likes += 1; }
+        public void incLikes(int user) 
+        { 
+            bl.likeVideo(this.videoId, user);
+        }
         public void decLikes() { likes -= 1; }
         public void incDislikes() { dislikes += 1; }
         public void decDislikes() { dislikes -= 1; }
