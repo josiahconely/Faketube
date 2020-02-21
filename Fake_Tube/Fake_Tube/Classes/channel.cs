@@ -17,7 +17,7 @@ namespace Fake_Tube.Classes
         private string name;
         private int channelId;
         private List<int> subscribersId;
-        private List<int> vidoesId;
+        private List<int> vidoeIds;
         private int ownerId;
         //private Image logo;
         private List<string> tags;
@@ -38,14 +38,14 @@ namespace Fake_Tube.Classes
         public List<video> getVidoes() 
         {
             List<video> videos = new List<video>();
-            videos = bl.getVidoesfromVidoeIds();//vidoesId);
+            videos = bl.getVidoesfromVidoeIds(vidoeIds);
             return videos;
         }
         public void addVideo() { }
 
         //change
         public void setVideos(List<int> v) {
-            vidoesId = v;
+            vidoeIds = v;
         }
         public int getOwnerId(){ return ownerId; }
         public void setOwnerId(int id) { ownerId = id; }

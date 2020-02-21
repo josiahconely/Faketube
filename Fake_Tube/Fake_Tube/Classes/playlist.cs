@@ -16,7 +16,7 @@ namespace Fake_Tube.Classes
         private int userId; // ID of the owner of the playlist
 
         public playlist() { }
-        playlist(int XuserId, int XplaylistId, string XplaylistName, string Xdescription)
+        public playlist(int XuserId, int XplaylistId, string XplaylistName, string Xdescription)
         {
             userId = XuserId;
             playlistId = XplaylistId;
@@ -25,15 +25,16 @@ namespace Fake_Tube.Classes
         }
 
         // Getters and setters
-        int getPlaylistId() { return playlistId; }
-        int getUserId() { return userId; }
-        string getPlaylistName() { return playlistName; }
-        string getDescription() { return description; }
-        void setPlaylistName(string Xname) { playlistName = Xname; }
-        void setDesctiption(string Xdescription) { description = Xdescription; }
-
+        public int getPlaylistId() { return playlistId; }
+        public int getUserId() { return userId; }
+        public string getPlaylistName() { return playlistName; }
+        public string getDescription() { return description; }
+        public void setPlaylistName(string Xname) { playlistName = Xname; }
+        public void setDesctiption(string Xdescription) { description = Xdescription; }
+        public List<string> getTags() { return tags; }
+        public List<int> getVideoIds() { return videosId; }
         // List add/delete functions
-        bool addVideo(int Xid)
+        public bool addVideo(int Xid)
         {
             if (!videosId.Contains(Xid))
             {
@@ -42,7 +43,7 @@ namespace Fake_Tube.Classes
             }
             return false;
         }
-        bool addTag(string Xtag)
+        public bool addTag(string Xtag)
         {
             if (!tags.Contains(Xtag) && tags.Count() < 20)
             {
@@ -51,7 +52,7 @@ namespace Fake_Tube.Classes
             }
             return false;
         }
-        bool deleteVideo(int Xid)
+        public bool deleteVideo(int Xid)
         {
             if (!videosId.Contains(Xid))
             {
@@ -60,7 +61,7 @@ namespace Fake_Tube.Classes
             }
             return false;
         }
-        bool deleteTag(string Xtag)
+        public bool deleteTag(string Xtag)
         {
             if (!tags.Contains(Xtag))
             {

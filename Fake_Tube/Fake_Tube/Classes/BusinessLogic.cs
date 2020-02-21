@@ -56,7 +56,7 @@ namespace Fake_Tube.Classes
             return false;
         }
 
-        public List<video> getVidoesfromVidoeIds()//List<int> videoIds)
+        public List<video> getVidoesfromVidoeIds(List<int> videoIds)
         {
             List<video> videos = new List<video>();
 

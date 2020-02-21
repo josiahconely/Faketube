@@ -68,7 +68,7 @@
             this.toolStripButtonUserImg});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(970, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(986, 39);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -225,9 +225,9 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(690, 39);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(693, 39);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(280, 788);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(293, 788);
             this.flowLayoutPanel1.TabIndex = 19;
             // 
             // axWindowsMediaPlayer1
@@ -268,7 +268,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(970, 827);
+            this.ClientSize = new System.Drawing.Size(986, 827);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.checkBoxLike);
             this.Controls.Add(this.flowLayoutPanel1);
