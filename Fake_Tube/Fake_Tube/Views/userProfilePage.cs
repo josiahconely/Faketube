@@ -125,6 +125,16 @@ namespace Fake_Tube.Views
         {
 
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabelUserName_Click_1(object sender, EventArgs e)
+        {
+
+        }
         //Tool Strip Controls //////////////////////////////////////  
     }
 }
