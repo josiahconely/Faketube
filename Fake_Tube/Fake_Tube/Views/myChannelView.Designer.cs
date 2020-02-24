@@ -48,7 +48,6 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.listBoxPlayLists = new System.Windows.Forms.ListBox();
             this.groupBoxPlaylist = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanelPlaylistVideos = new System.Windows.Forms.FlowLayoutPanel();
             this.labelPlaylistId = new System.Windows.Forms.Label();
             this.textBoxPlaylistDescription = new System.Windows.Forms.TextBox();
             this.labelPlaylistDescription = new System.Windows.Forms.Label();
@@ -63,6 +62,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageVideos = new System.Windows.Forms.TabPage();
             this.tabPagePlaylist = new System.Windows.Forms.TabPage();
+            this.buttonVidoesEdit = new System.Windows.Forms.Button();
             this.groupBoxVideo.SuspendLayout();
             this.groupBoxPlaylist.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -73,18 +73,19 @@
             // LabelChannelName
             // 
             this.LabelChannelName.AutoSize = true;
-            this.LabelChannelName.Location = new System.Drawing.Point(14, 9);
+            this.LabelChannelName.Location = new System.Drawing.Point(12, 8);
             this.LabelChannelName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.LabelChannelName.Name = "LabelChannelName";
-            this.LabelChannelName.Size = new System.Drawing.Size(132, 24);
+            this.LabelChannelName.Size = new System.Drawing.Size(110, 20);
             this.LabelChannelName.TabIndex = 3;
             this.LabelChannelName.Text = "ChannelName";
             // 
             // buttonAddNew
             // 
-            this.buttonAddNew.Location = new System.Drawing.Point(217, 5);
+            this.buttonAddNew.Location = new System.Drawing.Point(196, 4);
+            this.buttonAddNew.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonAddNew.Name = "buttonAddNew";
-            this.buttonAddNew.Size = new System.Drawing.Size(106, 35);
+            this.buttonAddNew.Size = new System.Drawing.Size(96, 32);
             this.buttonAddNew.TabIndex = 6;
             this.buttonAddNew.Text = "Add New";
             this.buttonAddNew.UseVisualStyleBackColor = true;
@@ -92,9 +93,10 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(217, 55);
+            this.buttonDelete.Location = new System.Drawing.Point(196, 50);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(106, 35);
+            this.buttonDelete.Size = new System.Drawing.Size(96, 32);
             this.buttonDelete.TabIndex = 7;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
@@ -102,9 +104,10 @@
             // 
             // buttonModify
             // 
-            this.buttonModify.Location = new System.Drawing.Point(217, 105);
+            this.buttonModify.Location = new System.Drawing.Point(196, 96);
+            this.buttonModify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonModify.Name = "buttonModify";
-            this.buttonModify.Size = new System.Drawing.Size(106, 35);
+            this.buttonModify.Size = new System.Drawing.Size(96, 32);
             this.buttonModify.TabIndex = 8;
             this.buttonModify.Text = "Modify >>";
             this.buttonModify.UseVisualStyleBackColor = true;
@@ -112,9 +115,10 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(217, 155);
+            this.buttonSave.Location = new System.Drawing.Point(196, 141);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(106, 35);
+            this.buttonSave.Size = new System.Drawing.Size(96, 32);
             this.buttonSave.TabIndex = 9;
             this.buttonSave.Text = "<< Save";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -123,10 +127,11 @@
             // listBoxVidoes
             // 
             this.listBoxVidoes.FormattingEnabled = true;
-            this.listBoxVidoes.ItemHeight = 22;
+            this.listBoxVidoes.ItemHeight = 20;
             this.listBoxVidoes.Location = new System.Drawing.Point(6, 6);
+            this.listBoxVidoes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBoxVidoes.Name = "listBoxVidoes";
-            this.listBoxVidoes.Size = new System.Drawing.Size(205, 356);
+            this.listBoxVidoes.Size = new System.Drawing.Size(185, 324);
             this.listBoxVidoes.TabIndex = 10;
             // 
             // groupBoxVideo
@@ -145,9 +150,11 @@
             this.groupBoxVideo.Controls.Add(this.textBoxName);
             this.groupBoxVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBoxVideo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBoxVideo.Location = new System.Drawing.Point(329, 6);
+            this.groupBoxVideo.Location = new System.Drawing.Point(296, 6);
+            this.groupBoxVideo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxVideo.Name = "groupBoxVideo";
-            this.groupBoxVideo.Size = new System.Drawing.Size(385, 326);
+            this.groupBoxVideo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxVideo.Size = new System.Drawing.Size(347, 297);
             this.groupBoxVideo.TabIndex = 12;
             this.groupBoxVideo.TabStop = false;
             this.groupBoxVideo.Text = "Video Data";
@@ -155,107 +162,119 @@
             // labelVideoId
             // 
             this.labelVideoId.AutoSize = true;
-            this.labelVideoId.Location = new System.Drawing.Point(99, 25);
+            this.labelVideoId.Location = new System.Drawing.Point(89, 22);
+            this.labelVideoId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelVideoId.Name = "labelVideoId";
-            this.labelVideoId.Size = new System.Drawing.Size(87, 24);
+            this.labelVideoId.Size = new System.Drawing.Size(75, 20);
             this.labelVideoId.TabIndex = 10;
             this.labelVideoId.Text = "Video ID:";
             // 
             // textBoxFileName
             // 
-            this.textBoxFileName.Location = new System.Drawing.Point(114, 126);
+            this.textBoxFileName.Location = new System.Drawing.Point(102, 114);
+            this.textBoxFileName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxFileName.Name = "textBoxFileName";
-            this.textBoxFileName.Size = new System.Drawing.Size(265, 28);
+            this.textBoxFileName.Size = new System.Drawing.Size(239, 26);
             this.textBoxFileName.TabIndex = 9;
             // 
             // labelFileName
             // 
             this.labelFileName.AutoSize = true;
-            this.labelFileName.Location = new System.Drawing.Point(11, 130);
+            this.labelFileName.Location = new System.Drawing.Point(10, 118);
+            this.labelFileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFileName.Name = "labelFileName";
-            this.labelFileName.Size = new System.Drawing.Size(104, 24);
+            this.labelFileName.Size = new System.Drawing.Size(86, 20);
             this.labelFileName.TabIndex = 8;
             this.labelFileName.Text = "File Name*";
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(15, 222);
+            this.textBoxDescription.Location = new System.Drawing.Point(14, 202);
+            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(364, 97);
+            this.textBoxDescription.Size = new System.Drawing.Size(328, 88);
             this.textBoxDescription.TabIndex = 7;
             // 
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
-            this.labelDescription.Location = new System.Drawing.Point(11, 195);
+            this.labelDescription.Location = new System.Drawing.Point(10, 177);
+            this.labelDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(104, 24);
+            this.labelDescription.Size = new System.Drawing.Size(89, 20);
             this.labelDescription.TabIndex = 6;
             this.labelDescription.Text = "Description";
             // 
             // textBoxPath
             // 
-            this.textBoxPath.Location = new System.Drawing.Point(114, 163);
+            this.textBoxPath.Location = new System.Drawing.Point(102, 148);
+            this.textBoxPath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPath.Name = "textBoxPath";
-            this.textBoxPath.Size = new System.Drawing.Size(265, 28);
+            this.textBoxPath.Size = new System.Drawing.Size(239, 26);
             this.textBoxPath.TabIndex = 5;
             // 
             // labelFilePath
             // 
             this.labelFilePath.AutoSize = true;
-            this.labelFilePath.Location = new System.Drawing.Point(11, 167);
+            this.labelFilePath.Location = new System.Drawing.Point(10, 152);
+            this.labelFilePath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFilePath.Name = "labelFilePath";
-            this.labelFilePath.Size = new System.Drawing.Size(54, 24);
+            this.labelFilePath.Size = new System.Drawing.Size(48, 20);
             this.labelFilePath.TabIndex = 4;
             this.labelFilePath.Text = "Path*";
             // 
             // textBoxTags
             // 
-            this.textBoxTags.Location = new System.Drawing.Point(114, 89);
+            this.textBoxTags.Location = new System.Drawing.Point(102, 81);
+            this.textBoxTags.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxTags.Name = "textBoxTags";
-            this.textBoxTags.Size = new System.Drawing.Size(265, 28);
+            this.textBoxTags.Size = new System.Drawing.Size(239, 26);
             this.textBoxTags.TabIndex = 3;
             // 
             // labelTags
             // 
             this.labelTags.AutoSize = true;
-            this.labelTags.Location = new System.Drawing.Point(11, 93);
+            this.labelTags.Location = new System.Drawing.Point(10, 84);
+            this.labelTags.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTags.Name = "labelTags";
-            this.labelTags.Size = new System.Drawing.Size(52, 24);
+            this.labelTags.Size = new System.Drawing.Size(44, 20);
             this.labelTags.TabIndex = 2;
             this.labelTags.Text = "Tags";
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(11, 56);
+            this.labelName.Location = new System.Drawing.Point(10, 51);
+            this.labelName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(68, 24);
+            this.labelName.Size = new System.Drawing.Size(57, 20);
             this.labelName.TabIndex = 1;
             this.labelName.Text = "Name*";
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(114, 52);
+            this.textBoxName.Location = new System.Drawing.Point(102, 47);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(265, 28);
+            this.textBoxName.Size = new System.Drawing.Size(239, 26);
             this.textBoxName.TabIndex = 0;
             // 
             // listBoxPlayLists
             // 
             this.listBoxPlayLists.FormattingEnabled = true;
-            this.listBoxPlayLists.ItemHeight = 22;
-            this.listBoxPlayLists.Location = new System.Drawing.Point(3, 6);
+            this.listBoxPlayLists.ItemHeight = 20;
+            this.listBoxPlayLists.Location = new System.Drawing.Point(2, 6);
+            this.listBoxPlayLists.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBoxPlayLists.Name = "listBoxPlayLists";
-            this.listBoxPlayLists.Size = new System.Drawing.Size(205, 356);
+            this.listBoxPlayLists.Size = new System.Drawing.Size(185, 324);
             this.listBoxPlayLists.TabIndex = 13;
             // 
             // groupBoxPlaylist
             // 
             this.groupBoxPlaylist.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.groupBoxPlaylist.Controls.Add(this.flowLayoutPanelPlaylistVideos);
+            this.groupBoxPlaylist.Controls.Add(this.buttonVidoesEdit);
             this.groupBoxPlaylist.Controls.Add(this.labelPlaylistId);
             this.groupBoxPlaylist.Controls.Add(this.textBoxPlaylistDescription);
             this.groupBoxPlaylist.Controls.Add(this.labelPlaylistDescription);
@@ -265,86 +284,88 @@
             this.groupBoxPlaylist.Controls.Add(this.textBoxPlaylistName);
             this.groupBoxPlaylist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBoxPlaylist.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBoxPlaylist.Location = new System.Drawing.Point(326, 6);
+            this.groupBoxPlaylist.Location = new System.Drawing.Point(294, 6);
+            this.groupBoxPlaylist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxPlaylist.Name = "groupBoxPlaylist";
-            this.groupBoxPlaylist.Size = new System.Drawing.Size(385, 369);
+            this.groupBoxPlaylist.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxPlaylist.Size = new System.Drawing.Size(347, 324);
             this.groupBoxPlaylist.TabIndex = 19;
             this.groupBoxPlaylist.TabStop = false;
             this.groupBoxPlaylist.Text = "Playlist Data";
             // 
-            // flowLayoutPanelPlaylistVideos
-            // 
-            this.flowLayoutPanelPlaylistVideos.AutoScroll = true;
-            this.flowLayoutPanelPlaylistVideos.Location = new System.Drawing.Point(165, 244);
-            this.flowLayoutPanelPlaylistVideos.Name = "flowLayoutPanelPlaylistVideos";
-            this.flowLayoutPanelPlaylistVideos.Size = new System.Drawing.Size(221, 121);
-            this.flowLayoutPanelPlaylistVideos.TabIndex = 11;
-            // 
             // labelPlaylistId
             // 
             this.labelPlaylistId.AutoSize = true;
-            this.labelPlaylistId.Location = new System.Drawing.Point(99, 25);
+            this.labelPlaylistId.Location = new System.Drawing.Point(89, 22);
+            this.labelPlaylistId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlaylistId.Name = "labelPlaylistId";
-            this.labelPlaylistId.Size = new System.Drawing.Size(93, 24);
+            this.labelPlaylistId.Size = new System.Drawing.Size(82, 20);
             this.labelPlaylistId.TabIndex = 10;
             this.labelPlaylistId.Text = "Playlist ID:";
             // 
             // textBoxPlaylistDescription
             // 
-            this.textBoxPlaylistDescription.Location = new System.Drawing.Point(15, 157);
+            this.textBoxPlaylistDescription.Location = new System.Drawing.Point(14, 142);
+            this.textBoxPlaylistDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPlaylistDescription.Multiline = true;
             this.textBoxPlaylistDescription.Name = "textBoxPlaylistDescription";
             this.textBoxPlaylistDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxPlaylistDescription.Size = new System.Drawing.Size(364, 81);
+            this.textBoxPlaylistDescription.Size = new System.Drawing.Size(328, 74);
             this.textBoxPlaylistDescription.TabIndex = 7;
             // 
             // labelPlaylistDescription
             // 
             this.labelPlaylistDescription.AutoSize = true;
-            this.labelPlaylistDescription.Location = new System.Drawing.Point(11, 127);
+            this.labelPlaylistDescription.Location = new System.Drawing.Point(10, 116);
+            this.labelPlaylistDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlaylistDescription.Name = "labelPlaylistDescription";
-            this.labelPlaylistDescription.Size = new System.Drawing.Size(104, 24);
+            this.labelPlaylistDescription.Size = new System.Drawing.Size(89, 20);
             this.labelPlaylistDescription.TabIndex = 6;
             this.labelPlaylistDescription.Text = "Description";
             // 
             // textBoxPlaylistTags
             // 
-            this.textBoxPlaylistTags.Location = new System.Drawing.Point(114, 89);
+            this.textBoxPlaylistTags.Location = new System.Drawing.Point(102, 81);
+            this.textBoxPlaylistTags.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPlaylistTags.Name = "textBoxPlaylistTags";
-            this.textBoxPlaylistTags.Size = new System.Drawing.Size(265, 28);
+            this.textBoxPlaylistTags.Size = new System.Drawing.Size(239, 26);
             this.textBoxPlaylistTags.TabIndex = 3;
             // 
             // labelPlaylistTag
             // 
             this.labelPlaylistTag.AutoSize = true;
-            this.labelPlaylistTag.Location = new System.Drawing.Point(11, 93);
+            this.labelPlaylistTag.Location = new System.Drawing.Point(10, 84);
+            this.labelPlaylistTag.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlaylistTag.Name = "labelPlaylistTag";
-            this.labelPlaylistTag.Size = new System.Drawing.Size(52, 24);
+            this.labelPlaylistTag.Size = new System.Drawing.Size(44, 20);
             this.labelPlaylistTag.TabIndex = 2;
             this.labelPlaylistTag.Text = "Tags";
             // 
             // labelPlaylistName
             // 
             this.labelPlaylistName.AutoSize = true;
-            this.labelPlaylistName.Location = new System.Drawing.Point(11, 56);
+            this.labelPlaylistName.Location = new System.Drawing.Point(10, 51);
+            this.labelPlaylistName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlaylistName.Name = "labelPlaylistName";
-            this.labelPlaylistName.Size = new System.Drawing.Size(68, 24);
+            this.labelPlaylistName.Size = new System.Drawing.Size(57, 20);
             this.labelPlaylistName.TabIndex = 1;
             this.labelPlaylistName.Text = "Name*";
             // 
             // textBoxPlaylistName
             // 
-            this.textBoxPlaylistName.Location = new System.Drawing.Point(114, 52);
+            this.textBoxPlaylistName.Location = new System.Drawing.Point(102, 47);
+            this.textBoxPlaylistName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPlaylistName.Name = "textBoxPlaylistName";
-            this.textBoxPlaylistName.Size = new System.Drawing.Size(265, 28);
+            this.textBoxPlaylistName.Size = new System.Drawing.Size(239, 26);
             this.textBoxPlaylistName.TabIndex = 0;
             // 
             // buttonSavePlaylist
             // 
             this.buttonSavePlaylist.Enabled = false;
-            this.buttonSavePlaylist.Location = new System.Drawing.Point(214, 155);
+            this.buttonSavePlaylist.Location = new System.Drawing.Point(192, 141);
+            this.buttonSavePlaylist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSavePlaylist.Name = "buttonSavePlaylist";
-            this.buttonSavePlaylist.Size = new System.Drawing.Size(106, 35);
+            this.buttonSavePlaylist.Size = new System.Drawing.Size(96, 32);
             this.buttonSavePlaylist.TabIndex = 18;
             this.buttonSavePlaylist.Text = "<< Save";
             this.buttonSavePlaylist.UseVisualStyleBackColor = true;
@@ -352,9 +373,10 @@
             // 
             // buttonModifyPlaylist
             // 
-            this.buttonModifyPlaylist.Location = new System.Drawing.Point(214, 105);
+            this.buttonModifyPlaylist.Location = new System.Drawing.Point(192, 96);
+            this.buttonModifyPlaylist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonModifyPlaylist.Name = "buttonModifyPlaylist";
-            this.buttonModifyPlaylist.Size = new System.Drawing.Size(106, 35);
+            this.buttonModifyPlaylist.Size = new System.Drawing.Size(96, 32);
             this.buttonModifyPlaylist.TabIndex = 17;
             this.buttonModifyPlaylist.Text = "Modify >>";
             this.buttonModifyPlaylist.UseVisualStyleBackColor = true;
@@ -362,18 +384,20 @@
             // 
             // buttonDeletePlaylist
             // 
-            this.buttonDeletePlaylist.Location = new System.Drawing.Point(214, 55);
+            this.buttonDeletePlaylist.Location = new System.Drawing.Point(192, 50);
+            this.buttonDeletePlaylist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonDeletePlaylist.Name = "buttonDeletePlaylist";
-            this.buttonDeletePlaylist.Size = new System.Drawing.Size(106, 35);
+            this.buttonDeletePlaylist.Size = new System.Drawing.Size(96, 32);
             this.buttonDeletePlaylist.TabIndex = 16;
             this.buttonDeletePlaylist.Text = "Delete";
             this.buttonDeletePlaylist.UseVisualStyleBackColor = true;
             // 
             // buttonAddNewPlaylist
             // 
-            this.buttonAddNewPlaylist.Location = new System.Drawing.Point(214, 5);
+            this.buttonAddNewPlaylist.Location = new System.Drawing.Point(192, 4);
+            this.buttonAddNewPlaylist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonAddNewPlaylist.Name = "buttonAddNewPlaylist";
-            this.buttonAddNewPlaylist.Size = new System.Drawing.Size(106, 35);
+            this.buttonAddNewPlaylist.Size = new System.Drawing.Size(96, 32);
             this.buttonAddNewPlaylist.TabIndex = 15;
             this.buttonAddNewPlaylist.Text = "Add New";
             this.buttonAddNewPlaylist.UseVisualStyleBackColor = true;
@@ -383,10 +407,11 @@
             // 
             this.tabControl1.Controls.Add(this.tabPageVideos);
             this.tabControl1.Controls.Add(this.tabPagePlaylist);
-            this.tabControl1.Location = new System.Drawing.Point(14, 36);
+            this.tabControl1.Location = new System.Drawing.Point(12, 32);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(735, 409);
+            this.tabControl1.Size = new System.Drawing.Size(662, 372);
             this.tabControl1.TabIndex = 20;
             // 
             // tabPageVideos
@@ -398,10 +423,11 @@
             this.tabPageVideos.Controls.Add(this.buttonModify);
             this.tabPageVideos.Controls.Add(this.buttonSave);
             this.tabPageVideos.Controls.Add(this.groupBoxVideo);
-            this.tabPageVideos.Location = new System.Drawing.Point(4, 31);
+            this.tabPageVideos.Location = new System.Drawing.Point(4, 33);
+            this.tabPageVideos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPageVideos.Name = "tabPageVideos";
-            this.tabPageVideos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageVideos.Size = new System.Drawing.Size(727, 374);
+            this.tabPageVideos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageVideos.Size = new System.Drawing.Size(654, 335);
             this.tabPageVideos.TabIndex = 0;
             this.tabPageVideos.Text = "Videos";
             this.tabPageVideos.UseVisualStyleBackColor = true;
@@ -414,23 +440,34 @@
             this.tabPagePlaylist.Controls.Add(this.buttonAddNewPlaylist);
             this.tabPagePlaylist.Controls.Add(this.buttonModifyPlaylist);
             this.tabPagePlaylist.Controls.Add(this.buttonDeletePlaylist);
-            this.tabPagePlaylist.Location = new System.Drawing.Point(4, 31);
+            this.tabPagePlaylist.Location = new System.Drawing.Point(4, 29);
+            this.tabPagePlaylist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPagePlaylist.Name = "tabPagePlaylist";
-            this.tabPagePlaylist.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePlaylist.Size = new System.Drawing.Size(727, 374);
+            this.tabPagePlaylist.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPagePlaylist.Size = new System.Drawing.Size(654, 339);
             this.tabPagePlaylist.TabIndex = 1;
             this.tabPagePlaylist.Text = "Playlists";
             this.tabPagePlaylist.UseVisualStyleBackColor = true;
             // 
+            // buttonVidoesEdit
+            // 
+            this.buttonVidoesEdit.Location = new System.Drawing.Point(14, 222);
+            this.buttonVidoesEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonVidoesEdit.Name = "buttonVidoesEdit";
+            this.buttonVidoesEdit.Size = new System.Drawing.Size(90, 29);
+            this.buttonVidoesEdit.TabIndex = 11;
+            this.buttonVidoesEdit.Text = "Videos";
+            this.buttonVidoesEdit.UseVisualStyleBackColor = true;
+            // 
             // myChannelView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(760, 487);
+            this.ClientSize = new System.Drawing.Size(684, 442);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.LabelChannelName);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F);
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "myChannelView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FakeTube My Channel";
@@ -479,9 +516,9 @@
         private System.Windows.Forms.Button buttonModifyPlaylist;
         private System.Windows.Forms.Button buttonDeletePlaylist;
         private System.Windows.Forms.Button buttonAddNewPlaylist;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelPlaylistVideos;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageVideos;
         private System.Windows.Forms.TabPage tabPagePlaylist;
+        private System.Windows.Forms.Button buttonVidoesEdit;
     }
 }
