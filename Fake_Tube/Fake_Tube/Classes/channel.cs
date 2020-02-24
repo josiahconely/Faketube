@@ -11,7 +11,7 @@ using System.Drawing;
 namespace Fake_Tube.Classes
 {
     
-    class channel
+    public class channel
     {
         BusinessLogic bl = new BusinessLogic();
         private string name;

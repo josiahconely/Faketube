@@ -28,14 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(myChannelView));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonHome = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabelUserName = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButtonUserImg = new System.Windows.Forms.ToolStripButton();
             this.LabelChannelName = new System.Windows.Forms.Label();
             this.buttonAddNew = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
@@ -56,6 +48,7 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.listBoxPlayLists = new System.Windows.Forms.ListBox();
             this.groupBoxPlaylist = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanelPlaylistVideos = new System.Windows.Forms.FlowLayoutPanel();
             this.labelPlaylistId = new System.Windows.Forms.Label();
             this.textBoxPlaylistDescription = new System.Windows.Forms.TextBox();
             this.labelPlaylistDescription = new System.Windows.Forms.Label();
@@ -67,11 +60,9 @@
             this.buttonModifyPlaylist = new System.Windows.Forms.Button();
             this.buttonDeletePlaylist = new System.Windows.Forms.Button();
             this.buttonAddNewPlaylist = new System.Windows.Forms.Button();
-            this.flowLayoutPanelPlaylistVideos = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageVideos = new System.Windows.Forms.TabPage();
             this.tabPagePlaylist = new System.Windows.Forms.TabPage();
-            this.toolStrip1.SuspendLayout();
             this.groupBoxVideo.SuspendLayout();
             this.groupBoxPlaylist.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -79,75 +70,10 @@
             this.tabPagePlaylist.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripLabel1,
-            this.toolStripSeparator1,
-            this.toolStripButtonHome,
-            this.toolStripLabelUserName,
-            this.toolStripButtonUserImg});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(760, 39);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(36, 36);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(58, 36);
-            this.toolStripLabel1.Text = "FakeTube";
-            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
-            // 
-            // toolStripButtonHome
-            // 
-            this.toolStripButtonHome.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonHome.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonHome.Image")));
-            this.toolStripButtonHome.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonHome.Name = "toolStripButtonHome";
-            this.toolStripButtonHome.Size = new System.Drawing.Size(44, 36);
-            this.toolStripButtonHome.Text = "Home";
-            // 
-            // toolStripLabelUserName
-            // 
-            this.toolStripLabelUserName.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripLabelUserName.Name = "toolStripLabelUserName";
-            this.toolStripLabelUserName.Size = new System.Drawing.Size(62, 36);
-            this.toolStripLabelUserName.Text = "UserName";
-            this.toolStripLabelUserName.Click += new System.EventHandler(this.toolStripLabelUserName_Click);
-            // 
-            // toolStripButtonUserImg
-            // 
-            this.toolStripButtonUserImg.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonUserImg.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUserImg.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonUserImg.Image")));
-            this.toolStripButtonUserImg.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonUserImg.Name = "toolStripButtonUserImg";
-            this.toolStripButtonUserImg.Size = new System.Drawing.Size(36, 36);
-            this.toolStripButtonUserImg.Text = "toolStripButton4";
-            // 
             // LabelChannelName
             // 
             this.LabelChannelName.AutoSize = true;
-            this.LabelChannelName.Location = new System.Drawing.Point(18, 39);
+            this.LabelChannelName.Location = new System.Drawing.Point(14, 9);
             this.LabelChannelName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.LabelChannelName.Name = "LabelChannelName";
             this.LabelChannelName.Size = new System.Drawing.Size(132, 24);
@@ -346,6 +272,14 @@
             this.groupBoxPlaylist.TabStop = false;
             this.groupBoxPlaylist.Text = "Playlist Data";
             // 
+            // flowLayoutPanelPlaylistVideos
+            // 
+            this.flowLayoutPanelPlaylistVideos.AutoScroll = true;
+            this.flowLayoutPanelPlaylistVideos.Location = new System.Drawing.Point(165, 244);
+            this.flowLayoutPanelPlaylistVideos.Name = "flowLayoutPanelPlaylistVideos";
+            this.flowLayoutPanelPlaylistVideos.Size = new System.Drawing.Size(221, 121);
+            this.flowLayoutPanelPlaylistVideos.TabIndex = 11;
+            // 
             // labelPlaylistId
             // 
             this.labelPlaylistId.AutoSize = true;
@@ -445,19 +379,11 @@
             this.buttonAddNewPlaylist.UseVisualStyleBackColor = true;
             this.buttonAddNewPlaylist.Click += new System.EventHandler(this.buttonAddNewPlaylist_Click);
             // 
-            // flowLayoutPanelPlaylistVideos
-            // 
-            this.flowLayoutPanelPlaylistVideos.AutoScroll = true;
-            this.flowLayoutPanelPlaylistVideos.Location = new System.Drawing.Point(165, 244);
-            this.flowLayoutPanelPlaylistVideos.Name = "flowLayoutPanelPlaylistVideos";
-            this.flowLayoutPanelPlaylistVideos.Size = new System.Drawing.Size(221, 121);
-            this.flowLayoutPanelPlaylistVideos.TabIndex = 11;
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPageVideos);
             this.tabControl1.Controls.Add(this.tabPagePlaylist);
-            this.tabControl1.Location = new System.Drawing.Point(18, 66);
+            this.tabControl1.Location = new System.Drawing.Point(14, 36);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(735, 409);
@@ -503,15 +429,12 @@
             this.ClientSize = new System.Drawing.Size(760, 487);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.LabelChannelName);
-            this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "myChannelView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FakeTube My Channel";
             this.Load += new System.EventHandler(this.myChannelView_Load);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.groupBoxVideo.ResumeLayout(false);
             this.groupBoxVideo.PerformLayout();
             this.groupBoxPlaylist.ResumeLayout(false);
@@ -525,14 +448,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton toolStripButtonHome;
-        private System.Windows.Forms.ToolStripLabel toolStripLabelUserName;
-        private System.Windows.Forms.ToolStripButton toolStripButtonUserImg;
         private System.Windows.Forms.Label LabelChannelName;
         private System.Windows.Forms.Button buttonAddNew;
         private System.Windows.Forms.Button buttonDelete;

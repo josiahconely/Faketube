@@ -32,6 +32,11 @@ namespace Fake_Tube.Views
         private void videoPlayer_Load(object sender, EventArgs e)
         {
             //Assigns info from video 
+            loader();
+        }
+
+        private void loader()
+        {
             thisVideo.incViews();
             axWindowsMediaPlayer1.URL = thisVideo.getURL();
             labelVideoName.Text = thisVideo.getName();
@@ -42,6 +47,7 @@ namespace Fake_Tube.Views
             buildComments();
             populateVideoItems();
         }
+
         //Video Selector Controls////////////////////////////////////
         private void populateVideoItems()
         {
@@ -186,8 +192,11 @@ namespace Fake_Tube.Views
         {
             //change to home
             myChannelView m = new myChannelView();
-            m.Show();
-            this.Close();
+            m.ShowDialog(this);
+            if (thisChannel.getChannelId() == m.thisChannel.getChannelId())
+            {
+                loader();
+            }
         }
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
