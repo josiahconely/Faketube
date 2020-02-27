@@ -11,9 +11,10 @@ using Fake_Tube.Classes;
 
 namespace Fake_Tube.Views
 {
-    
+   
     public partial class videoPlayer : Form
     {
+        bool handleChecked = true;
         //Attributes////////////////////////////////////////////////
         BusinessLogic bl = new BusinessLogic();
         user thisUser = new user();
@@ -34,7 +35,6 @@ namespace Fake_Tube.Views
             //Assigns info from video 
             loader();
         }
-
         private void loader()
         {
             thisVideo.incViews();
@@ -46,8 +46,12 @@ namespace Fake_Tube.Views
             labelCreatorName.Text = thisVideo.getcreatorName();
             buildComments();
             populateVideoItems();
+            //update ths to load checks from user
+            handleChecked = false;
+            checkBoxLike.Checked = false;
+            checkBoxDislike.Checked = false;
+            handleChecked = true;
         }
-
         //Video Selector Controls////////////////////////////////////
         private void populateVideoItems()
         {
@@ -74,17 +78,59 @@ namespace Fake_Tube.Views
             videoPlayer_Load(sender, e);
         }
         //Likes Dislikes Buttons/////////////////////////////////////
-        private void buttonLike_Click(object sender, EventArgs e)
+        private void checkBoxLike_CheckedChanged(object sender, EventArgs e)
         {
-            thisVideo.incLikes(thisUser.userId);
+
+            if (handleChecked)
+            {
+                handleChecked = false;
+                //if 1 like occured unDislike did not occur
+                //if 2 like occured unDislike occured
+                //if 3 unLike occured
+                switch (bl.clickLikeVideo(thisVideo.getVideoId(), thisUser.userId))
+                {
+                    case 1:
+                        checkBoxLike.Checked = true;
+                        break;
+                    case 2:
+                        checkBoxLike.Checked = true;
+                        checkBoxDislike.Checked = false;
+                        break;
+                    case 3:
+                        checkBoxLike.Checked = false;
+                        break;
+                }
+                handleChecked = true;
+            }
             labelLikesNum.Text = thisVideo.getLikes().ToString();
             labelDislikesNum.Text = thisVideo.getDislikes().ToString();
         }
-        private void buttonDislike_Click(object sender, EventArgs e)
+        private void checkBoxDislike_CheckedChanged(object sender, EventArgs e)
         {
-            thisVideo.incDislikes();
+            if (handleChecked)
+            {
+                handleChecked = false;
+                //if 1 dislike occured unlike did not occur
+                //if 2 idslike occured unlike occured
+                //if 3 unDislike occured
+                switch (bl.clickDislikeVideo(thisVideo.getVideoId(), thisUser.userId))
+                {
+                    case 1:
+                        checkBoxDislike.Checked = true;
+                        break;
+                    case 2:
+                        checkBoxLike.Checked = false;
+                        checkBoxDislike.Checked = true;
+                        break;
+                    case 3:
+                        checkBoxDislike.Checked = false;
+                        break;
+                }
+                handleChecked = true;
+            }
             labelLikesNum.Text = thisVideo.getLikes().ToString();
             labelDislikesNum.Text = thisVideo.getDislikes().ToString();
+
         }
         //Comments Controls/////////////////////////////////////////
         public void buildComments()
@@ -227,5 +273,6 @@ namespace Fake_Tube.Views
         {
 
         }
+        
     }
 }

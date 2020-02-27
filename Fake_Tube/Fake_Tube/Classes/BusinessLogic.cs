@@ -78,10 +78,21 @@ namespace Fake_Tube.Classes
             return true;
         }
 
-        public bool likeVideo(int videoId, int userId)
+
+        
+        public int clickLikeVideo(int videoId, int userId)
         {
-            return true;
-            //set logic for switching 
+            return 2; 
+            //if 1 like occured unDislike did not occur
+            //if 2 like occured unDislike occured
+            //if 3 unLike occured
+        }
+        public int clickDislikeVideo(int videoId, int userId)
+        {
+            return 2;
+            //if 1 dislike occured unlike did not occur
+            //if 2 idslike occured unlike occured
+            //if 3 unDislike occured
         }
     }
 }

@@ -49,7 +49,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.checkBoxLike = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxDislike = new System.Windows.Forms.CheckBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCreator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -249,18 +249,20 @@
             this.checkBoxLike.Text = "Like";
             this.checkBoxLike.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBoxLike.UseVisualStyleBackColor = true;
+            this.checkBoxLike.CheckedChanged += new System.EventHandler(this.checkBoxLike_CheckedChanged);
             // 
-            // checkBox1
+            // checkBoxDislike
             // 
-            this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(567, 451);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(74, 34);
-            this.checkBox1.TabIndex = 21;
-            this.checkBox1.Text = "Dislike";
-            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxDislike.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxDislike.AutoSize = true;
+            this.checkBoxDislike.Location = new System.Drawing.Point(567, 451);
+            this.checkBoxDislike.Name = "checkBoxDislike";
+            this.checkBoxDislike.Size = new System.Drawing.Size(74, 34);
+            this.checkBoxDislike.TabIndex = 21;
+            this.checkBoxDislike.Text = "Dislike";
+            this.checkBoxDislike.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxDislike.UseVisualStyleBackColor = true;
+            this.checkBoxDislike.CheckedChanged += new System.EventHandler(this.checkBoxDislike_CheckedChanged);
             // 
             // videoPlayer
             // 
@@ -269,7 +271,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(986, 827);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkBoxDislike);
             this.Controls.Add(this.checkBoxLike);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.listViewComments);
@@ -320,6 +322,6 @@
         private System.Windows.Forms.ListView listViewComments;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.CheckBox checkBoxLike;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxDislike;
     }
 }

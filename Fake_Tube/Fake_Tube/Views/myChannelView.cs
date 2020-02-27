@@ -151,7 +151,7 @@ namespace Fake_Tube.Views
         }
 
 
-        private void populateVideoItems()
+        /*private void populateVideoItems()
         {
                         //loop through each item
             flowLayoutPanelPlaylistVideos.Controls.Clear();
@@ -165,7 +165,7 @@ namespace Fake_Tube.Views
                 listVideo.Click += videoClick;
                 flowLayoutPanelPlaylistVideos.Controls.Add(listVideo);
             }
-        }
+        }*/
 
         private void videoClick(object sender, EventArgs e)
         {
