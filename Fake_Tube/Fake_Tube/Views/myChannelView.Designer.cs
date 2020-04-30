@@ -70,94 +70,16 @@
             this.tabPagePlaylist.SuspendLayout();
             this.SuspendLayout();
             // 
-
-            // toolStrip1
-            // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripLabel1,
-            this.toolStripSeparator1,
-            this.toolStripButtonHome,
-            this.toolStripLabelUserName,
-            this.toolStripButtonUserImg});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(1107, 61);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(69, 52);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(171, 52);
-            this.toolStripLabel1.Text = "FakeTube";
-            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 61);
-            // 
-            // toolStripButtonHome
-            // 
-            this.toolStripButtonHome.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonHome.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonHome.Image")));
-            this.toolStripButtonHome.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonHome.Name = "toolStripButtonHome";
-            this.toolStripButtonHome.Size = new System.Drawing.Size(121, 52);
-            this.toolStripButtonHome.Text = "Home";
-            // 
-            // toolStripLabelUserName
-            // 
-            this.toolStripLabelUserName.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripLabelUserName.Name = "toolStripLabelUserName";
-            this.toolStripLabelUserName.Size = new System.Drawing.Size(187, 52);
-            this.toolStripLabelUserName.Text = "UserName";
-            this.toolStripLabelUserName.Click += new System.EventHandler(this.toolStripLabelUserName_Click);
-            // 
-            // toolStripButtonUserImg
-            // 
-            this.toolStripButtonUserImg.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonUserImg.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUserImg.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonUserImg.Image")));
-            this.toolStripButtonUserImg.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonUserImg.Name = "toolStripButtonUserImg";
-            this.toolStripButtonUserImg.Size = new System.Drawing.Size(69, 52);
-            this.toolStripButtonUserImg.Text = "toolStripButton4";
-            // 
-
             // LabelChannelName
             // 
             this.LabelChannelName.AutoSize = true;
             this.LabelChannelName.Location = new System.Drawing.Point(12, 8);
             this.LabelChannelName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.LabelChannelName.Name = "LabelChannelName";
-
-            this.LabelChannelName.Size = new System.Drawing.Size(385, 64);
+            this.LabelChannelName.Size = new System.Drawing.Size(110, 20);
             this.LabelChannelName.TabIndex = 3;
             this.LabelChannelName.Text = "ChannelName";
             // 
-            // labelVideos
-            // 
-            this.labelVideos.AutoSize = true;
-            this.labelVideos.Location = new System.Drawing.Point(14, 66);
-            this.labelVideos.Name = "labelVideos";
-            this.labelVideos.Size = new System.Drawing.Size(199, 64);
-            this.labelVideos.TabIndex = 5;
-            this.labelVideos.Text = "Videos";
-            // 
-
             // buttonAddNew
             // 
             this.buttonAddNew.Location = new System.Drawing.Point(196, 4);
@@ -205,13 +127,11 @@
             // listBoxVidoes
             // 
             this.listBoxVidoes.FormattingEnabled = true;
-
             this.listBoxVidoes.ItemHeight = 20;
             this.listBoxVidoes.Location = new System.Drawing.Point(6, 6);
             this.listBoxVidoes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBoxVidoes.Name = "listBoxVidoes";
             this.listBoxVidoes.Size = new System.Drawing.Size(185, 324);
-
             this.listBoxVidoes.TabIndex = 10;
             // 
             // groupBoxVideo
@@ -245,9 +165,7 @@
             this.labelVideoId.Location = new System.Drawing.Point(89, 22);
             this.labelVideoId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelVideoId.Name = "labelVideoId";
-
             this.labelVideoId.Size = new System.Drawing.Size(75, 20);
-
             this.labelVideoId.TabIndex = 10;
             this.labelVideoId.Text = "Video ID:";
             // 
@@ -256,11 +174,7 @@
             this.textBoxFileName.Location = new System.Drawing.Point(102, 114);
             this.textBoxFileName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxFileName.Name = "textBoxFileName";
-
             this.textBoxFileName.Size = new System.Drawing.Size(239, 26);
-
-            this.textBoxFileName.Size = new System.Drawing.Size(265, 70);
-
             this.textBoxFileName.TabIndex = 9;
             // 
             // labelFileName
@@ -269,9 +183,7 @@
             this.labelFileName.Location = new System.Drawing.Point(10, 118);
             this.labelFileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFileName.Name = "labelFileName";
-
             this.labelFileName.Size = new System.Drawing.Size(86, 20);
-
             this.labelFileName.TabIndex = 8;
             this.labelFileName.Text = "File Name*";
             // 
@@ -291,9 +203,7 @@
             this.labelDescription.Location = new System.Drawing.Point(10, 177);
             this.labelDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDescription.Name = "labelDescription";
-
             this.labelDescription.Size = new System.Drawing.Size(89, 20);
-
             this.labelDescription.TabIndex = 6;
             this.labelDescription.Text = "Description";
             // 
@@ -302,9 +212,7 @@
             this.textBoxPath.Location = new System.Drawing.Point(102, 148);
             this.textBoxPath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPath.Name = "textBoxPath";
-
             this.textBoxPath.Size = new System.Drawing.Size(239, 26);
-
             this.textBoxPath.TabIndex = 5;
             // 
             // labelFilePath
@@ -313,9 +221,7 @@
             this.labelFilePath.Location = new System.Drawing.Point(10, 152);
             this.labelFilePath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFilePath.Name = "labelFilePath";
-
             this.labelFilePath.Size = new System.Drawing.Size(48, 20);
-
             this.labelFilePath.TabIndex = 4;
             this.labelFilePath.Text = "Path*";
             // 
@@ -324,9 +230,7 @@
             this.textBoxTags.Location = new System.Drawing.Point(102, 81);
             this.textBoxTags.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxTags.Name = "textBoxTags";
-
             this.textBoxTags.Size = new System.Drawing.Size(239, 26);
-
             this.textBoxTags.TabIndex = 3;
             // 
             // labelTags
@@ -335,9 +239,7 @@
             this.labelTags.Location = new System.Drawing.Point(10, 84);
             this.labelTags.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTags.Name = "labelTags";
-
             this.labelTags.Size = new System.Drawing.Size(44, 20);
-
             this.labelTags.TabIndex = 2;
             this.labelTags.Text = "Tags";
             // 
@@ -347,9 +249,7 @@
             this.labelName.Location = new System.Drawing.Point(10, 51);
             this.labelName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelName.Name = "labelName";
-
             this.labelName.Size = new System.Drawing.Size(57, 20);
-
             this.labelName.TabIndex = 1;
             this.labelName.Text = "Name*";
             // 
@@ -358,15 +258,12 @@
             this.textBoxName.Location = new System.Drawing.Point(102, 47);
             this.textBoxName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxName.Name = "textBoxName";
-
             this.textBoxName.Size = new System.Drawing.Size(239, 26);
-
             this.textBoxName.TabIndex = 0;
             // 
             // listBoxPlayLists
             // 
             this.listBoxPlayLists.FormattingEnabled = true;
-
             this.listBoxPlayLists.ItemHeight = 20;
             this.listBoxPlayLists.Location = new System.Drawing.Point(2, 6);
             this.listBoxPlayLists.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -374,7 +271,6 @@
             this.listBoxPlayLists.Size = new System.Drawing.Size(185, 324);
             this.listBoxPlayLists.TabIndex = 13;
             // 
-
             // groupBoxPlaylist
             // 
             this.groupBoxPlaylist.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -403,7 +299,6 @@
             this.labelPlaylistId.Location = new System.Drawing.Point(89, 22);
             this.labelPlaylistId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlaylistId.Name = "labelPlaylistId";
-
             this.labelPlaylistId.Size = new System.Drawing.Size(82, 20);
             this.labelPlaylistId.TabIndex = 10;
             this.labelPlaylistId.Text = "Playlist ID:";
@@ -463,7 +358,6 @@
             this.textBoxPlaylistName.Name = "textBoxPlaylistName";
             this.textBoxPlaylistName.Size = new System.Drawing.Size(239, 26);
             this.textBoxPlaylistName.TabIndex = 0;
-
             // 
             // buttonSavePlaylist
             // 
@@ -567,25 +461,10 @@
             // 
             // myChannelView
             // 
-
-            this.AutoScaleDimensions = new System.Drawing.SizeF(33F, 64F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1107, 923);
-            this.Controls.Add(this.groupBoxPlaylist);
-            this.Controls.Add(this.buttonSavePlaylist);
-            this.Controls.Add(this.buttonModifyPlaylist);
-            this.Controls.Add(this.buttonDeletePlaylist);
-            this.Controls.Add(this.buttonAddNewPlaylist);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBoxPlayLists);
-            this.Controls.Add(this.groupBoxVideo);
-            this.Controls.Add(this.listBoxVidoes);
-            this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.buttonModify);
-            this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonAddNew);
-            this.Controls.Add(this.labelVideos);
-
+            this.ClientSize = new System.Drawing.Size(684, 442);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.LabelChannelName);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
