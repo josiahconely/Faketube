@@ -120,6 +120,9 @@
     <Compile Include="Views\videoPlayer.Designer.cs">
       <DependentUpon>videoPlayer.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\homePage.resx">
+      <DependentUpon>homePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\playlistVideoEditor.resx">
       <DependentUpon>playlistVideoEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="Views\myChannelView.resx">
       <DependentUpon>myChannelView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\userProfilePage.resx">
+      <DependentUpon>userProfilePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\videoPlayer.resx">
       <DependentUpon>videoPlayer.cs</DependentUpon>
