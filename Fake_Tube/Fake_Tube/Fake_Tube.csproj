@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,7 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,6 +61,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\BusinessLogic.cs" />
@@ -51,14 +69,30 @@
     <Compile Include="Classes\comment.cs" />
     <Compile Include="Classes\DataBaseAPI.cs" />
     <Compile Include="Classes\playlist.cs" />
-    <Compile Include="Classes\user.cs" />
     <Compile Include="Classes\users.cs" />
     <Compile Include="Classes\video.cs" />
+    <Compile Include="Faketube_databaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Faketube_databaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Views\playlistVideoEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\playlistVideoEditor.Designer.cs">
+      <DependentUpon>playlistVideoEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\homePage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\homePage.Designer.cs">
       <DependentUpon>homePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListItemVideo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ListItemVideo.Designer.cs">
+      <DependentUpon>ListItemVideo.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\loginPage.cs">
       <SubType>Form</SubType>
@@ -86,6 +120,15 @@
     <Compile Include="Views\videoPlayer.Designer.cs">
       <DependentUpon>videoPlayer.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\homePage.resx">
+      <DependentUpon>homePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\playlistVideoEditor.resx">
+      <DependentUpon>playlistVideoEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ListItemVideo.resx">
+      <DependentUpon>ListItemVideo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\loginPage.resx">
       <DependentUpon>loginPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,6 +150,17 @@
     <EmbeddedResource Include="Views\videoPlayer.resx">
       <DependentUpon>videoPlayer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Faketube_databaseDataSet.xsc">
+      <DependentUpon>Faketube_databaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Faketube_databaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Faketube_databaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Faketube_databaseDataSet.xss">
+      <DependentUpon>Faketube_databaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -138,6 +192,27 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Faketube_database.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Faketube_database_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Faketube_database.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

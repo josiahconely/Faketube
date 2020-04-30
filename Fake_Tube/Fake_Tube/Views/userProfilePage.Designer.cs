@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+
+
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(userProfilePage));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -400,6 +402,7 @@
             this.GroupBox1AddDelete.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
 
         }
 

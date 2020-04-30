@@ -11,33 +11,176 @@ using Fake_Tube.Classes;
 
 namespace Fake_Tube.Views
 {
-    
+   
     public partial class videoPlayer : Form
     {
+        bool handleChecked = true;
+        //Attributes////////////////////////////////////////////////
         BusinessLogic bl = new BusinessLogic();
-        user thisUser = new user();
+        users thisUser = new users();
         video thisVideo;
-
-        public videoPlayer(int videoId, int userId)
+        channel thisChannel = new channel();
+        playlist thisPlaylist = new playlist();
+        //Main form controls/////////////////////////////////////////
+        public videoPlayer(int videoId, int userId, int channelId)
         {
             InitializeComponent();
             thisVideo = bl.getVideo(videoId);
+            thisUser = bl.getUser(userId);
+            thisChannel = bl.getChannel(channelId);
+            buildToolBar();
+        }
+        private void videoPlayer_Load(object sender, EventArgs e)
+        {
+            //Assigns info from video 
+            loader();
+        }
+        private void loader()
+        {
+            thisVideo.incViews();
+            axWindowsMediaPlayer1.URL = thisVideo.getURL();
+            labelVideoName.Text = thisVideo.getName();
+            labelLikesNum.Text = thisVideo.getLikes().ToString();
+            labelDislikesNum.Text = thisVideo.getDislikes().ToString();
+            labelViewsNum.Text = thisVideo.getViews().ToString();
+            labelCreatorName.Text = thisVideo.getcreatorName();
+            buildComments();
+            populateVideoItems();
+            //update ths to load checks from user
+            handleChecked = false;
+            checkBoxLike.Checked = false;
+            checkBoxDislike.Checked = false;
+            handleChecked = true;
+        }
+        //Video Selector Controls////////////////////////////////////
+        private void populateVideoItems()
+        {
+            List<video> videos = new List<video>();
+            videos = thisChannel.getVidoes();
+            
+            //loop through each item
+            flowLayoutPanel1.Controls.Clear();
+            foreach (video v in videos)
+            {
+                ListItemVideo listVideo = new ListItemVideo();
+                listVideo.ThisVideo = v;
+                listVideo.videoName = v.getName();
+                listVideo.creatorName = v.getcreatorName();
+                listVideo.description = v.getDescription();
+                listVideo.Click += videoClick;
+                flowLayoutPanel1.Controls.Add(listVideo);
+            }
+        }
+        private void videoClick(object sender, EventArgs e) 
+        {
+            ListItemVideo v = sender as ListItemVideo;
+            thisVideo = v.ThisVideo;
+            videoPlayer_Load(sender, e);
+        }
+        //Likes Dislikes Buttons/////////////////////////////////////
+        private void checkBoxLike_CheckedChanged(object sender, EventArgs e)
+        {
 
+            if (handleChecked)
+            {
+                handleChecked = false;
+                //if 1 like occured unDislike did not occur
+                //if 2 like occured unDislike occured
+                //if 3 unLike occured
+                switch (bl.clickLikeVideo(thisVideo.getVideoId(), thisUser.userId))
+                {
+                    case 1:
+                        checkBoxLike.Checked = true;
+                        break;
+                    case 2:
+                        checkBoxLike.Checked = true;
+                        checkBoxDislike.Checked = false;
+                        break;
+                    case 3:
+                        checkBoxLike.Checked = false;
+                        break;
+                }
+                handleChecked = true;
+            }
+            labelLikesNum.Text = thisVideo.getLikes().ToString();
+            labelDislikesNum.Text = thisVideo.getDislikes().ToString();
+        }
+        private void checkBoxDislike_CheckedChanged(object sender, EventArgs e)
+        {
+            if (handleChecked)
+            {
+                handleChecked = false;
+                //if 1 dislike occured unlike did not occur
+                //if 2 idslike occured unlike occured
+                //if 3 unDislike occured
+                switch (bl.clickDislikeVideo(thisVideo.getVideoId(), thisUser.userId))
+                {
+                    case 1:
+                        checkBoxDislike.Checked = true;
+                        break;
+                    case 2:
+                        checkBoxLike.Checked = false;
+                        checkBoxDislike.Checked = true;
+                        break;
+                    case 3:
+                        checkBoxDislike.Checked = false;
+                        break;
+                }
+                handleChecked = true;
+            }
+            labelLikesNum.Text = thisVideo.getLikes().ToString();
+            labelDislikesNum.Text = thisVideo.getDislikes().ToString();
+
+        }
+        //Comments Controls/////////////////////////////////////////
+        public void buildComments()
+        {
+            foreach (comment c in thisVideo.getComments())
+            {
+                listViewComments.Clear();
+                string[] row = { c.getText(), c.getLikes().ToString(), c.getDislikes().ToString() };
+                var listViewItem = new ListViewItem(row);
+                listViewComments.Items.Add(listViewItem);
+            }
+        }
+        private void buttonPostComment_Click(object sender, EventArgs e)
+        {
+            if (textBoxNewComment.Text != "")
+            {
+                thisVideo.addComment(this.textBoxNewComment.Text, thisUser.userId);
+                textBoxNewComment.Text = "";
+                buildComments();
+            }
+        }
+        private void textBoxNewComment_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxNewComment.Text == "")
+            {
+                buttonPostComment.Enabled = false;
+            }
+            else
+            {
+                buttonPostComment.Enabled = true;
+            }
+        }
+        //Tool Strip Controls //////////////////////////////////////
+        public void buildToolBar()
+        {
             ///////////////////////////////////////////////////////////////////////////////////////
             //Adds My Channels Drop Down
             ToolStripDropDownButton toolStripDropDownButtonMyChannels = new ToolStripDropDownButton();
             toolStripDropDownButtonMyChannels.Text = "My Channels";
             //get users channel names
-        
+
 
             toolStripDropDownButtonMyChannels.DropDownItems.Clear();
             List<ToolStripMenuItem> myChannels = new List<ToolStripMenuItem>();
-            foreach (string x in thisUser.myChannels)
+            foreach (int x in thisUser.myChannels)
             {
                 ToolStripMenuItem n = new ToolStripMenuItem();
-                n.Text = x;
-                
-                if (!string.IsNullOrEmpty(x))
+                n.Text = x.ToString();
+
+                if (!string.IsNullOrEmpty(x.ToString()))
                 {
                     Keys k = new Keys();
                     k.Equals(1);
@@ -59,18 +202,14 @@ namespace Fake_Tube.Views
 
             toolStripDropDownButtonMySubscriptions.DropDownItems.Clear();
             List<ToolStripMenuItem> subChannels = new List<ToolStripMenuItem>();
-            foreach (string x in thisUser.mySubs)
+            foreach (int x in thisUser.mySubs)
             {
                 ToolStripMenuItem m = new ToolStripMenuItem();
-                m.Text = x;
-
-                if (!string.IsNullOrEmpty(x))
-                {
-                    Keys k = new Keys();
-                    k.Equals(1);
-                    m.ShortcutKeys = k;
-                    m.Click += M_Click; ;
-                }
+                m.Text = x.ToString();
+                Keys k = new Keys();
+                k.Equals(1);
+                m.ShortcutKeys = k;
+                m.Click += M_Click;
                 subChannels.Add(m);
             }
             toolStripDropDownButtonMySubscriptions.DropDownItems.AddRange(subChannels.ToArray());
@@ -78,34 +217,33 @@ namespace Fake_Tube.Views
             toolStrip1.Items.Insert(5, toolStripDropDownButtonMySubscriptions);
             //////////////////////////////////////////////////////////////////////////////////////////
         }
-
-        private void videoPlayer_Load(object sender, EventArgs e)
-        {
-            //Assigns info from video 
-            thisVideo.incViews();
-            axWindowsMediaPlayer1.URL = thisVideo.getURL();
-            labelVideoName.Text = thisVideo.getName();
-            labelLikesNum.Text = thisVideo.getLikes().ToString();
-            labelDislikesNum.Text = thisVideo.getDislikes().ToString();
-            labelViewsNum.Text = thisVideo.getViews().ToString();
-            labelCreatorName.Text = thisVideo.getcreatorName();
-        }
-
-        //Tool Strip Controls //////////////////////////////////////
         private void M_Click(object sender, EventArgs e)
         {
-            //place holder
-            MessageBox.Show(sender.ToString());
-        }
+            ToolStripItem tsi = sender as ToolStripItem;
+            //not safe
+            try
+            {
+                int x = int.Parse(tsi.Text);
+                //place holder
+                thisChannel = bl.getChannel(x);
+                videoPlayer_Load(sender, e);
+            }
 
+            catch
+            {
+                MessageBox.Show("Channel failed to load... :(");
+            }
+        }
         private void N_Click(object sender, EventArgs e)
         {
             //change to home
             myChannelView m = new myChannelView();
-            m.Show();
-            this.Close();
+            m.ShowDialog(this);
+            if (thisChannel.getChannelId() == m.thisChannel.getChannelId())
+            {
+                loader();
+            }
         }
-
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
             //change to home
@@ -120,7 +258,6 @@ namespace Fake_Tube.Views
             u.Show();
             this.Close();
         }
-
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             //edit to user page
@@ -132,57 +269,14 @@ namespace Fake_Tube.Views
         {
 
         }
-        //Tool Strip Controls //////////////////////////////////////  
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void toolStripButtonHome_Click(object sender, EventArgs e)
         {
 
         }
 
-        //not done
-        private void buttonLike_Click(object sender, EventArgs e)
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            thisVideo.incLikes();
-            labelLikesNum.Text = thisVideo.getLikes().ToString();
-            labelDislikesNum.Text = thisVideo.getDislikes().ToString();
-        }
 
-        //not done
-        private void buttonDislike_Click(object sender, EventArgs e)
-        {
-            thisVideo.incDislikes();
-            labelLikesNum.Text = thisVideo.getLikes().ToString();
-            labelDislikesNum.Text = thisVideo.getDislikes().ToString();
         }
     }
 }

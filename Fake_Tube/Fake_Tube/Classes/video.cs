@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Fake_Tube.Classes
 {
-    class video
+    public class video
     {
 
         //atributes
-
+        private BusinessLogic bl = new BusinessLogic();
         //video file
         // indicates a new video if value is -1
         public int videoId = -1;
@@ -21,13 +21,13 @@ namespace Fake_Tube.Classes
         private int dislikes;
         private string name;
         public string nameText { get; set; }
-        private string fileName;
-        private string path;
+        private string URL;
+       
         private string creatorName;
         private string description;
 
-        
-        List<comment> comments;
+
+        List<comment> comments = new List<comment>();
         //img coverImgage;
         List<string> tags = new List<string>();
 
@@ -35,7 +35,7 @@ namespace Fake_Tube.Classes
         //constructor
         public video() { }
         public video(int _videoId, int _onwerId, int _views, int _likes,int _dislikes,
-            string _name, string _fileName, string _path, string _creatorName, string _description){
+            string _name, string _URL, string _creatorName, string _description){
 
         videoId =_videoId;
         ownerId = _onwerId;
@@ -43,8 +43,7 @@ namespace Fake_Tube.Classes
         likes =_likes;
         dislikes =_dislikes;
         name =_name;
-        fileName =_fileName;
-        path =_path;
+        URL = _URL;
         creatorName =_creatorName;
         nameText = name;
         description = _description;
@@ -55,10 +54,8 @@ namespace Fake_Tube.Classes
 
         //gets/sets
 
-        public void setFileName(string s) { fileName = s; }
-        public string getFileName() { return fileName; }
-        public void setPath(string s) { path = s; }
-        public string getPath() { return path; }
+        public void setURL(string s) { URL= s; }
+        public string getURL() { return URL; }
         public int getVideoId() { return videoId; }
         public void setVideoId(int id) { videoId = id; }
         public int getOwnerId() { return ownerId; }
@@ -76,6 +73,11 @@ namespace Fake_Tube.Classes
 
         public void setDescription(string d) { description = d; }
         public string getDescription() { return description; }
+
+        public List<comment> getComments()
+        {
+            return comments;
+        }
 
         public string getTagsString()
         {
@@ -95,16 +97,24 @@ namespace Fake_Tube.Classes
 
         
 
-        public string getURL() { return this.path + "/" + this.fileName; }
+       
 
         //NOT DONE
-        public void incLikes() { likes += 1; }
+        
         public void decLikes() { likes -= 1; }
         public void incDislikes() { dislikes += 1; }
         public void decDislikes() { dislikes -= 1; }
         public void incViews() { }
         public void loadComments() { }
-        public void addComment() { }
+        public void addComment(string x, int userId) {
+
+            comment c = new comment(this.getVideoId(), 0, 0, userId, x);
+
+            if (bl.addCommentToVideo(c, this.getVideoId()))
+            {
+                this.comments.Add(c);
+            }
+        }
         
         
         
