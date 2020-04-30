@@ -17,7 +17,7 @@ namespace Fake_Tube.Views
         bool handleChecked = true;
         //Attributes////////////////////////////////////////////////
         BusinessLogic bl = new BusinessLogic();
-        user thisUser = new user();
+        users thisUser = new users();
         video thisVideo;
         channel thisChannel = new channel();
         playlist thisPlaylist = new playlist();
@@ -175,12 +175,12 @@ namespace Fake_Tube.Views
 
             toolStripDropDownButtonMyChannels.DropDownItems.Clear();
             List<ToolStripMenuItem> myChannels = new List<ToolStripMenuItem>();
-            foreach (string x in thisUser.myChannels)
+            foreach (int x in thisUser.myChannels)
             {
                 ToolStripMenuItem n = new ToolStripMenuItem();
-                n.Text = x;
+                n.Text = x.ToString();
 
-                if (!string.IsNullOrEmpty(x))
+                if (!string.IsNullOrEmpty(x.ToString()))
                 {
                     Keys k = new Keys();
                     k.Equals(1);

@@ -21,8 +21,8 @@ namespace Fake_Tube.Classes
         private int dislikes;
         private string name;
         public string nameText { get; set; }
-        private string fileName;
-        private string path;
+        private string URL;
+       
         private string creatorName;
         private string description;
 
@@ -35,7 +35,7 @@ namespace Fake_Tube.Classes
         //constructor
         public video() { }
         public video(int _videoId, int _onwerId, int _views, int _likes,int _dislikes,
-            string _name, string _fileName, string _path, string _creatorName, string _description){
+            string _name, string _URL, string _creatorName, string _description){
 
         videoId =_videoId;
         ownerId = _onwerId;
@@ -43,8 +43,7 @@ namespace Fake_Tube.Classes
         likes =_likes;
         dislikes =_dislikes;
         name =_name;
-        fileName =_fileName;
-        path =_path;
+        URL = _URL;
         creatorName =_creatorName;
         nameText = name;
         description = _description;
@@ -55,10 +54,8 @@ namespace Fake_Tube.Classes
 
         //gets/sets
 
-        public void setFileName(string s) { fileName = s; }
-        public string getFileName() { return fileName; }
-        public void setPath(string s) { path = s; }
-        public string getPath() { return path; }
+        public void setURL(string s) { URL= s; }
+        public string getURL() { return URL; }
         public int getVideoId() { return videoId; }
         public void setVideoId(int id) { videoId = id; }
         public int getOwnerId() { return ownerId; }
@@ -100,7 +97,7 @@ namespace Fake_Tube.Classes
 
         
 
-        public string getURL() { return this.path + "/" + this.fileName; }
+       
 
         //NOT DONE
         

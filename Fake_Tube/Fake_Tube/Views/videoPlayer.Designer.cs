@@ -68,7 +68,7 @@
             this.toolStripButtonUserImg});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(986, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(994, 41);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -84,14 +84,14 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(58, 36);
+            this.toolStripLabel1.Size = new System.Drawing.Size(86, 36);
             this.toolStripLabel1.Text = "FakeTube";
             this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
             // 
             // toolStripButtonHome
             // 
@@ -99,7 +99,7 @@
             this.toolStripButtonHome.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonHome.Image")));
             this.toolStripButtonHome.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonHome.Name = "toolStripButtonHome";
-            this.toolStripButtonHome.Size = new System.Drawing.Size(44, 36);
+            this.toolStripButtonHome.Size = new System.Drawing.Size(65, 36);
             this.toolStripButtonHome.Text = "Home";
             this.toolStripButtonHome.Click += new System.EventHandler(this.toolStripButtonHome_Click);
             // 
@@ -107,7 +107,7 @@
             // 
             this.toolStripLabelUserName.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripLabelUserName.Name = "toolStripLabelUserName";
-            this.toolStripLabelUserName.Size = new System.Drawing.Size(62, 36);
+            this.toolStripLabelUserName.Size = new System.Drawing.Size(94, 36);
             this.toolStripLabelUserName.Text = "UserName";
             this.toolStripLabelUserName.Click += new System.EventHandler(this.toolStripLabelUserName_Click);
             // 
@@ -127,7 +127,7 @@
             this.labelVideoName.AutoSize = true;
             this.labelVideoName.Location = new System.Drawing.Point(12, 57);
             this.labelVideoName.Name = "labelVideoName";
-            this.labelVideoName.Size = new System.Drawing.Size(111, 24);
+            this.labelVideoName.Size = new System.Drawing.Size(164, 32);
             this.labelVideoName.TabIndex = 3;
             this.labelVideoName.Text = "VideoName";
             // 
@@ -136,7 +136,7 @@
             this.labelCreatorName.AutoSize = true;
             this.labelCreatorName.Location = new System.Drawing.Point(68, 447);
             this.labelCreatorName.Name = "labelCreatorName";
-            this.labelCreatorName.Size = new System.Drawing.Size(119, 24);
+            this.labelCreatorName.Size = new System.Drawing.Size(178, 32);
             this.labelCreatorName.TabIndex = 4;
             this.labelCreatorName.Text = "creatorName";
             // 
@@ -164,7 +164,7 @@
             this.labelLikesNum.AutoSize = true;
             this.labelLikesNum.Location = new System.Drawing.Point(472, 488);
             this.labelLikesNum.Name = "labelLikesNum";
-            this.labelLikesNum.Size = new System.Drawing.Size(62, 24);
+            this.labelLikesNum.Size = new System.Drawing.Size(96, 32);
             this.labelLikesNum.TabIndex = 11;
             this.labelLikesNum.Text = "likes #";
             // 
@@ -173,7 +173,7 @@
             this.labelDislikesNum.AutoSize = true;
             this.labelDislikesNum.Location = new System.Drawing.Point(564, 488);
             this.labelDislikesNum.Name = "labelDislikesNum";
-            this.labelDislikesNum.Size = new System.Drawing.Size(88, 24);
+            this.labelDislikesNum.Size = new System.Drawing.Size(137, 32);
             this.labelDislikesNum.TabIndex = 12;
             this.labelDislikesNum.Text = "Dislikes #";
             // 
@@ -182,7 +182,7 @@
             this.labelViews.AutoSize = true;
             this.labelViews.Location = new System.Drawing.Point(299, 457);
             this.labelViews.Name = "labelViews";
-            this.labelViews.Size = new System.Drawing.Size(66, 24);
+            this.labelViews.Size = new System.Drawing.Size(99, 32);
             this.labelViews.TabIndex = 13;
             this.labelViews.Text = "Views:";
             // 
@@ -192,7 +192,7 @@
             this.labelViewsNum.Enabled = false;
             this.labelViewsNum.Location = new System.Drawing.Point(371, 457);
             this.labelViewsNum.Name = "labelViewsNum";
-            this.labelViewsNum.Size = new System.Drawing.Size(102, 24);
+            this.labelViewsNum.Size = new System.Drawing.Size(150, 32);
             this.labelViewsNum.TabIndex = 14;
             this.labelViewsNum.Text = "ViewsNum";
             // 
@@ -225,9 +225,9 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(693, 39);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(701, 41);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(293, 788);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(293, 774);
             this.flowLayoutPanel1.TabIndex = 19;
             // 
             // axWindowsMediaPlayer1
@@ -257,7 +257,7 @@
             this.checkBoxDislike.AutoSize = true;
             this.checkBoxDislike.Location = new System.Drawing.Point(567, 451);
             this.checkBoxDislike.Name = "checkBoxDislike";
-            this.checkBoxDislike.Size = new System.Drawing.Size(74, 34);
+            this.checkBoxDislike.Size = new System.Drawing.Size(110, 42);
             this.checkBoxDislike.TabIndex = 21;
             this.checkBoxDislike.Text = "Dislike";
             this.checkBoxDislike.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -266,7 +266,7 @@
             // 
             // videoPlayer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;

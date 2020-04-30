@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Fake_Tube.Classes
 {
     public class users
     {
-        private string userId; 
-        private string userName;
-        private string password;
-        private string coverImg;
-        private List<int> channelsSubcribed;
-        private List<int> channelsOwned;
-      
+        public int userId;
+        public string userName;
+        public string password;
+        public string coverImg;
+        public List<int> myChannels = new List<int>();
+        public List<int> mySubs = new List<int>();
 
-        public string UserId
+
+        public int UserId
         {
             get => userId; 
             set => userId = value; 
@@ -32,17 +33,5 @@ namespace Fake_Tube.Classes
             get => password; 
             set => password = value; 
         }
-        public List<int> Subcribed
-        {
-            get => channelsSubcribed;
-            set => channelsSubcribed = value;
-        }
-
-        public List<int> Owned
-        {
-            get => channelsOwned;
-            set => channelsOwned = value;
-        }
     }
-   
 }

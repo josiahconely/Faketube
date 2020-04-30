@@ -3,32 +3,102 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
+using System.Windows.Documents;
 
 namespace Fake_Tube.Classes
 {
     class BusinessLogic
     {
+        
+        string connection_string;
+        SqlConnection connection;
 
         public video getVideo(int vidID)
         {
+            vidID = 1;
             video newVideo = new video();
+            connection_string = ConfigurationManager.ConnectionStrings
+                ["Fake_Tube.Properties.Settings.Faketube_databaseConnectionString"].ConnectionString;
+            connection = new SqlConnection(connection_string);
+            connection.Open();
 
-            newVideo.setCreatorName("Onion News");
-            newVideo.setDislikes(100);
-            newVideo.setLikes(101);
-            newVideo.setName("Are We Teaching Our Kids Enough About Whales?");
-            newVideo.setOwnerId(1);
-            newVideo.setVideoId(1);
-            newVideo.setViews(102);
-            newVideo.setFileName("are_our_children_learning_enough_about_whales_POi4rvN_Yts_360p.mp4");
-            newVideo.setPath("C:/vidoes");
+            SqlCommand cmd = new SqlCommand("EXEC populateVideo @videoID = '" + vidID + "'", connection);
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                DataTable video = new DataTable();
+                adapter.Fill(video);
+
+        
+                foreach (DataRow row in video.Rows)
+                {
+                    int.TryParse(row["Id"].ToString(), out newVideo.videoId);
+                    newVideo.setCreatorName(row["channelName"].ToString());
+                    newVideo.setDislikes(100);
+                    newVideo.setLikes(101);
+                    newVideo.setName(row["name"].ToString());
+                    newVideo.setOwnerId(1);
+                    newVideo.setURL(row["video_url"].ToString());
+                }
+            }
+            connection.Close();
             return newVideo;
         }
 
-        public user getUser(int userId)
+        public users getUser(int userId)
         {
+            users u = new users();
+            connection_string = ConfigurationManager.ConnectionStrings
+                ["Fake_Tube.Properties.Settings.Faketube_databaseConnectionString"].ConnectionString;
+            connection = new SqlConnection(connection_string);
+            connection.Open();
 
-            user u = new user();
+            SqlCommand cmd = new SqlCommand("EXEC populateUser @userID = '" + userId + "'", connection);
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                DataTable user = new DataTable();
+                adapter.Fill(user);
+                foreach (DataRow row in user.Rows)
+                {
+                    int.TryParse(row["Id"].ToString(), out u.userId);
+                    u.userName = (row["userName"].ToString());
+                    u.password = (row["password"].ToString());
+                    u.coverImg = (row["img_url"].ToString());
+                }
+            }
+
+            SqlCommand cmd2 = new SqlCommand("EXEC populateUserChannels @userID = '" + userId + "'", connection);
+
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd2))
+            {
+                DataTable x = new DataTable();
+                adapter.Fill(x);
+                foreach (DataRow row in x.Rows)
+                {
+                    int temp;
+                    int.TryParse(row["id"].ToString(), out temp);
+                    u.myChannels.Add(temp);
+                }
+            }
+
+
+            SqlCommand cmd3 = new SqlCommand("EXEC populateUserSubscriptions @userID = '" + userId + "'", connection);
+
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd3))
+            {
+                DataTable x = new DataTable();
+                adapter.Fill(x);
+                foreach (DataRow row in x.Rows)
+                {
+                    int temp;
+                    int.TryParse(row["channelid"].ToString(), out temp);
+                    u.mySubs.Add(temp);
+                }
+            }
+
+            connection.Close();
             return u;
         }
 
@@ -61,8 +131,8 @@ namespace Fake_Tube.Classes
             List<video> videos = new List<video>();
 
             // Temp
-            video v = new video(1, 1, 1, 1, 1, "great Video", "are_our_children_learning_enough_about_whales_POi4rvN_Yts_360p.mp4", "c:/vidoes", "bobthebombdotcom", "the best discription ever");
-            video v2 = new video(2, 1, 1, 1, 1, "even Better Vid", "12_smartphone_gadgets_you_might_not_believe_existed_IR6V_6xqWDU_360p.mp4", "c:/vidoes", "bobthebombdotcom", "the worst Discription ever");
+            video v = new video(1, 1, 1, 1, 1, "great Video", "c:/vidoes/are_our_children_learning_enough_about_whales_POi4rvN_Yts_360p.mp4", "bobthebombdotcom", "the best discription ever");
+            video v2 = new video(2, 1, 1, 1, 1, "even Better Vid", "c:/vidoes/12_smartphone_gadgets_you_might_not_believe_existed_IR6V_6xqWDU_360p.mp4", "bobthebombdotcom", "the worst Discription ever");
 
             videos.Add(v);
             videos.Add(v2);

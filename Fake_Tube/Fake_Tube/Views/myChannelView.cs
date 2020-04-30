@@ -13,7 +13,7 @@ namespace Fake_Tube.Views
 {
     public partial class myChannelView : Form
     {
-        user thisUser = new user();
+        users thisUser = new users();
         public channel thisChannel = new channel();
         BusinessLogic bl = new BusinessLogic();
         video modifyVid = new video();
@@ -52,9 +52,8 @@ namespace Fake_Tube.Views
         {
             modifyVid = new video();
             textBoxName.Text = modifyVid.getName();
-            textBoxPath.Text = modifyVid.getPath();
+            textBoxPath.Text = modifyVid.getURL();
             textBoxDescription.Text = modifyVid.getDescription();
-            textBoxFileName.Text = modifyVid.getFileName();
             labelVideoId.Text = "Video ID: New Video";
             buttonSave.Enabled = true;
         }
@@ -70,9 +69,9 @@ namespace Fake_Tube.Views
             {
                 modifyVid = (listBoxVidoes.SelectedItem as video);
                 textBoxName.Text = modifyVid.getName();
-                textBoxPath.Text = modifyVid.getPath();
+                textBoxPath.Text = modifyVid.getURL();
                 textBoxDescription.Text = modifyVid.getDescription();
-                textBoxFileName.Text = modifyVid.getFileName();
+                
                 textBoxTags.Text = modifyVid.getTagsString();
                 labelVideoId.Text = "Video ID: " + modifyVid.getVideoId().ToString();
                 buttonSave.Enabled = true;
