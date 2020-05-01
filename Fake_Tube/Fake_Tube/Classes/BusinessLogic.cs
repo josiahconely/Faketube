@@ -164,5 +164,39 @@ namespace Fake_Tube.Classes
             //if 2 idslike occured unlike occured
             //if 3 unDislike occured
         }
+
+
+
+        public List<int> search (string term)
+        {
+            //System.Windows.Forms.MessageBox.Show("gothere");
+            List<int> values = new List<int>();
+            int temp;
+
+            connection_string = ConfigurationManager.ConnectionStrings
+                ["Fake_Tube.Properties.Settings.Faketube_databaseConnectionString"].ConnectionString;
+            connection = new SqlConnection(connection_string);
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("EXEC search @param1 = '" + term + "'", connection);
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                DataTable data = new DataTable();
+                adapter.Fill(data);
+
+                //System.Windows.Forms.MessageBox.Show("gothere 2");
+                foreach (DataRow row in data.Rows)
+                {
+                    //System.Windows.Forms.MessageBox.Show("gothere 3");
+                    int.TryParse(row["Id"].ToString(), out temp);
+                    values.Add(temp);
+                    //System.Windows.Forms.MessageBox.Show(temp.ToString());
+                }
+            }
+            connection.Close();
+
+
+            return values;
+        }
     }
 }

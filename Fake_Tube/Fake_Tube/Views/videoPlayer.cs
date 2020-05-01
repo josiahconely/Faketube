@@ -247,7 +247,7 @@ namespace Fake_Tube.Views
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
             //change to home
-            Login m = new Login();
+            homePage m = new homePage();
             m.Show();
             this.Close();
         }
@@ -277,6 +277,20 @@ namespace Fake_Tube.Views
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            List<int> video_ids = new List<int>();
+            video_ids = bl.search(toolStripTextBox1.Text);
+
+            if (video_ids.Count() > 0)
+            {
+                searchResults m = new searchResults(video_ids, thisUser.userId);
+                m.Show();
+                this.Close();
+            }
+            
         }
     }
 }

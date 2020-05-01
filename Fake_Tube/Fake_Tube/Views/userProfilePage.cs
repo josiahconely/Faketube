@@ -41,5 +41,10 @@ namespace Fake_Tube.Views
         {
 
         }
+
+        private void userProfilePage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

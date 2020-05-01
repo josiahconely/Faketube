@@ -36,6 +36,10 @@
             this.toolStripButtonHome = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabelUserName = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonUserImg = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.labelVideoName = new System.Windows.Forms.Label();
             this.labelCreatorName = new System.Windows.Forms.Label();
             this.pictureBoxCreator = new System.Windows.Forms.PictureBox();
@@ -65,7 +69,11 @@
             this.toolStripSeparator1,
             this.toolStripButtonHome,
             this.toolStripLabelUserName,
-            this.toolStripButtonUserImg});
+            this.toolStripButtonUserImg,
+            this.toolStripLabel2,
+            this.toolStripTextBox1,
+            this.toolStripButton2,
+            this.toolStripSeparator2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(994, 41);
@@ -122,6 +130,34 @@
             this.toolStripButtonUserImg.Size = new System.Drawing.Size(36, 36);
             this.toolStripButtonUserImg.Text = "toolStripButton4";
             this.toolStripButtonUserImg.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(64, 36);
+            this.toolStripLabel2.Text = "Search";
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(200, 41);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(42, 36);
+            this.toolStripButton2.Text = "GO";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 41);
             // 
             // labelVideoName
             // 
@@ -324,5 +360,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.CheckBox checkBoxLike;
         private System.Windows.Forms.CheckBox checkBoxDislike;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

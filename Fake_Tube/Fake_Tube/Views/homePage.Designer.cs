@@ -52,7 +52,7 @@
             this.toolStripButtonUserImg});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 41);
+            this.toolStrip1.Size = new System.Drawing.Size(834, 39);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -68,13 +68,13 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(86, 36);
+            this.toolStripLabel1.Size = new System.Drawing.Size(57, 36);
             this.toolStripLabel1.Text = "FakeTube";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // toolStripButtonHome
             // 
@@ -82,14 +82,14 @@
             this.toolStripButtonHome.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonHome.Image")));
             this.toolStripButtonHome.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonHome.Name = "toolStripButtonHome";
-            this.toolStripButtonHome.Size = new System.Drawing.Size(65, 36);
+            this.toolStripButtonHome.Size = new System.Drawing.Size(44, 36);
             this.toolStripButtonHome.Text = "Home";
             // 
             // toolStripLabelUserName
             // 
             this.toolStripLabelUserName.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripLabelUserName.Name = "toolStripLabelUserName";
-            this.toolStripLabelUserName.Size = new System.Drawing.Size(94, 36);
+            this.toolStripLabelUserName.Size = new System.Drawing.Size(62, 36);
             this.toolStripLabelUserName.Text = "UserName";
             // 
             // toolStripButtonUserImg
@@ -104,12 +104,14 @@
             // 
             // homePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(834, 470);
             this.Controls.Add(this.toolStrip1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "homePage";
             this.Text = "homePage";
+            this.Load += new System.EventHandler(this.homePage_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

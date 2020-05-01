@@ -461,6 +461,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "userProfilePage";
             this.Text = "userProfilePage";
+            this.Load += new System.EventHandler(this.userProfilePage_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
