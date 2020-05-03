@@ -19,7 +19,7 @@ namespace Fake_Tube.Classes
         private int views;
         private int likes;
         private int dislikes;
-        private string name;
+        public string name;
         public string nameText { get; set; }
         private string URL;
        
@@ -51,7 +51,14 @@ namespace Fake_Tube.Classes
 
         }
 
+        public string Name
+        {
 
+            get
+            {
+                return name;
+            }
+        }
         //gets/sets
 
         public void setURL(string s) { URL= s; }

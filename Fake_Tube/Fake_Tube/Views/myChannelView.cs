@@ -20,15 +20,18 @@ namespace Fake_Tube.Views
         playlist modifyPlaylist = new playlist();
         bool addNewClicked = false;
         List<video> playListVideos;
+        int channelId;
         int videoIdToDeleteFromPlaylist;
-        
-        public myChannelView()
+        List<video> videoData = new List<video>();
+
+        public myChannelView(int channel)
         {
             InitializeComponent();
-
+            channelId = channel;
             buttonSave.Enabled = false;
-            
-
+            thisChannel = bl.getChannel(channel);
+            System.Windows.Forms.MessageBox.Show(channelId.ToString());
+            thisUser = bl.getUser(global_vars.userId);
 
         }
 
@@ -36,23 +39,22 @@ namespace Fake_Tube.Views
 
         private void myChannelView_Load(object sender, EventArgs e)
         {
-            //place holder
-            //MessageBox.Show(sender.ToString());
-            thisUser = bl.getUser(1);
-            thisChannel = bl.getChannel(1);
-
-            List<video> videoData = new List<video>();
-            videoData = thisChannel.getVidoes();
-            listBoxVidoes.DisplayMember = "nameText";
+            
+            videoData = bl.getvideosFromChannelId(thisChannel.channelId);
+            
             listBoxVidoes.DataSource = videoData;
-            LabelChannelName.Text = thisChannel.getName();
+            listBoxVidoes.DisplayMember = "Name";
+            LabelChannelName.Text = thisChannel.name;
         }
+
+
+
 
         private void buttonAddNew_Click(object sender, EventArgs e)
         {
             modifyVid = new video();
             textBoxName.Text = modifyVid.getName();
-            textBoxPath.Text = modifyVid.getURL();
+            textBoxFileName.Text = modifyVid.getURL();
             textBoxDescription.Text = modifyVid.getDescription();
             labelVideoId.Text = "Video ID: New Video";
             buttonSave.Enabled = true;
@@ -60,6 +62,15 @@ namespace Fake_Tube.Views
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            video deleteVid = new video();
+            deleteVid = (listBoxVidoes.SelectedItem as video);
+
+            if (bl.deleteVideo(deleteVid.getVideoId()))
+            {
+                System.Windows.Forms.MessageBox.Show("videoDeleted");
+                myChannelView_Load( sender,  e);
+            }
+            else { System.Windows.Forms.MessageBox.Show("Delete Failed"); }
 
         }
 
@@ -69,13 +80,12 @@ namespace Fake_Tube.Views
             {
                 modifyVid = (listBoxVidoes.SelectedItem as video);
                 textBoxName.Text = modifyVid.getName();
-                textBoxPath.Text = modifyVid.getURL();
+                textBoxFileName.Text = modifyVid.getURL();
                 textBoxDescription.Text = modifyVid.getDescription();
                 
-                textBoxTags.Text = modifyVid.getTagsString();
+                
                 labelVideoId.Text = "Video ID: " + modifyVid.getVideoId().ToString();
                 buttonSave.Enabled = true;
-                
             }
         }
 
@@ -84,10 +94,12 @@ namespace Fake_Tube.Views
             if (modifyVid.getVideoId() == -1)
             {
                 
-                if (bl.updateVideoToChannel(textBoxName.Text, textBoxTags.Text,
-                textBoxFileName.Text, textBoxPath.Text, textBoxDescription.Text)) {
+
+                if (bl.addVideoToChannel(channelId, textBoxName.Text,"1", textBoxFileName.Text,textBoxDescription.Text)) {
+                    //System.Windows.Forms.MessageBox.Show("update successful");
                     myChannelView_Load(sender, e);
                     MessageBox.Show("New video: " + textBoxName.Text + " added Successfuly.");
+                    myChannelView_Load(sender, e);
                 }
                 else
                 {
@@ -96,11 +108,8 @@ namespace Fake_Tube.Views
             }
             else
             {
-                if (bl.updateVideoToChannel(textBoxName.Text, textBoxTags.Text,
-                textBoxFileName.Text, textBoxPath.Text, textBoxDescription.Text, modifyVid.getVideoId()))
+                if (bl.updateVideoToChannel( textBoxName.Text, textBoxFileName.Text, textBoxDescription.Text, modifyVid.getVideoId()))
                 {
-                    //update this or requiry the data base to rebuild the channel
-
                     myChannelView_Load(sender, e);
                     MessageBox.Show("Video: " + modifyVid.getVideoId().ToString() + " Updated");
                 }
@@ -172,6 +181,9 @@ namespace Fake_Tube.Views
             videoIdToDeleteFromPlaylist = v.ThisVideo.getVideoId();
         }
 
+        private void listBoxVidoes_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

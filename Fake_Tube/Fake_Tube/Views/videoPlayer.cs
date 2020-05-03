@@ -29,6 +29,7 @@ namespace Fake_Tube.Views
             thisUser = bl.getUser(userId);
             thisChannel = bl.getChannel(channelId);
             buildToolBar();
+            toolStripLabelUserName.Text = global_vars.userName;
         }
         private void videoPlayer_Load(object sender, EventArgs e)
         {
@@ -56,13 +57,14 @@ namespace Fake_Tube.Views
         private void populateVideoItems()
         {
             List<video> videos = new List<video>();
-            videos = thisChannel.getVidoes();
+            videos = bl.getvideosFromChannelId(thisChannel.channelId);
             
             //loop through each item
             flowLayoutPanel1.Controls.Clear();
             foreach (video v in videos)
             {
                 ListItemVideo listVideo = new ListItemVideo();
+                System.Windows.Forms.MessageBox.Show(v.getName());
                 listVideo.ThisVideo = v;
                 listVideo.videoName = v.getName();
                 listVideo.creatorName = v.getcreatorName();
@@ -236,12 +238,17 @@ namespace Fake_Tube.Views
         }
         private void N_Click(object sender, EventArgs e)
         {
-            //change to home
-            myChannelView m = new myChannelView();
-            m.ShowDialog(this);
-            if (thisChannel.getChannelId() == m.thisChannel.getChannelId())
+            ToolStripItem tsi = sender as ToolStripItem;
+            try 
             {
-                loader();
+                int x = int.Parse(tsi.Text);
+                myChannelView m = new myChannelView(x);
+                m.Show();
+                
+            }
+            catch
+            {
+
             }
         }
         private void toolStripLabel1_Click(object sender, EventArgs e)

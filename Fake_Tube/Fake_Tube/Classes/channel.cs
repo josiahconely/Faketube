@@ -13,47 +13,16 @@ namespace Fake_Tube.Classes
     
     public class channel
     {
-        BusinessLogic bl = new BusinessLogic();
-        private string name;
-        private int channelId;
-        private List<int> subscribersId;
-        private List<int> vidoeIds;
-        private int ownerId;
-        //private Image logo;
-        private List<string> tags;
-
-
-
-
-        public channel() {
         
-        }
+        public string name;
+        public int channelId;
+        public int ownerId;
 
-        public string getName() { return name; }
-        public void setName(string n) { name = n; }
-        public int getChannelId() { return channelId; }
-        public void setChannelId(int id) { channelId = id; }
-        //public void getSubscribers() { }
-        //public void setSubscribers() { }
-        public List<video> getVidoes() 
-        {
-            List<video> videos = new List<video>();
-            videos = bl.getVidoesfromVidoeIds(vidoeIds);
-            return videos;
+        public channel() { }
+        public channel (string name_, int id, int ownerId_) {
+            name = name_;
+            channelId= id;
+            ownerId = ownerId_;
         }
-        public void addVideo() { }
-
-        //change
-        public void setVideos(List<int> v) {
-            vidoeIds = v;
-        }
-        public int getOwnerId(){ return ownerId; }
-        public void setOwnerId(int id) { ownerId = id; }
-        public int getSubsNumber() { return subscribersId.Count; }
-        //public void getCoverImg () { }
-        //public void setCoverImg() { }
-        //public void getTags() { }
-        //public void setTags() { }
-
     }
 }

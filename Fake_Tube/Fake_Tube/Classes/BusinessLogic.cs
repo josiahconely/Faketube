@@ -12,13 +12,13 @@ namespace Fake_Tube.Classes
 {
     class BusinessLogic
     {
-        
+
         string connection_string;
         SqlConnection connection;
 
         public video getVideo(int vidID)
         {
-            vidID = 1;
+
             video newVideo = new video();
             connection_string = ConfigurationManager.ConnectionStrings
                 ["Fake_Tube.Properties.Settings.Faketube_databaseConnectionString"].ConnectionString;
@@ -31,7 +31,7 @@ namespace Fake_Tube.Classes
                 DataTable video = new DataTable();
                 adapter.Fill(video);
 
-        
+
                 foreach (DataRow row in video.Rows)
                 {
                     int.TryParse(row["Id"].ToString(), out newVideo.videoId);
@@ -104,59 +104,116 @@ namespace Fake_Tube.Classes
 
         public channel getChannel(int channelId)
         {
-            channel c = new channel();
-            //TEMP
-            List<int> vidIds = new List<int>(new int[] { 1, 2, 3 });
-            c.setVideos(vidIds);
+            connection_string = ConfigurationManager.ConnectionStrings
+               ["Fake_Tube.Properties.Settings.Faketube_databaseConnectionString"].ConnectionString;
+            SqlConnection connection = new SqlConnection(connection_string);
+
+            // Create the command and set its properties.
+            SqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "Execute getChannelObjectfromChannelId @paramId";
+            cmd.Parameters.Add("@paramId", SqlDbType.Int).Value = channelId;
+
+            string tempName = "";
+            int tempId = 0;
+            int tempOwnerId = 0;
+
+            connection.Open();
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                DataTable data = new DataTable();
+                adapter.Fill(data);
+
+                foreach (DataRow row in data.Rows)
+                {
+                    int.TryParse(row["Id"].ToString(), out tempId);
+                    int.TryParse(row["userId"].ToString(), out tempOwnerId);
+                    tempName = row["name"].ToString();
+
+                }
+            }
+            connection.Close();
+            channel c = new channel(tempName, tempId, tempOwnerId);
             return c;
         }
 
-        // updates the database OVERLOADED IF NO ID PROVIDED CREATES NEW RECORD IN DATABASE
-        public bool updateVideoToChannel(string name, string tags, string fileName, string path, string discription)
+        public bool addVideoToChannel(int channelId, string name, string img_url, string vid_URL, string discription)
         {
-            if (name != "") { return true; }
+
+
+            connection_string = ConfigurationManager.ConnectionStrings
+               ["Fake_Tube.Properties.Settings.Faketube_databaseConnectionString"].ConnectionString;
+            SqlConnection connection = new SqlConnection(connection_string);
+            connection.Open();
+
+            // Create the command and set its properties.
+            SqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "Execute addNewVideo @channelId_,@name_,@img_url_,@discription_,@video_url_";
+
+            //cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@channelId_", SqlDbType.Int).Value = channelId;
+            cmd.Parameters.Add("@name_", SqlDbType.NChar, 50).Value = name;
+            cmd.Parameters.Add("@img_url_", SqlDbType.VarChar).Value = img_url;
+            cmd.Parameters.Add("@discription_", SqlDbType.Text).Value = discription;
+            cmd.Parameters.Add("@video_url_", SqlDbType.VarChar).Value = vid_URL;
+
+
+
+            cmd.ExecuteNonQuery();
+            connection.Close();
+
+            return true;
+
             return false;
-            //update database add vidId to channel
 
         }
 
-        public bool updateVideoToChannel(string name, string tags, string fileName, string path, string discription, int vidId)
+        //NOT DONE
+        public bool updateVideoToChannel( string name, string FileName, string Description, int VideoId)
         {
-            if (name != "") { return true; }
-            return false;
+            try
+            {
+                connection_string = ConfigurationManager.ConnectionStrings
+               ["Fake_Tube.Properties.Settings.Faketube_databaseConnectionString"].ConnectionString;
+                SqlConnection connection = new SqlConnection(connection_string);
+                connection.Open();
+
+                // Create the command and set its properties.
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "Execute updateVideo @id, @name, @video_url, @description";
+
+                //cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = VideoId;
+                cmd.Parameters.Add("@name", SqlDbType.NChar,50).Value = name;
+                cmd.Parameters.Add("@video_url", SqlDbType.VarChar).Value = FileName;
+                cmd.Parameters.Add("@description", SqlDbType.Text).Value = Description;
+                cmd.ExecuteNonQuery();
+                connection.Close();
+
+                return true;
+            }
+            catch { return false; }
         }
 
         public List<video> getVidoesfromVidoeIds(List<int> videoIds)
         {
             List<video> videos = new List<video>();
-
-            // Temp
-            video v = new video(1, 1, 1, 1, 1, "great Video", "c:/vidoes/are_our_children_learning_enough_about_whales_POi4rvN_Yts_360p.mp4", "bobthebombdotcom", "the best discription ever");
-            video v2 = new video(2, 1, 1, 1, 1, "even Better Vid", "c:/vidoes/12_smartphone_gadgets_you_might_not_believe_existed_IR6V_6xqWDU_360p.mp4", "bobthebombdotcom", "the worst Discription ever");
-
-            videos.Add(v);
-            videos.Add(v2);
+            foreach (int vid in videoIds) { videos.Add(getVideo(vid)); }
             return videos;
         }
-
-        public bool vaidVideoName()
-        { return true; }
-
-        //not done
+        //NOT DONE
         public bool addCommentToVideo(comment c, int vidId)
         {
             return true;
         }
-
-
-        
+        //NOT DONE
         public int clickLikeVideo(int videoId, int userId)
         {
-            return 2; 
+            return 2;
             //if 1 like occured unDislike did not occur
             //if 2 like occured unDislike occured
             //if 3 unLike occured
         }
+        //NOT DONE
         public int clickDislikeVideo(int videoId, int userId)
         {
             return 2;
@@ -165,11 +222,9 @@ namespace Fake_Tube.Classes
             //if 3 unDislike occured
         }
 
-
-
-        public List<int> search (string term)
+        public List<int> search(string term)
         {
-            //System.Windows.Forms.MessageBox.Show("gothere");
+            
             List<int> values = new List<int>();
             int temp;
 
@@ -184,13 +239,13 @@ namespace Fake_Tube.Classes
                 DataTable data = new DataTable();
                 adapter.Fill(data);
 
-                //System.Windows.Forms.MessageBox.Show("gothere 2");
+                
                 foreach (DataRow row in data.Rows)
                 {
-                    //System.Windows.Forms.MessageBox.Show("gothere 3");
+                    
                     int.TryParse(row["Id"].ToString(), out temp);
                     values.Add(temp);
-                    //System.Windows.Forms.MessageBox.Show(temp.ToString());
+                    
                 }
             }
             connection.Close();
@@ -198,5 +253,102 @@ namespace Fake_Tube.Classes
 
             return values;
         }
+
+        public int getMostRecentVidFromChannel(int chanId)
+        {
+            connection_string = ConfigurationManager.ConnectionStrings
+                ["Fake_Tube.Properties.Settings.Faketube_databaseConnectionString"].ConnectionString;
+            SqlConnection connection = new SqlConnection(connection_string);
+            connection.Open();
+
+            // Create the command and set its properties.
+
+            SqlCommand cmd = new SqlCommand
+               ("mostRecentVid", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter parameter1 = new SqlParameter();
+            parameter1.ParameterName = "@chanId";
+            parameter1.SqlDbType = SqlDbType.NChar;
+            parameter1.Direction = ParameterDirection.Input;
+            parameter1.Value = chanId;
+            cmd.Parameters.Add(parameter1);
+
+            int channelId_ = 0;
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                DataTable data = new DataTable();
+                adapter.Fill(data);
+                foreach (DataRow row in data.Rows)
+                {
+                    int.TryParse(row["Id"].ToString(), out channelId_);
+                }
+            }
+            connection.Close();
+            return channelId_;
+        }
+
+        public List<video> getvideosFromChannelId(int chanId)
+        {
+
+
+            connection_string = ConfigurationManager.ConnectionStrings
+               ["Fake_Tube.Properties.Settings.Faketube_databaseConnectionString"].ConnectionString;
+            SqlConnection connection = new SqlConnection(connection_string);
+
+            // Create the command and set its properties.
+            SqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "Execute getvideoIdsFromChannelId @chanId";
+            cmd.Parameters.Add("@chanId", SqlDbType.Int).Value = chanId;
+
+            List<int> values = new List<int>();
+            int temp = 0;
+            connection.Open();
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                DataTable data = new DataTable();
+                adapter.Fill(data);
+
+                foreach (DataRow row in data.Rows)
+                {
+                    int.TryParse(row["Id"].ToString(), out temp);
+                    values.Add(temp);
+                }
+            }
+            
+            connection.Close();
+            return getVidoesfromVidoeIds(values);
+        }
+
+
+        public bool deleteVideo(int vidId)
+        {
+            try
+            {
+                connection_string = ConfigurationManager.ConnectionStrings
+               ["Fake_Tube.Properties.Settings.Faketube_databaseConnectionString"].ConnectionString;
+                SqlConnection connection = new SqlConnection(connection_string);
+                connection.Open();
+
+                // Create the command and set its properties.
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "Execute deleteVideo @VidId";
+
+                //cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@VidId", SqlDbType.Int).Value = vidId;
+
+
+
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
+
 }
