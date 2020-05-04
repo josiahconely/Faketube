@@ -54,7 +54,6 @@
             this.textBoxchannelName = new System.Windows.Forms.TextBox();
             this.buttonSaveChannel = new System.Windows.Forms.Button();
             this.buttonAddNew = new System.Windows.Forms.Button();
-            this.buttonModify = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -246,7 +245,6 @@
             this.tabPagePlaylist.Controls.Add(this.groupBoxPlaylist);
             this.tabPagePlaylist.Controls.Add(this.buttonSaveChannel);
             this.tabPagePlaylist.Controls.Add(this.buttonAddNew);
-            this.tabPagePlaylist.Controls.Add(this.buttonModify);
             this.tabPagePlaylist.Controls.Add(this.buttonDelete);
             this.tabPagePlaylist.Location = new System.Drawing.Point(4, 29);
             this.tabPagePlaylist.Margin = new System.Windows.Forms.Padding(2);
@@ -335,17 +333,6 @@
             this.buttonAddNew.UseVisualStyleBackColor = true;
             this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
             // 
-            // buttonModify
-            // 
-            this.buttonModify.Location = new System.Drawing.Point(192, 95);
-            this.buttonModify.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonModify.Name = "buttonModify";
-            this.buttonModify.Size = new System.Drawing.Size(96, 32);
-            this.buttonModify.TabIndex = 17;
-            this.buttonModify.Text = "Modify >>";
-            this.buttonModify.UseVisualStyleBackColor = true;
-            this.buttonModify.Click += new System.EventHandler(this.buttonModify_Click);
-            // 
             // buttonDelete
             // 
             this.buttonDelete.Location = new System.Drawing.Point(192, 49);
@@ -365,6 +352,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "userProfilePage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "userProfilePage";
             this.Load += new System.EventHandler(this.userProfilePage_Load);
             this.toolStrip1.ResumeLayout(false);
@@ -406,7 +394,6 @@
         private System.Windows.Forms.TextBox textBoxchannelName;
         private System.Windows.Forms.Button buttonSaveChannel;
         private System.Windows.Forms.Button buttonAddNew;
-        private System.Windows.Forms.Button buttonModify;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelPassword;

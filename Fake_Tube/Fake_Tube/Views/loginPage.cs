@@ -12,13 +12,16 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Windows.Documents;
 
+using Fake_Tube.Classes;
+
 namespace Fake_Tube
 {
+    
 
     public partial class Login : Form
     {
         string connection_string;
-
+        BusinessLogic bl = new BusinessLogic();
         public Login()
         {
             InitializeComponent();
@@ -37,7 +40,7 @@ namespace Fake_Tube
             connection.Open();
 
             // Create the command and set its properties.
-            
+
             SqlCommand cmd = new SqlCommand
                ("login", connection);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -60,8 +63,6 @@ namespace Fake_Tube
             {
                 DataTable data = new DataTable();
                 adapter.Fill(data);
-
-
                 //System.Windows.Forms.MessageBox.Show("gothere 2");
                 foreach (DataRow row in data.Rows)
                 {
@@ -77,7 +78,7 @@ namespace Fake_Tube
             //edit to home page 
             global_vars.userId = userid;
             global_vars.userName = userName;
-            if (global_vars.userId >-1)
+            if (global_vars.userId > -1)
             {
                 userProfilePage m = new userProfilePage();
                 m.Show();
@@ -87,14 +88,61 @@ namespace Fake_Tube
             {
                 System.Windows.Forms.MessageBox.Show("Invalid user-name and password!");
             }
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            string newResult = InputBox("New User", "Enter new user name");
+            string newResult2 = InputBox("New User", "Enter a Password");
+            string newResult3 = InputBox("New User", "Enter a channel name");
+            System.Windows.Forms.MessageBox.Show(newResult.ToString() + newResult2.ToString());
+            if ( newResult != "" && newResult2 != "")
+            {
+                bl.addNewUser(newResult, newResult2, newResult3);
+            }
         }
 
-        
+
+        public static string InputBox(string title, string promptText)
+        {
+            Form form = new Form();
+            Label label = new Label();
+            TextBox textBox = new TextBox();
+            Button buttonOk = new Button();
+            Button buttonCancel = new Button();
+
+            form.Text = title;
+            label.Text = promptText;
+
+
+            buttonOk.Text = "OK";
+            buttonCancel.Text = "Cancel";
+            buttonOk.DialogResult = DialogResult.OK;
+            buttonCancel.DialogResult = DialogResult.Cancel;
+
+            label.SetBounds(9, 20, 372, 13);
+            textBox.SetBounds(12, 36, 372, 20);
+            buttonOk.SetBounds(228, 72, 75, 23);
+            buttonCancel.SetBounds(309, 72, 75, 23);
+
+            label.AutoSize = true;
+            textBox.Anchor = textBox.Anchor | AnchorStyles.Right;
+            buttonOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+
+            form.ClientSize = new Size(396, 107);
+            form.Controls.AddRange(new Control[] { label, textBox, buttonOk, buttonCancel });
+            form.ClientSize = new Size(Math.Max(300, label.Right + 10), form.ClientSize.Height);
+            form.FormBorderStyle = FormBorderStyle.FixedDialog;
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.MinimizeBox = false;
+            form.MaximizeBox = false;
+            form.AcceptButton = buttonOk;
+            form.CancelButton = buttonCancel;
+
+            DialogResult dialogResult = form.ShowDialog();
+
+            return textBox.Text;
+        }
     }
 }

@@ -35,6 +35,8 @@ namespace Fake_Tube.Views
 
         private void userProfilePage_Load(object sender, EventArgs e)
         {
+            channelIds.Clear();
+            listBoxmychannels.Items.Clear();
             connection_string = ConfigurationManager.ConnectionStrings
                ["Fake_Tube.Properties.Settings.Faketube_databaseConnectionString"].ConnectionString;
             SqlConnection connection = new SqlConnection(connection_string);
@@ -75,12 +77,13 @@ namespace Fake_Tube.Views
                 foreach (DataRow row in data.Rows)
                 {
                     int.TryParse(row["Id"].ToString(), out temp);
-                    channelIds.Add(temp);
+                    listBoxmychannels.Items.Add(temp);
+                    //channelIds.Add(temp);
 
                 }
             }
 
-            listBoxmychannels.DataSource = channelIds;
+            //listBoxmychannels.DataSource = channelIds;
             
 
             connection.Close();
@@ -151,20 +154,16 @@ namespace Fake_Tube.Views
         {
             ToolStripItem tsi = sender as ToolStripItem;
             //not safe
-            try
-            {
+            
                 int x = int.Parse(tsi.Text);
                 //place holder
                 videoPlayer v = new videoPlayer(bl.getMostRecentVidFromChannel(x), global_vars.userId, x);
                 v.Show();
                 this.Close();
-                
-            }
-
-            catch
-            {
-                MessageBox.Show("Channel failed to load... :(");
-            }
+             
+            
+                //MessageBox.Show("Channel failed to load... :(");
+            
         }
         private void N_Click(object sender, EventArgs e)
         {
@@ -274,25 +273,25 @@ namespace Fake_Tube.Views
                 
                 cmd.ExecuteNonQuery();
                 connection.Close();
-                
-                userProfilePage_Load(sender, e);
+
+                userProfilePage m = new userProfilePage();
+                m.Show();
+                this.Close();
+                //userProfilePage_Load(sender, e);
             }
         }
 
-        private void buttonModify_Click(object sender, EventArgs e)
-        {
-            addingNewChannel = false;
-            buttonSaveChannel.Enabled = true;
-        }
+        
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            int chanId;
+            if (listBoxmychannels.Items.Count > 1)
+            {
+                int chanId;
+                string text = listBoxmychannels.GetItemText(listBoxmychannels.SelectedItem);
+                int.TryParse((text), out chanId);
+                System.Windows.Forms.MessageBox.Show("channel deleted: "+ chanId.ToString());
 
-            
-            int.TryParse((listBoxmychannels.SelectedItem as string), out chanId);
-            System.Windows.Forms.MessageBox.Show(chanId.ToString());
-           
                 connection_string = ConfigurationManager.ConnectionStrings
                ["Fake_Tube.Properties.Settings.Faketube_databaseConnectionString"].ConnectionString;
                 SqlConnection connection = new SqlConnection(connection_string);
@@ -302,7 +301,15 @@ namespace Fake_Tube.Views
                 cmd.Parameters.Add("@Id", SqlDbType.Int).Value = chanId;
                 cmd.ExecuteNonQuery();
                 connection.Close();
-                userProfilePage_Load( sender,  e);
+                userProfilePage m = new userProfilePage();
+                m.Show();
+                this.Close();
+                //userProfilePage_Load(sender, e);
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("must have at least one Channel");
+            }
 
 
 

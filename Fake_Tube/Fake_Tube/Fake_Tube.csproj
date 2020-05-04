@@ -12,7 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\josia\Desktop\SetupFile\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,10 +23,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ProductName>Fake Tube</ProductName>
+    <PublisherName>Fake Team</PublisherName>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -47,6 +51,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F35042822286312E7F79DC0D394BD8C07E48AD2C</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Fake_Tube_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -67,7 +83,6 @@
     <Compile Include="global_vars.cs" />
     <Compile Include="Classes\BusinessLogic.cs" />
     <Compile Include="Classes\channel.cs" />
-    <Compile Include="Classes\comment.cs" />
     <Compile Include="Classes\DataBaseAPI.cs" />
     <Compile Include="Classes\playlist.cs" />
     <Compile Include="Classes\users.cs" />
@@ -171,6 +186,7 @@
     <None Include="Faketube_databaseDataSet.xss">
       <DependentUpon>Faketube_databaseDataSet.xsd</DependentUpon>
     </None>
+    <None Include="Fake_Tube_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -204,6 +220,9 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\videos\12_smartphone_gadgets_you_might_not_believe_existed_IR6V_6xqWDU_360p.mp4" />
+    <Content Include="data\videos\are_our_children_learning_enough_about_whales_POi4rvN_Yts_360p.mp4" />
+    <Content Include="data\videos\Hyperloop.mp4" />
     <Content Include="Faketube_database.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

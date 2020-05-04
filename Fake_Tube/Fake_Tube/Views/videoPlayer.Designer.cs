@@ -33,7 +33,6 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonHome = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabelUserName = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonUserImg = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
@@ -52,8 +51,9 @@
             this.listViewComments = new System.Windows.Forms.ListView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.checkBoxLike = new System.Windows.Forms.CheckBox();
             this.checkBoxDislike = new System.Windows.Forms.CheckBox();
+            this.checkBoxLike = new System.Windows.Forms.CheckBox();
+            this.buttonSubscribe = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCreator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -67,7 +67,6 @@
             this.toolStripButton1,
             this.toolStripLabel1,
             this.toolStripSeparator1,
-            this.toolStripButtonHome,
             this.toolStripLabelUserName,
             this.toolStripButtonUserImg,
             this.toolStripLabel2,
@@ -79,7 +78,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(994, 41);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // toolStripButton1
             // 
@@ -101,16 +99,6 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
-            // 
-            // toolStripButtonHome
-            // 
-            this.toolStripButtonHome.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonHome.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonHome.Image")));
-            this.toolStripButtonHome.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonHome.Name = "toolStripButtonHome";
-            this.toolStripButtonHome.Size = new System.Drawing.Size(65, 36);
-            this.toolStripButtonHome.Text = "Home";
-            this.toolStripButtonHome.Click += new System.EventHandler(this.toolStripButtonHome_Click);
             // 
             // toolStripLabelUserName
             // 
@@ -276,18 +264,6 @@
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(640, 360);
             this.axWindowsMediaPlayer1.TabIndex = 2;
             // 
-            // checkBoxLike
-            // 
-            this.checkBoxLike.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBoxLike.Location = new System.Drawing.Point(476, 451);
-            this.checkBoxLike.Name = "checkBoxLike";
-            this.checkBoxLike.Size = new System.Drawing.Size(74, 34);
-            this.checkBoxLike.TabIndex = 20;
-            this.checkBoxLike.Text = "Like";
-            this.checkBoxLike.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxLike.UseVisualStyleBackColor = true;
-            this.checkBoxLike.CheckedChanged += new System.EventHandler(this.checkBoxLike_CheckedChanged);
-            // 
             // checkBoxDislike
             // 
             this.checkBoxDislike.Appearance = System.Windows.Forms.Appearance.Button;
@@ -301,6 +277,29 @@
             this.checkBoxDislike.UseVisualStyleBackColor = true;
             this.checkBoxDislike.CheckedChanged += new System.EventHandler(this.checkBoxDislike_CheckedChanged);
             // 
+            // checkBoxLike
+            // 
+            this.checkBoxLike.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxLike.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.checkBoxLike.Location = new System.Drawing.Point(476, 451);
+            this.checkBoxLike.Name = "checkBoxLike";
+            this.checkBoxLike.Size = new System.Drawing.Size(74, 34);
+            this.checkBoxLike.TabIndex = 20;
+            this.checkBoxLike.Text = "Like";
+            this.checkBoxLike.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxLike.UseVisualStyleBackColor = true;
+            this.checkBoxLike.CheckedChanged += new System.EventHandler(this.checkBoxLike_CheckedChanged);
+            // 
+            // buttonSubscribe
+            // 
+            this.buttonSubscribe.Location = new System.Drawing.Point(74, 488);
+            this.buttonSubscribe.Name = "buttonSubscribe";
+            this.buttonSubscribe.Size = new System.Drawing.Size(130, 44);
+            this.buttonSubscribe.TabIndex = 22;
+            this.buttonSubscribe.Text = "Subscribe";
+            this.buttonSubscribe.UseVisualStyleBackColor = true;
+            this.buttonSubscribe.Click += new System.EventHandler(this.buttonSubscribe_Click);
+            // 
             // videoPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 32F);
@@ -308,6 +307,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(986, 827);
+            this.Controls.Add(this.buttonSubscribe);
             this.Controls.Add(this.checkBoxDislike);
             this.Controls.Add(this.checkBoxLike);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -342,7 +342,6 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButtonHome;
         private System.Windows.Forms.ToolStripButton toolStripButtonUserImg;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.Label labelVideoName;
@@ -358,11 +357,12 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabelUserName;
         private System.Windows.Forms.ListView listViewComments;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.CheckBox checkBoxLike;
-        private System.Windows.Forms.CheckBox checkBoxDislike;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.CheckBox checkBoxDislike;
+        private System.Windows.Forms.CheckBox checkBoxLike;
+        private System.Windows.Forms.Button buttonSubscribe;
     }
 }

@@ -16,7 +16,7 @@ namespace Fake_Tube.Classes
         public int videoId = -1;
         
         private int ownerId;
-        private int views;
+        public int views;
         private int likes;
         private int dislikes;
         public string name;
@@ -27,7 +27,7 @@ namespace Fake_Tube.Classes
         private string description;
 
 
-        List<comment> comments = new List<comment>();
+       
         //img coverImgage;
         List<string> tags = new List<string>();
 
@@ -81,10 +81,7 @@ namespace Fake_Tube.Classes
         public void setDescription(string d) { description = d; }
         public string getDescription() { return description; }
 
-        public List<comment> getComments()
-        {
-            return comments;
-        }
+        
 
         public string getTagsString()
         {
@@ -108,20 +105,10 @@ namespace Fake_Tube.Classes
 
         //NOT DONE
         
-        public void decLikes() { likes -= 1; }
-        public void incDislikes() { dislikes += 1; }
-        public void decDislikes() { dislikes -= 1; }
-        public void incViews() { }
-        public void loadComments() { }
-        public void addComment(string x, int userId) {
-
-            comment c = new comment(this.getVideoId(), 0, 0, userId, x);
-
-            if (bl.addCommentToVideo(c, this.getVideoId()))
-            {
-                this.comments.Add(c);
-            }
-        }
+        
+        
+        
+        
         
         
         

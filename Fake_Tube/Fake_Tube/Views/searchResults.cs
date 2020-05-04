@@ -9,62 +9,104 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-
+using Fake_Tube.Classes;
 
 namespace Fake_Tube.Views
 {
     public partial class searchResults : Form
     {
+        BusinessLogic bl = new BusinessLogic();
         string connection_string;
         SqlConnection connection;
-
         List<int> videoIds = new List<int>();
-        int selected_videoId =0 ;
-        int userID;
-        public searchResults(List<int> vids, int userId)
+        List<int> ChannelIds = new List<int>();
+        int selected_videoId = 0;
+        int selected_channel = 0;
+        string searchTerm;
+        
+        public searchResults(string Term)
         {
             InitializeComponent();
-            videoIds = vids;
-            foreach (int v in videoIds){
-                listBox1.Items.Add(v);
-             }
-            userID = userId;
+            searchTerm = Term;
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void searchResults_Load(object sender, EventArgs e)
         {
-           int.TryParse(listBox1.SelectedItem.ToString(), out selected_videoId);
+            videoIds = bl.search(searchTerm);
+            ChannelIds = bl.searchChannels(searchTerm);
+            foreach (int v in videoIds)
+            {
+                listBoxVideos.Items.Add(v);
+            }
+            foreach (int v in ChannelIds)
+            {
+                listBoxChannels.Items.Add(v);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            connection_string = ConfigurationManager.ConnectionStrings
-                ["Fake_Tube.Properties.Settings.Faketube_databaseConnectionString"].ConnectionString;
-            connection = new SqlConnection(connection_string);
-            connection.Open();
-
-            SqlCommand cmd = new SqlCommand("EXEC getChannelIdfromVidId @param1 = '" + selected_videoId + "'", connection);
-            int channelId =0 ;
-            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            if (selected_videoId != 0)
             {
-                DataTable data = new DataTable();
-                adapter.Fill(data);
+                connection_string = ConfigurationManager.ConnectionStrings
+                    ["Fake_Tube.Properties.Settings.Faketube_databaseConnectionString"].ConnectionString;
+                connection = new SqlConnection(connection_string);
+                connection.Open();
 
-                //System.Windows.Forms.MessageBox.Show("gothere 2");
-                foreach (DataRow row in data.Rows)
+                SqlCommand cmd = new SqlCommand("EXEC getChannelIdfromVidId @param1 = '" + selected_videoId + "'", connection);
+                int channelId = 0;
+                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                 {
-                    //System.Windows.Forms.MessageBox.Show("gothere 3");
-                    int.TryParse(row["channelId "].ToString(), out channelId);
-                   
-                    //System.Windows.Forms.MessageBox.Show(temp.ToString());
-                }
-            }
-            connection.Close();
+                    DataTable data = new DataTable();
+                    adapter.Fill(data);
 
-            videoPlayer m = new videoPlayer(selected_videoId, userID, channelId);
-            m.Show();
-            this.Close();
+                    foreach (DataRow row in data.Rows)
+                    {
+                        int.TryParse(row["channelId"].ToString(), out channelId);
+                    }
+                }
+                connection.Close();
+                System.Windows.Forms.MessageBox.Show(channelId.ToString());
+                videoPlayer m = new videoPlayer(selected_videoId, global_vars.userId, channelId);
+                m.Show();
+                this.Close();
+            }
+        }
+
+        private void listBoxVideos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int.TryParse(listBoxVideos.SelectedItem.ToString(), out selected_videoId);
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void listBoxChannels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int.TryParse(listBoxChannels.SelectedItem.ToString(), out selected_channel);
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void buttonChannel_Click(object sender, EventArgs e)
+        {
+            if (selected_channel > 0)
+            {
+                selected_videoId = bl.getMostRecentVidFromChannel(selected_channel);
+                videoPlayer m = new videoPlayer(selected_videoId, global_vars.userId, selected_channel);
+                m.Show();
+                this.Close();
+            }
         }
     }
 }
