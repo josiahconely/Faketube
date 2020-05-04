@@ -220,9 +220,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="data\videos\12_smartphone_gadgets_you_might_not_believe_existed_IR6V_6xqWDU_360p.mp4" />
-    <Content Include="data\videos\are_our_children_learning_enough_about_whales_POi4rvN_Yts_360p.mp4" />
-    <Content Include="data\videos\Hyperloop.mp4" />
     <Content Include="Faketube_database.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
