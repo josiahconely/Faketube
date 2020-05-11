@@ -242,10 +242,7 @@ namespace Fake_Tube.Views
         }
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
-            //change to home
-            homePage m = new homePage();
-            m.Show();
-            this.Close();
+            
         }
         private void toolStripLabelUserName_Click(object sender, EventArgs e)
         {

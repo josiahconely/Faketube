@@ -89,6 +89,7 @@
             this.Controls.Add(this.listBoxChannels);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "searchResults";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "searchResults";
             this.Load += new System.EventHandler(this.searchResults_Load);
             this.ResumeLayout(false);

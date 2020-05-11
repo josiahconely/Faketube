@@ -51,11 +51,11 @@
             // listBoxVidoes
             // 
             this.listBoxVidoes.FormattingEnabled = true;
-            this.listBoxVidoes.ItemHeight = 20;
+            this.listBoxVidoes.ItemHeight = 29;
             this.listBoxVidoes.Location = new System.Drawing.Point(13, 14);
             this.listBoxVidoes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBoxVidoes.Name = "listBoxVidoes";
-            this.listBoxVidoes.Size = new System.Drawing.Size(151, 364);
+            this.listBoxVidoes.Size = new System.Drawing.Size(151, 352);
             this.listBoxVidoes.TabIndex = 17;
             // 
             // buttonAddNew
@@ -130,7 +130,7 @@
             this.labelVideoId.Location = new System.Drawing.Point(94, 24);
             this.labelVideoId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelVideoId.Name = "labelVideoId";
-            this.labelVideoId.Size = new System.Drawing.Size(75, 20);
+            this.labelVideoId.Size = new System.Drawing.Size(111, 29);
             this.labelVideoId.TabIndex = 10;
             this.labelVideoId.Text = "Video ID:";
             // 
@@ -139,7 +139,7 @@
             this.textBoxFileName.Location = new System.Drawing.Point(98, 130);
             this.textBoxFileName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxFileName.Name = "textBoxFileName";
-            this.textBoxFileName.Size = new System.Drawing.Size(262, 26);
+            this.textBoxFileName.Size = new System.Drawing.Size(262, 35);
             this.textBoxFileName.TabIndex = 9;
             // 
             // labelFileName
@@ -148,7 +148,7 @@
             this.labelFileName.Location = new System.Drawing.Point(8, 138);
             this.labelFileName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFileName.Name = "labelFileName";
-            this.labelFileName.Size = new System.Drawing.Size(86, 20);
+            this.labelFileName.Size = new System.Drawing.Size(135, 29);
             this.labelFileName.TabIndex = 8;
             this.labelFileName.Text = "File Name*";
             // 
@@ -168,7 +168,7 @@
             this.labelDescription.Location = new System.Drawing.Point(8, 211);
             this.labelDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(89, 20);
+            this.labelDescription.Size = new System.Drawing.Size(135, 29);
             this.labelDescription.TabIndex = 6;
             this.labelDescription.Text = "Description";
             // 
@@ -177,7 +177,7 @@
             this.textBoxPath.Location = new System.Drawing.Point(98, 169);
             this.textBoxPath.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxPath.Name = "textBoxPath";
-            this.textBoxPath.Size = new System.Drawing.Size(262, 26);
+            this.textBoxPath.Size = new System.Drawing.Size(262, 35);
             this.textBoxPath.TabIndex = 5;
             // 
             // labelFilePath
@@ -186,7 +186,7 @@
             this.labelFilePath.Location = new System.Drawing.Point(8, 175);
             this.labelFilePath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFilePath.Name = "labelFilePath";
-            this.labelFilePath.Size = new System.Drawing.Size(48, 20);
+            this.labelFilePath.Size = new System.Drawing.Size(71, 29);
             this.labelFilePath.TabIndex = 4;
             this.labelFilePath.Text = "Path*";
             // 
@@ -195,7 +195,7 @@
             this.textBoxTags.Location = new System.Drawing.Point(99, 91);
             this.textBoxTags.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxTags.Name = "textBoxTags";
-            this.textBoxTags.Size = new System.Drawing.Size(262, 26);
+            this.textBoxTags.Size = new System.Drawing.Size(262, 35);
             this.textBoxTags.TabIndex = 3;
             // 
             // labelTags
@@ -204,7 +204,7 @@
             this.labelTags.Location = new System.Drawing.Point(8, 97);
             this.labelTags.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTags.Name = "labelTags";
-            this.labelTags.Size = new System.Drawing.Size(44, 20);
+            this.labelTags.Size = new System.Drawing.Size(68, 29);
             this.labelTags.TabIndex = 2;
             this.labelTags.Text = "Tags";
             // 
@@ -214,7 +214,7 @@
             this.labelName.Location = new System.Drawing.Point(8, 58);
             this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(57, 20);
+            this.labelName.Size = new System.Drawing.Size(88, 29);
             this.labelName.TabIndex = 1;
             this.labelName.Text = "Name*";
             // 
@@ -223,12 +223,12 @@
             this.textBoxName.Location = new System.Drawing.Point(99, 52);
             this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(262, 26);
+            this.textBoxName.Size = new System.Drawing.Size(262, 35);
             this.textBoxName.TabIndex = 0;
             // 
             // FormPlaylistVideoEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 391);
             this.Controls.Add(this.listBoxVidoes);
@@ -240,6 +240,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormPlaylistVideoEditor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Playlist Video Editor";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxVideo.ResumeLayout(false);

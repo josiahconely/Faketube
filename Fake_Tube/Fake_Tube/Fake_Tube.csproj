@@ -98,12 +98,6 @@
     <Compile Include="Views\playlistVideoEditor.Designer.cs">
       <DependentUpon>playlistVideoEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\homePage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\homePage.Designer.cs">
-      <DependentUpon>homePage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\ListItemVideo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -142,9 +136,6 @@
     <Compile Include="Views\videoPlayer.Designer.cs">
       <DependentUpon>videoPlayer.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\homePage.resx">
-      <DependentUpon>homePage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\playlistVideoEditor.resx">
       <DependentUpon>playlistVideoEditor.cs</DependentUpon>
     </EmbeddedResource>
